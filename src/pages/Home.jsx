@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Code, Database, Layers, ExternalLink } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
+import { Helmet } from 'react-helmet';
 
 // ===== ProjectCard Component =====
 function ProjectCard({ title, description, image, techStack, index, onClick }) {
@@ -165,6 +166,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen relative" style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', transition: 'background-color 0.3s, color 0.3s' }}>
+
+      {/* ✅ Helmet goes here */}
+      <Helmet>
+        <title>Home | Mikko Pangilinan</title>
+        <meta name="description" content="Front-end developer portfolio of Mikko Pangilinan." />
+      </Helmet>
+
       {/* Hero Section */}
       <section
         className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden transition-colors duration-300"

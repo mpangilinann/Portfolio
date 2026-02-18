@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Download, Mail, Phone, MapPin, ExternalLink } from "lucide-react";
+import { Helmet } from 'react-helmet';
 
 export default function Resume() {
   const projects = [
@@ -62,6 +63,16 @@ export default function Resume() {
         color: "var(--text-color)",
       }}
     >
+
+      <Helmet>
+        <title>Resume | Mikko Pangilinan</title>
+        <meta
+          name="description"
+          content="View the resume of Mikko Pangilinan, front-end web developer, highlighting skills, experience, projects, and professional accomplishments."
+        />
+      </Helmet>
+
+
       <div className="max-w-5xl mx-auto">
 
         {/* HEADER */}

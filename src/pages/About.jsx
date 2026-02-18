@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Users, Lightbulb, Clock, Target } from "lucide-react";
-
+import { Helmet } from 'react-helmet';
 
 
 /* ---------------- Inline SVG Icons - Monochrome ---------------- */
@@ -183,6 +183,16 @@ const SkillDetailCard = ({ svg, title, description, IconComponent, index }) => (
 export default function About() {
   return (
     <section id="about" className="px-6 py-12 md:py-16">
+
+
+      <Helmet>
+        <title>About | Mikko Pangilinan</title>
+        <meta
+          name="description"
+          content="Learn more about Mikko Pangilinan, a front-end web developer passionate about creating responsive, modern, and user-friendly web experiences."
+        />
+      </Helmet>
+
       {/* About Me Section */}
       <div
         className="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-24 min-h-[75vh] overflow-hidden"
