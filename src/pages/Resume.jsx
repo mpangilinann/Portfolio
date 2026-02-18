@@ -137,31 +137,28 @@ export default function Resume() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="block p-8 rounded-2xl border transition-all duration-300 hover:shadow-md"
-                style={{
-                  backgroundColor: "var(--card-bg)",
-                  borderColor: "var(--card-border)",
-                }}
+                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                className="group block p-8 border rounded-2xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                style={{ backgroundColor: "var(--card-bg)", borderColor: "var(--card-border)" }}
               >
-
-
-                <h3 className="text-lg font-semibold mb-3 flex items-center gap-2 group-hover:tracking-wide transition-all duration-500">
-                  {project.title}
-                  <ExternalLink className="w-4 h-4 opacity-50 group-hover:opacity-100 transition duration-500" />
-                </h3>
-
-                <p className="mb-3 text-sm opacity-90">{project.description}</p>
-                <p className="text-xs opacity-60">
-                  <strong>Technologies:</strong> {project.technologies}
-                </p>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl transition-colors duration-300" style={{ backgroundColor: "var(--section-bg)", color: "var(--text-color)" }}>
+                    <ExternalLink className="w-6 h-6" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-lg font-semibold mb-2 tracking-tight" style={{ color: "var(--text-color)" }}>{project.title}</h3>
+                    <p className="text-sm leading-relaxed opacity-90">{project.description}</p>
+                    <p className="text-xs opacity-60 mt-2"><strong>Technologies:</strong> {project.technologies}</p>
+                  </div>
+                </div>
               </motion.a>
             ))}
           </div>
         </section>
+
 
         {/* SKILLS GRID */}
         <section className="grid md:grid-cols-2 gap-12 mb-16">
@@ -232,29 +229,26 @@ export default function Resume() {
         <section>
           <h2 className="text-2xl font-bold mb-6">Certifications</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            {certifications.map((cert) => (
+            {certifications.map((cert, index) => (
               <motion.a
                 key={cert.title}
                 href={cert.link} // temporary clickable link
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.7, ease: "easeOut" }}
-                className="flex items-center justify-between p-6 rounded-3xl border transition-all duration-300 cursor-pointer"
-                whileHover={{ scale: 1.03, boxShadow: "0 10px 25px rgba(0,0,0,0.15)" }}
-                style={{
-                  backgroundColor: "var(--section-bg)",
-                  borderColor: "var(--card-border)",
-                }}
+                transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
+                className="group flex items-center justify-between p-6 border rounded-3xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                style={{ backgroundColor: "var(--section-bg)", borderColor: "var(--card-border)" }}
               >
                 <span className="text-sm font-medium">{cert.title}</span>
-                <ExternalLink className="w-5 h-5 opacity-70 transition-all duration-100 group-hover:opacity-100" />
+                <ExternalLink className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-all duration-300" />
               </motion.a>
             ))}
           </div>
         </section>
+
 
 
       </div>

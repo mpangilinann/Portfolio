@@ -166,31 +166,31 @@ export default function Home() {
   return (
     <div className="min-h-screen relative" style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', transition: 'background-color 0.3s, color 0.3s' }}>
       {/* Hero Section */}
-<section
-  className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden transition-colors duration-300"
-  style={{ backgroundColor: "var(--bg-color)" }}
->
-{/* Advanced Grid Background */}
-<div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <section
+        className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden transition-colors duration-300"
+        style={{ backgroundColor: "var(--bg-color)" }}
+      >
+        {/* Advanced Grid Background */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
 
-  {/* Base Grid */}
-  <div
-    className="absolute inset-0 grid-base"
-    style={{
-      backgroundImage: `
+          {/* Base Grid */}
+          <div
+            className="absolute inset-0 grid-base"
+            style={{
+              backgroundImage: `
         linear-gradient(var(--text-color) 1px, transparent 1px),
         linear-gradient(90deg, var(--text-color) 1px, transparent 1px)
       `,
-      backgroundSize: "60px 60px",
-      opacity: 0.12,
-    }}
-  />
+              backgroundSize: "60px 60px",
+              opacity: 0.08,
+            }}
+          />
 
-  {/* Diagonal Lines Overlay */}
-  <div
-    className="absolute inset-0 diagonal-lines"
-    style={{
-      backgroundImage: `
+          {/* Diagonal Lines Overlay */}
+          <div
+            className="absolute inset-0 diagonal-lines"
+            style={{
+              backgroundImage: `
         repeating-linear-gradient(
           45deg,
           var(--text-color),
@@ -199,94 +199,94 @@ export default function Home() {
           transparent 80px
         )
       `,
-      opacity: 0.05,
-    }}
-  />
+              opacity: 0.05,
+            }}
+          />
 
-  {/* Radial Fade for Depth */}
-  <div
-    className="absolute inset-0"
-    style={{
-      background: "radial-gradient(circle at center, transparent 40%, var(--bg-color) 85%)",
-    }}
-  />
+          {/* Radial Fade for Depth */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background: "radial-gradient(circle at center, transparent 40%, var(--bg-color) 85%)",
+            }}
+          />
 
-</div>
+        </div>
 
 
 
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.8 }}
-    className="max-w-5xl mx-auto text-center relative z-10"
-  >
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-      className="mb-8"
-    >
-      <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-4">
-        MIKKO E. PANGILINAN
-      </h1>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-5xl mx-auto text-center relative z-10"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-8"
+          >
+            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-4">
+              MIKKO E. PANGILINAN
+            </h1>
 
-      <div
-        className="h-0.5 w-32 mx-auto mb-6 rounded-full"
-        style={{ backgroundColor: "var(--text-color)" }}
-      />
+            <div
+              className="h-0.5 w-32 mx-auto mb-6 rounded-full"
+              style={{ backgroundColor: "var(--text-color)" }}
+            />
 
-      <p className="text-xl md:text-2xl tracking-widest uppercase mb-12">
-        Front-End Web Developer
-      </p>
-    </motion.div>
+            <p className="text-xl md:text-2xl tracking-widest uppercase mb-12">
+              Front-End Web Developer
+            </p>
+          </motion.div>
 
-    <motion.p
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.4 }}
-      className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed"
-    >
-      Building responsive, user-friendly, and modern web experiences.
-    </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed"
+          >
+            Building responsive, user-friendly, and modern web experiences.
+          </motion.p>
 
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.6 }}
-      className="flex flex-col sm:flex-row gap-4 justify-center"
-    >
-      <motion.button
-        onClick={() => navigate("/projects")}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="group px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300"
-        style={{
-          backgroundColor: "var(--text-color)",
-          color: "var(--bg-color)",
-        }}
-      >
-        View Projects
-        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-      </motion.button>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <motion.button
+              onClick={() => navigate("/projects")}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300"
+              style={{
+                backgroundColor: "var(--text-color)",
+                color: "var(--bg-color)",
+              }}
+            >
+              View Projects
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </motion.button>
 
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300"
-        style={{
-          border: "2px solid var(--text-color)",
-          color: "var(--text-color)",
-        }}
-      >
-        Download Resume
-        <Download className="w-4 h-4" />
-      </motion.button>
-    </motion.div>
-  </motion.div>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300"
+              style={{
+                border: "2px solid var(--text-color)",
+                color: "var(--text-color)",
+              }}
+            >
+              Download Resume
+              <Download className="w-4 h-4" />
+            </motion.button>
+          </motion.div>
+        </motion.div>
 
-  <ScrollIndicator />
-</section>
+        <ScrollIndicator />
+      </section>
 
 
       {/* Services Section */}
