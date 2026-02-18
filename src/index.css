@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* light */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --section-bg: #f9f9f9;
+  --section-text: #000000;
+  --card-bg: #ffffff;
+  --card-border: #e5e5e5;
+
+  --skills-marquee-color: #F9FAFB;
+  --cta-section: #F9FAFB;
+}
+
+[data-theme="dark"] {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --section-bg: #111111;
+  --section-text: #ffffff;
+  --card-bg: #1a1a1a;
+  --card-border: #333333;
+
+  --skills-marquee-color: #030712;
+  --cta-section: #030712;
+}
+
+/* Global application */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.section {
+  background-color: var(--section-bg);
+  color: var(--section-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+  
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+
+/* Home.jsx */
+@keyframes gridDrift {
+  from { background-position: 0 0; }
+  to { background-position: 60px 60px; }
+}
+
+@keyframes diagonalDrift {
+  from { background-position: 0 0; }
+  to { background-position: 200px 200px; }
+}
+
+.grid-base {
+  animation: gridDrift 25s linear infinite;
+}
+
+.diagonal-lines {
+  animation: diagonalDrift 40s linear infinite;
+}
+
+
+
+/* About.jsx */
+
+/* Smooth Fade Up Animation */
+.animate-fadeUp {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.animate-fadeUp.delay-200 {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ===== About Page Grid Animations ===== */
+
+@keyframes aboutGridDrift {
+  from { background-position: 0 0; }
+  to { background-position: 45px 45px; }
+}
+
+@keyframes aboutVerticalDrift {
+  from { background-position: 0 0; }
+  to { background-position: 300px 0; }
+}
+
+@keyframes aboutDiagonalDrift {
+  from { background-position: 0 0; }
+  to { background-position: -250px 250px; }
+}
+
+.about-grid-base {
+  animation: aboutGridDrift 30s linear infinite;
+}
+
+.about-vertical-lines {
+  animation: aboutVerticalDrift 60s linear infinite;
+}
+
+.about-diagonal-lines {
+  animation: aboutDiagonalDrift 50s linear infinite;
+}
+
+
+
+
+
