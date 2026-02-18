@@ -7,6 +7,7 @@ import Projects from "./pages/Projects";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer.jsx";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -22,6 +23,7 @@ function App() {
   return (
     <Router>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <ScrollToTop /> {/* smooth scroll on route change */}
       <div className="pt-20 min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
