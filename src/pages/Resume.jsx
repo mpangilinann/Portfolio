@@ -53,14 +53,12 @@ export default function Resume() {
     <motion.div
       initial={{ opacity: 0, scale: 0.995 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{
-        duration: 1.2,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      
       className="min-h-screen pt-24 pb-16 px-6"
       style={{
         backgroundColor: "var(--bg-color)",
         color: "var(--text-color)",
+        transition: 'background-color 0.3s, color 0.3s'
       }}
     >
 

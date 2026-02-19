@@ -204,11 +204,11 @@ export default function About() {
 
           {/* Base Grid (Tighter + Softer) */}
           <div
-            className="absolute inset-0 about-grid-base"
+            className="absolute inset-0 grid-base"
             style={{
               backgroundImage: `
-          linear-gradient(var(--text-color) 0.8px, transparent 0.8px),
-          linear-gradient(90deg, var(--text-color) 0.8px, transparent 0.8px)
+          linear-gradient(var(--text-color) 1px, transparent 1px),
+          linear-gradient(90deg, var(--text-color) 1px, transparent 1px)
         `,
               backgroundSize: "60px 60px",
               opacity: 0.08,
@@ -229,13 +229,13 @@ export default function About() {
             transparent 80px
           )
         `,
-              opacity: 0.03,
+              opacity: 0.05,
             }}
           />
 
           {/* Radial Fade (Depth Effect) */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-"
             style={{
               background:
                 "radial-gradient(circle at center, transparent 40%, var(--bg-color) 85%)",
