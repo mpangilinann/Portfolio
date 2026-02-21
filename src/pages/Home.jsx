@@ -138,23 +138,23 @@ export default function Home() {
     {
       id: 1,
       title: 'Thryve',
-      description: 'A modern wellness platform designed to help users track their health goals and connect with wellness professionals.',
-      image: 'https://images.unsplash.com/photo-1759884247173-3db27f7fafef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      techStack: ['VueJS', 'Tailwind CSS', 'MongoDB', '']
+      description: 'A comprehensive wellness platform that helps users track daily health goals, monitor vital statistics, and visualize progress over time.',
+      image: '',
+      techStack: ['VueJS', 'Tailwind CSS', 'MongoDB']
     },
     {
       id: 2,
       title: 'The Coffee Lab & Lounge',
-      description: 'An elegant e-commerce website for a specialty coffee shop featuring online ordering and reservation system.',
-      image: 'https://images.unsplash.com/photo-1513187235015-817efe8fc5b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      techStack: ['React', 'Node.js', 'MongoDB', 'Stripe']
+      description: 'An elegant e-commerce platform for a specialty coffee shop, showcasing its menu, ambiance, and unique offerings to attract customers.',
+      image: '',
+      techStack: ['HTML', 'CSS', 'JavaScript']
     },
     {
       id: 3,
       title: 'TechQuest Job',
-      description: 'A job board platform connecting tech professionals with opportunities, featuring advanced filtering and application tracking.',
-      image: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
-      techStack: ['Next.js', 'PostgreSQL', 'Prisma', 'NextAuth']
+      description: 'A modern job board for tech professionals, providing curated job listings, resume guidance, and practical interview tips for career growth.',
+      image: '',
+      techStack: ['HTML', 'CSS', 'JavaScript']
     }
   ];
 
@@ -278,18 +278,23 @@ export default function Home() {
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </motion.button>
 
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300"
-              style={{
-                border: "2px solid var(--text-color)",
-                color: "var(--text-color)",
-              }}
+            <a href="Mikko Pangilinan - Resume.pdf"
+              target="blank"
+              rel="noopener noreferrer"
             >
-              Download Resume
-              <Download className="w-4 h-4" />
-            </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300"
+                style={{
+                  border: "2px solid var(--text-color)",
+                  color: "var(--text-color)",
+                }}
+              >
+                View Resume
+                <ExternalLink className="w-4 h-4" />
+              </motion.button>
+            </a>
           </motion.div>
         </motion.div>
 
@@ -349,7 +354,7 @@ export default function Home() {
                 image={project.image}
                 techStack={project.techStack}
                 index={index}
-                onClick={() => { }}
+                onClick={() => navigate("/projects", { state: { openProjectId: project.id } })}
               />
             ))}
           </div>
@@ -399,18 +404,24 @@ export default function Home() {
                 Contact Me
               </motion.button>
 
-              {/* Download Resume Button */}
-              <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
-                whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 rounded-full tracking-widest uppercase text-sm font-medium transition-all duration-300"
-                style={{
-                  border: "2px solid var(--text-color)",
-                  color: "var(--text-color)",
-                }}
+              {/* View Resume Button */}
+              <a href="Mikko Pangilinan - Resume.pdf"
+                target="blank"
+                rel="noopener noreferrer"
               >
-                Download Resume
-              </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300"
+                  style={{
+                    border: "2px solid var(--text-color)",
+                    color: "var(--text-color)",
+                  }}
+                >
+                  View Resume
+                  <ExternalLink className="w-4 h-4" />
+                </motion.button>
+              </a>
             </div>
           </motion.div>
         </div>

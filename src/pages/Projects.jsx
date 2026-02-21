@@ -2,72 +2,73 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, X } from "lucide-react";
 import { Helmet } from 'react-helmet';
+import { useLocation } from "react-router-dom";
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const location = useLocation();
+  const [selectedProject, setSelectedProject] = useState(
+    location.state?.openProjectId || null
+  );
 
   const projects = [
-    {
-      id: 1,
-      title: "Thryve",
-      description:
-        "A comprehensive wellness platform for tracking health goals and progress with real-time visualization.",
-      fullDescription:
-        "Thryve is a full-featured wellness application that combines health tracking, goal setting, and professional consultation in one seamless platform. Users can log daily activities, monitor vital statistics, and receive intelligent insights to improve their wellness journey.",
-      image:
-        "https://images.unsplash.com/photo-1759884247173-3db27f7fafef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      techStack: ["React", "Tailwind CSS", "Firebase", "Chart.js"],
-      features: [
-        "Real-time health metrics tracking",
-        "Personalized goal setting",
-        "Wearable device integration",
-        "Professional consultation booking",
-        "Community features",
-      ],
-      github: "https://github.com",
-      live: "https://thryve.example.com",
-    },
-    {
-      id: 2,
-      title: "The Coffee Lab & Lounge",
-      description:
-        "An elegant e-commerce platform for a specialty coffee shop with ordering and reservations.",
-      fullDescription:
-        "The Coffee Lab & Lounge brings the coffeehouse experience online with a refined e-commerce platform. Customers can browse the menu, place orders, reserve tables, and subscribe to monthly coffee deliveries.",
-      image:
-        "https://images.unsplash.com/photo-1513187235015-817efe8fc5b6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      techStack: ["React", "Node.js", "MongoDB", "Stripe"],
-      features: [
-        "Online ordering system",
-        "Table reservations",
-        "Subscription management",
-        "Secure Stripe payments",
-        "Admin inventory dashboard",
-      ],
-      github: "https://github.com",
-      live: "https://coffeelab.example.com",
-    },
-    {
-      id: 3,
-      title: "TechQuest Job",
-      description:
-        "A modern job board platform designed specifically for tech professionals.",
-      fullDescription:
-        "TechQuest Job streamlines the tech hiring process with advanced filtering, application tracking, company profiles, and personalized job recommendations.",
-      image:
-        "https://images.unsplash.com/photo-1555949963-aa79dcee981c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
-      techStack: ["Next.js", "PostgreSQL", "Prisma", "Tailwind CSS"],
-      features: [
-        "Advanced job filtering",
-        "Application tracking",
-        "Company profiles",
-        "Resume builder",
-        "Email notifications",
-      ],
-      github: "https://github.com",
-      live: "https://techquest.example.com",
-    },
-  ];
+  {
+    id: 1,
+    title: "Thryve",
+    description:
+      "Thryve is a health and fitness tracker that helps you monitor workouts, meals, water intake, sleep, and overall daily health progress.",
+    fullDescription:
+      "Thryve is a comprehensive health and fitness platform where users can calculate BMI, track meals, water intake, workouts, and sleep. A dashboard displays daily stats, and an achievement system rewards progress, like drinking eight glasses of water in a day.",
+    image: "",
+    techStack: ["VueJS", "Tailwind CSS", "MongoDB"],
+    features: [
+      "Track workouts, meals, and water intake",
+      "Monitor sleep patterns",
+      "Dashboard for daily health overview",
+      "Achievements for progress milestones",
+      "Visual progress charts",
+    ],
+    github: "https://github.com",
+    live: "https://thryve.example.com",
+  },
+  {
+    id: 2,
+    title: "The Coffee Lab & Lounge",
+    description:
+      "An e-commerce platform for a specialty coffee shop showcasing menus, best sellers, roasting process, and allowing filtering by coffee type and style.",
+    fullDescription:
+      "The Coffee Lab & Lounge is an online platform for coffee enthusiasts to explore specialty coffee offerings. Users can browse menus, discover best sellers, filter products by iced, hot, or specialty drinks, learn about bean-to-cup processes, and add items to the cart.",
+    image: "",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    features: [
+      "Showcase menu and best sellers",
+      "Filter by coffee type (iced, hot, specialty)",
+      "Search bar for easy navigation",
+      "Learn coffee bean to cup process",
+      "Add products to shopping cart",
+    ],
+    github: "https://github.com",
+    live: "https://coffeelab.example.com",
+  },
+  {
+    id: 3,
+    title: "TechQuest Jobs",
+    description:
+      "TechQuest Jobs is a curated job board for tech professionals offering job listings, interview and resume tips, recommended books, and certifications.",
+    fullDescription:
+      "TechQuest Jobs provides curated job listings for various tech fields including software development, cloud, data analytics, and UI/UX. Users can access resume and interview tips, recommended books, and certifications to help advance their tech careers.",
+    image: "",
+    techStack: ["HTML", "CSS", "JavaScript"],
+    features: [
+      "Curated job listings for multiple tech fields",
+      "Interview and resume tips",
+      "Book recommendations for tech skills",
+      "Certifications recommendations",
+      "Explore career growth resources",
+    ],
+    github: "https://github.com",
+    live: "https://techquest.example.com",
+  },
+];
 
   const currentProject = projects.find(
     (project) => project.id === selectedProject
