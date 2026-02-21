@@ -264,37 +264,41 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <motion.button
-              onClick={() => navigate("/projects")}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300"
-              style={{
-                backgroundColor: "var(--text-color)",
-                color: "var(--bg-color)",
-              }}
-            >
-              View Projects
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
-
-            <a href="Mikko Pangilinan - Resume.pdf"
-              target="blank"
-              rel="noopener noreferrer"
-            >
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <motion.button
+                onClick={() => navigate("/projects")}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300"
+                className="group px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
                 style={{
-                  border: "2px solid var(--text-color)",
-                  color: "var(--text-color)",
+                  backgroundColor: "var(--text-color)",
+                  color: "var(--bg-color)",
                 }}
               >
-                View Resume
-                <ExternalLink className="w-4 h-4" />
+                View Projects
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </motion.button>
-            </a>
+
+              <a
+                href="Mikko Pangilinan - Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
+                  style={{
+                    border: "2px solid var(--text-color)",
+                    color: "var(--text-color)",
+                  }}
+                >
+                  View Resume
+                  <ExternalLink className="w-4 h-4" />
+                </motion.button>
+              </a>
+            </div>
           </motion.div>
         </motion.div>
 
@@ -389,13 +393,13 @@ export default function Home() {
               className="h-0.5 w-32 mx-auto mb-12 rounded-full transition-colors duration-300"
               style={{ backgroundColor: "var(--text-color)" }}
             />
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
               {/* Contact Me Button */}
               <motion.button
                 onClick={() => navigate("/contact")}
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(0,0,0,0.2)" }}
                 whileTap={{ scale: 0.95 }}
-                className="px-10 py-4 rounded-full tracking-widest uppercase text-sm font-medium transition-all duration-300"
+                className="px-10 py-4 rounded-full tracking-widest uppercase text-sm font-medium transition-all duration-300 w-full sm:w-auto"
                 style={{
                   backgroundColor: "var(--text-color)",
                   color: "var(--bg-color)",
@@ -405,14 +409,16 @@ export default function Home() {
               </motion.button>
 
               {/* View Resume Button */}
-              <a href="Mikko Pangilinan - Resume.pdf"
-                target="blank"
+              <a
+                href="Mikko Pangilinan - Resume.pdf"
+                target="_blank"
                 rel="noopener noreferrer"
+                className="w-full sm:w-auto"
               >
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300"
+                  className="px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2 transition-all duration-300 w-full sm:w-auto"
                   style={{
                     border: "2px solid var(--text-color)",
                     color: "var(--text-color)",
