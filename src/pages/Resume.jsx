@@ -9,21 +9,21 @@ export default function Resume() {
       description:
         "A fitness and wellness web application featuring activity tracking for meals, workouts, sleep, and hydration. Contributed as a front-end developer, focusing on the Meals module by implementing an interactive interface for logging, displaying, and managing nutrition data. Utilized Vue.js with PrimeVue components to improve UI consistency, data presentation, and overall user experience.",
       technologies: "HTML, CSS, JavaScript, Vue.js, PrimeVue",
-      link: "#", // TODO: Add live project link
+      link: "#",
     },
     {
       title: "The Coffee Lab & Lounge",
       description:
         "A modern café website showcasing an interactive digital menu with CRUD functionality, search, and category-based sorting. Built to support dynamic menu management and smooth user interaction, with a fully functional contact form integrated using Formspree.",
       technologies: "HTML, CSS, JavaScript",
-      link: "#", // TODO: Add live project link
+      link: "#",
     },
     {
       title: "TechQuest Job",
       description:
         "A front-end web platform for exploring tech job opportunities and career resources. Designed with a clean, responsive layout and structured navigation to provide job listings, resume tips, interview guidance, and career development content for tech professionals.",
       technologies: "HTML, CSS, JavaScript",
-      link: "#", // TODO: Add live project link
+      link: "#",
     },
   ];
 
@@ -32,7 +32,7 @@ export default function Resume() {
     { title: "JavaScript Algorithms and Data Structures – freeCodeCamp", link: "https://www.freecodecamp.org/certification/pangilinan_mikko/javascript-algorithms-and-data-structures" },
     { title: "Back-End Development and APIs – freeCodeCamp", link: "https://www.freecodecamp.org/certification/pangilinan_mikko/back-end-development-and-apis" },
     { title: "Introduction to Graphic Design: Basics of UI/UX – Simplilearn", link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzNDA1IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvODY1NzkzOF84MTA5OTU5MTc1MzAyNzIyOTY1OS5wbmciLCJ1c2VybmFtZSI6Ik1pa2tvIFBhbmdpbGluYW4ifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6307%2FIntroduction-to-Graphic-Design%253B-Basics-of-UI%252FUX%2Fcertificate%2Fdownload-skillup&%24web_only=true" },
-    { title: "Website UI/UX Designing using ChatGPT – Simplilearn", link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzMjM3IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvODc4MTQ1NF84MTA5OTU5MTc1NTEwODA0ODQwNy5wbmciLCJ1c2VybmFtZSI6Ik1pa2tvIFBhbmdpbGluYW4ifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6024%2FWebsite-UI%252FUX-Designing-using-ChatGPT-%3A-Become-a-UI-UX-designer%2Fcertificate%2Fdownload-skillup&%24web_only=true" },
+    { title: "Website UI/UX Designing using ChatGPT – Simplilearn", link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzMjM3IiwiY2VydGlmaWNfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvODc4MTQ1NF84MTA5OTU5MTc1NTEwODA0ODQwNy5wbmciLCJ1c2VybmFtZSI6Ik1pa2tvIFBhbmdpbGluYW4ifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6024%2FWebsite-UI%252FUX-Designing-using-ChatGPT-%3A-Become-a-UI-UX-designer%2Fcertificate%2Fdownload-skillup&%24web_only=true" },
     { title: "Work with Components in Figma – Coursera", link: "https://www.coursera.org/account/accomplishments/verify/RVAYB94ML1CX" },
   ];
 
@@ -51,9 +51,9 @@ export default function Resume() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.995 }}
-      animate={{ opacity: 1, scale: 1 }}
-      
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
       className="min-h-screen pt-24 pb-16 px-6"
       style={{
         backgroundColor: "var(--bg-color)",
@@ -70,13 +70,13 @@ export default function Resume() {
         />
       </Helmet>
 
-
       <div className="max-w-5xl mx-auto">
 
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           className="flex flex-col md:flex-row md:justify-between md:items-start mb-12"
         >
           <div>
@@ -88,7 +88,7 @@ export default function Resume() {
             </p>
           </div>
 
-          {/* View Resume */}
+          {/* VIEW RESUME BUTTON */}
           <a
             href="Mikko Pangilinan - Resume.pdf"
             target="blank"
@@ -109,9 +109,14 @@ export default function Resume() {
           </a>
         </motion.div>
 
-        {/* CONTACT */}
-        <div className="border-t border-b py-6 mb-12 flex flex-wrap gap-6 text-sm"
-          style={{ borderColor: "var(--card-border)" }}>
+        {/* CONTACT INFO */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="border-t border-b py-6 mb-12 flex flex-wrap gap-6 text-sm"
+          style={{ borderColor: "var(--card-border)" }}
+        >
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4" />
             mikkopangilinan39@gmail.com
@@ -124,20 +129,30 @@ export default function Resume() {
             <MapPin className="w-4 h-4" />
             267 Sto. Tomas St. Sta Cruz, Porac, Pampanga
           </div>
-        </div>
+        </motion.div>
 
         {/* SUMMARY */}
-        <section className="mb-12">
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-12"
+        >
           <h2 className="text-2xl font-bold mb-4">Professional Summary</h2>
           <div className="h-1 w-16 mb-6"
             style={{ backgroundColor: "var(--text-color)" }} />
           <p className="leading-relaxed opacity-90">
             Aspiring front-end developer looking for an internship opportunity to apply practical web development skills in building responsive and user-friendly interfaces. Committed to learning through real projects, improving UI/UX implementation, and contributing positively to team-based development environments.
           </p>
-        </section>
+        </motion.section>
 
         {/* PROJECTS */}
-        <section className="mb-16">
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mb-16"
+        >
           <h2 className="text-2xl font-bold mb-6">Projects Overview</h2>
           <div className="space-y-8">
             {projects.map((project, index) => (
@@ -147,9 +162,8 @@ export default function Resume() {
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.1 + index * 0.1, ease: "easeOut" }}
                 className="group block p-8 border rounded-2xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                 style={{ backgroundColor: "var(--card-bg)", borderColor: "var(--card-border)" }}
               >
@@ -166,11 +180,15 @@ export default function Resume() {
               </motion.a>
             ))}
           </div>
-        </section>
-
+        </motion.section>
 
         {/* SKILLS GRID */}
-        <section className="grid md:grid-cols-2 gap-12 mb-16">
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="grid md:grid-cols-2 gap-12 mb-16"
+        >
           {/* Technical Skills */}
           <div>
             <h2 className="text-2xl font-bold mb-6">Technical Skills</h2>
@@ -213,11 +231,15 @@ export default function Resume() {
               ))}
             </div>
           </div>
-        </section>
-
+        </motion.section>
 
         {/* EDUCATION */}
-        <section className="mb-16">
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mb-16"
+        >
           <h2 className="text-2xl font-bold mb-6">Education</h2>
           <div className="p-6 rounded-xl border"
             style={{
@@ -232,22 +254,25 @@ export default function Resume() {
             <p className="mt-2 font-medium">Academic Honors</p>
             <p>Dean’s Lister (2024 – present)</p>
           </div>
-        </section>
+        </motion.section>
 
         {/* CERTIFICATIONS */}
-        <section>
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
           <h2 className="text-2xl font-bold mb-6">Certifications</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {certifications.map((cert, index) => (
               <motion.a
                 key={cert.title}
-                href={cert.link} // temporary clickable link
+                href={cert.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.1 + index * 0.05, ease: "easeOut" }}
                 className="group flex items-center justify-between p-6 border rounded-3xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
                 style={{ backgroundColor: "var(--section-bg)", borderColor: "var(--card-border)" }}
               >
@@ -256,9 +281,7 @@ export default function Resume() {
               </motion.a>
             ))}
           </div>
-        </section>
-
-
+        </motion.section>
 
       </div>
     </motion.div>
