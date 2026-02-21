@@ -74,7 +74,7 @@ export default function Projects() {
   );
 
   return (
-    
+
     <div
       className="min-h-screen pt-24 pb-16"
       style={{
@@ -85,12 +85,12 @@ export default function Projects() {
     >
 
       <Helmet>
-  <title>Projects | Mikko Pangilinan</title>
-  <meta
-    name="description"
-    content="Explore web development projects by Mikko Pangilinan, showcasing responsive designs, modern UI implementations, and real-world front-end applications."
-  />
-</Helmet>
+        <title>Projects | Mikko Pangilinan</title>
+        <meta
+          name="description"
+          content="Explore web development projects by Mikko Pangilinan, showcasing responsive designs, modern UI implementations, and real-world front-end applications."
+        />
+      </Helmet>
 
 
       <section className="px-6">
