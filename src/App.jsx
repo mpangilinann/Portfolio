@@ -8,6 +8,7 @@ import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import Footer from "./components/Footer.jsx";
 import ScrollToTop from "./components/ScrollToTop";
+import { Helmet } from 'react-helmet';
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -22,6 +23,14 @@ function App() {
 
   return (
     <Router>
+      <Helmet>
+        
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="St31YLJFnn8lcVoAYgiAvr1ziSWgzjthGBDmV0YRwgk" />
+        <title>Mikko Pangilinan | Front-End Developer Portfolio</title>
+        <meta name="description" content="Portfolio of Mikko Pangilinan, a front-end developer specializing in React, Tailwind, and modern web development." />
+      </Helmet>
+
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <ScrollToTop /> {/* smooth scroll on route change */}
       <div className="pt-20 min-h-screen">
