@@ -11,64 +11,84 @@ export default function Projects() {
   );
 
   const projects = [
-  {
-    id: 1,
-    title: "Thryve",
-    description:
-      "Thryve is a health and fitness tracker that helps you monitor workouts, meals, water intake, sleep, and overall daily health progress.",
-    fullDescription:
-      "Thryve is a comprehensive health and fitness platform where users can calculate BMI, track meals, water intake, workouts, and sleep. A dashboard displays daily stats, and an achievement system rewards progress, like drinking eight glasses of water in a day.",
-    image: "",
-    techStack: ["VueJS", "Tailwind CSS", "MongoDB"],
-    features: [
-      "Track workouts, meals, and water intake",
-      "Monitor sleep patterns",
-      "Dashboard for daily health overview",
-      "Achievements for progress milestones",
-      "Visual progress charts",
-    ],
-    github: "https://github.com",
-    live: "https://thryve.example.com",
-  },
-  {
-    id: 2,
-    title: "The Coffee Lab & Lounge",
-    description:
-      "An e-commerce platform for a specialty coffee shop showcasing menus, best sellers, roasting process, and allowing filtering by coffee type and style.",
-    fullDescription:
-      "The Coffee Lab & Lounge is an online platform for coffee enthusiasts to explore specialty coffee offerings. Users can browse menus, discover best sellers, filter products by iced, hot, or specialty drinks, learn about bean-to-cup processes, and add items to the cart.",
-    image: "",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    features: [
-      "Showcase menu and best sellers",
-      "Filter by coffee type (iced, hot, specialty)",
-      "Search bar for easy navigation",
-      "Learn coffee bean to cup process",
-      "Add products to shopping cart",
-    ],
-    github: "https://github.com",
-    live: "https://coffeelab.example.com",
-  },
-  {
-    id: 3,
-    title: "TechQuest Jobs",
-    description:
-      "TechQuest Jobs is a curated job board for tech professionals offering job listings, interview and resume tips, recommended books, and certifications.",
-    fullDescription:
-      "TechQuest Jobs provides curated job listings for various tech fields including software development, cloud, data analytics, and UI/UX. Users can access resume and interview tips, recommended books, and certifications to help advance their tech careers.",
-    image: "",
-    techStack: ["HTML", "CSS", "JavaScript"],
-    features: [
-      "Curated job listings for multiple tech fields",
-      "Interview and resume tips",
-      "Book recommendations for tech skills",
-      "Certifications recommendations",
-      "Explore career growth resources",
-    ],
-    github: "https://github.com",
-    live: "https://techquest.example.com",
-  },
-];
+    {
+      id: 1,
+      title: "Thryve",
+      description:
+        "Thryve is a health and fitness tracker that helps you monitor workouts, meals, water intake, sleep, and overall daily health progress.",
+      fullDescription:
+        "Thryve is a comprehensive health and fitness platform where users can calculate BMI, track meals, water intake, workouts, and sleep. A dashboard displays daily stats, and an achievement system rewards progress, like drinking eight glasses of water in a day.",
+      image: "/thryve.png",
+      techStack: ["MongoDB", "Express.js", "Vue.js", "Node.js", "Mongoose", "Vue Router", "Vite"],
+      features: [
+        "Track workouts, meals, and water intake",
+        "Monitor sleep patterns",
+        "Dashboard for daily health overview",
+        "Achievements for progress milestones",
+        "Visual progress charts",
+      ],
+      github: "https://github.com",
+      live: "https://thryve.example.com",
+    },
+    {
+      id: 2,
+      title: "The Coffee Lab & Lounge",
+      description:
+        "An e-commerce platform for a specialty coffee shop showcasing menus, best sellers, roasting process, and allowing filtering by coffee type and style.",
+      fullDescription:
+        "The Coffee Lab & Lounge is an online platform for coffee enthusiasts to explore specialty coffee offerings. Users can browse menus, discover best sellers, filter products by iced, hot, or specialty drinks, learn about bean-to-cup processes, and add items to the cart.",
+      image: "thecoffeelab.png",
+      techStack: ["HTML", "CSS", "JavaScript"],
+      features: [
+        "Showcase menu and best sellers",
+        "Filter by coffee type (iced, hot, specialty)",
+        "Search bar for easy navigation",
+        "Learn coffee bean to cup process",
+        "Add products to shopping cart",
+      ],
+      github: "https://github.com",
+      live: "https://coffeelab.example.com",
+    },
+    {
+      id: 3,
+      title: "Q-Zone Professional Detailers",
+      description:
+        "A business-focused car detailing website showcasing services, pricing, company background, and team information through a structured Angular application.",
+      fullDescription:
+        "Q-Zone Professional Detailers is a multi-page business website developed using Angular and TypeScript. It highlights detailing services such as paint protection, ceramic coating, and full vehicle detailing while also presenting company information, branch locations, testimonials, FAQs, and an employee directory. The platform uses Angular routing and reusable components to create a clear and organized customer journey.",
+      image: "/qzone.png",
+      techStack: ["Angular", "TypeScript", "Bootstrap", "Angular Router", "RxJS"],
+      features: [
+        "Multi-page Angular site with Home, About, Services, and Employees pages",
+        "Service packages with premium detailing options",
+        "Interactive homepage with carousel, workflow steps, testimonials, and FAQs",
+        "Employee directory and company branch information",
+        "Responsive layout for desktop and mobile devices",
+      ],
+      github: "https://github.com",
+      live: "https://qzone.example.com",
+    },
+    {
+      id: 4,
+      title: "TechQuest Jobs",
+      description:
+        "TechQuest Jobs is a curated job board for tech professionals offering job listings, interview and resume tips, recommended books, and certifications.",
+      fullDescription:
+        "TechQuest Jobs provides curated job listings for various tech fields including software development, cloud, data analytics, and UI/UX. Users can access resume and interview tips, recommended books, and certifications to help advance their tech careers.",
+      image: "/techquestjobs.png",
+      techStack: ["HTML", "CSS", "JavaScript"],
+      features: [
+        "Curated job listings for multiple tech fields",
+        "Interview and resume tips",
+        "Book recommendations for tech skills",
+        "Certifications recommendations",
+        "Explore career growth resources",
+      ],
+      github: "https://github.com",
+      live: "https://techquest.example.com",
+    },
+
+  ];
 
   const currentProject = projects.find(
     (project) => project.id === selectedProject
@@ -138,7 +158,7 @@ export default function Projects() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
 
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white">
@@ -228,7 +248,7 @@ export default function Projects() {
                 <img
                   src={currentProject.image}
                   alt={currentProject.title}
-                  className="w-full aspect-video object-cover rounded-2xl grayscale"
+                  className="w-full aspect-video object-cover rounded-2xl"
                 />
 
                 <div>
