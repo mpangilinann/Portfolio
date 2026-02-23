@@ -19,7 +19,7 @@ function ProjectCard({ title, description, image, techStack, index, onClick }) {
           <img
             src={image}
             alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -139,23 +139,23 @@ export default function Home() {
       id: 1,
       title: 'Thryve',
       description: 'A comprehensive wellness platform that helps users track daily health goals, monitor vital statistics, and visualize progress over time.',
-      image: '',
+      image: '/thryve.png',
       techStack: ['VueJS', 'Tailwind CSS', 'MongoDB']
     },
     {
       id: 2,
       title: 'The Coffee Lab & Lounge',
       description: 'An elegant e-commerce platform for a specialty coffee shop, showcasing its menu, ambiance, and unique offerings to attract customers.',
-      image: '',
+      image: '/thecoffeelab.png',
       techStack: ['HTML', 'CSS', 'JavaScript']
     },
     {
       id: 3,
-      title: 'TechQuest Job',
-      description: 'A modern job board for tech professionals, providing curated job listings, resume guidance, and practical interview tips for career growth.',
-      image: '',
-      techStack: ['HTML', 'CSS', 'JavaScript']
-    }
+      title: 'Q-Zone Professional Detailers',
+      description: 'A multi-page car detailing web application showcasing services, booking workflow, client testimonials, branch locations, and an employee directory.',
+      image: '/qzone.png',
+      techStack: ['Angular', 'TypeScript', 'Bootstrap']
+    },
   ];
 
   const services = [
