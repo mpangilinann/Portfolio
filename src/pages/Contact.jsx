@@ -210,7 +210,7 @@ export default function Contact() {
                   className="flex items-center gap-3 text-lg opacity-80 hover:opacity-100 transition"
                 >
                   <Mail size={20} />
-                  mikko.pangilinan@email.com
+                  mikkopangilinan39@gmail.com
                 </a>
               </div>
 
