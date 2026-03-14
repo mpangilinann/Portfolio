@@ -3,7 +3,7 @@ import { Users, Lightbulb, Clock, Target } from "lucide-react";
 import { Helmet } from 'react-helmet';
 
 /* Icon Imports */
-import { FaHtml5, FaCss3, FaJsSquare, FaAngular, FaBootstrap, FaNodeJs, FaPhp, FaGitAlt, FaGithub, FaFigma, FaWordpress } from "react-icons/fa";
+import { FaHtml5, FaCss3, FaJsSquare, FaAngular, FaBootstrap, FaNodeJs, FaPhp, FaGitAlt, FaGithub, FaFigma, FaWordpress, FaReact } from "react-icons/fa";
 import { RiTailwindCssFill, RiVuejsFill } from "react-icons/ri";
 import { SiExpress, SiMysql, SiMongodb, SiCanva } from "react-icons/si";
 import { BiLogoVisualStudio } from "react-icons/bi";
@@ -13,7 +13,7 @@ const Icons = {
   HTML: <span style={{ color: "var(--text-color)" }} className="w-6 h-6 flex items-center justify-center"><FaHtml5 className="w-full h-full" /></span>,
   CSS: <span style={{ color: "var(--text-color)" }} className="w-6 h-6 flex items-center justify-center"><FaCss3 className="w-full h-full" /></span>,
   JavaScript: <span style={{ color: "var(--text-color)" }} className="w-6 h-6 flex items-center justify-center"><FaJsSquare className="w-full h-full" /></span>,
-  Tailwind: <span style={{ color: "var(--text-color)" }} className="w-6 h-6 flex items-center justify-center"><RiTailwindCssFill className="w-full h-full" /></span>,
+  Tailwind: <span style={{ color: "var(--text-color)" }} className="w-6 h-6 flex items-center justify-center"><RiTailwindCssFill className="w-full h-full" /></span>,React: <span style={{ color: "var(--text-color)" }} className="w-6 h-6 flex items-center justify-center"><FaReact className="w-full h-full" /></span>,
   Vue: <span style={{ color: "var(--text-color)" }} className="w-6 h-6 flex items-center justify-center"><RiVuejsFill className="w-full h-full" /></span>,
   Angular: <span style={{ color: "var(--text-color)" }} className="w-6 h-6 flex items-center justify-center"><FaAngular className="w-full h-full" /></span>,
   Bootstrap: <span style={{ color: "var(--text-color)" }} className="w-6 h-6 flex items-center justify-center"><FaBootstrap className="w-full h-full" /></span>,
@@ -38,6 +38,7 @@ const frontendSkills = [
   { title: "CSS3", description: "Building responsive layouts, animations, and visual systems.", svg: Icons.CSS },
   { title: "JavaScript", description: "Creating dynamic and interactive web experiences using ES6+.", svg: Icons.JavaScript },
   { title: "Tailwind CSS", description: "Rapid UI styling with utility-first framework.", svg: Icons.Tailwind },
+  { title: "React", description: "Building modern, component-based user interfaces and state-managed applications.", svg: Icons.React },
   { title: "Vue.js", description: "Building reactive interfaces and SPAs.", svg: Icons.Vue },
   { title: "Angular", description: "Developing structured front-end applications.", svg: Icons.Angular },
   { title: "Bootstrap", description: "Designing responsive components and grids.", svg: Icons.Bootstrap },
@@ -158,7 +159,7 @@ export default function About() {
         <div className="relative z-10 flex-shrink-0 w-full md:w-auto flex flex-col items-center text-center animate-fadeUp">
           <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-gray-300 dark:border-gray-600 shadow-lg transition-all duration-700 hover:scale-105 hover:shadow-2xl">
             <img
-              src=""
+              src="profile-pic.jpg"
               alt="Profile"
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
             />

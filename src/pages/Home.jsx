@@ -137,24 +137,24 @@ export default function Home() {
   const projects = [
     {
       id: 1,
+      title: 'Flashify',
+      description: 'A full-stack quiz and flashcard learning platform where users can create quizzes, study using flashcards, and track their quiz results through an interactive dashboard.',
+      image: '/flashify.png',
+      techStack: ['ReactJS', 'TailwindCSS', 'MongoDB']
+    },
+    {
+      id: 2,
       title: 'Thryve',
       description: 'A comprehensive wellness platform that helps users track daily health goals, monitor vital statistics, and visualize progress over time.',
       image: '/thryve.png',
       techStack: ['VueJS', 'Tailwind CSS', 'MongoDB']
     },
     {
-      id: 2,
+      id: 3,
       title: 'The Coffee Lab & Lounge',
       description: 'An elegant e-commerce platform for a specialty coffee shop, showcasing its menu, ambiance, and unique offerings to attract customers.',
       image: '/thecoffeelab.png',
-      techStack: ['HTML', 'CSS', 'JavaScript']
-    },
-    {
-      id: 3,
-      title: 'Q-Zone Professional Detailers',
-      description: 'A multi-page car detailing web application showcasing services, booking workflow, client testimonials, branch locations, and an employee directory.',
-      image: '/qzone.png',
-      techStack: ['Angular', 'TypeScript', 'Bootstrap']
+      techStack: ['ReactJS', 'TailwindCSS', 'Vite']
     },
   ];
 

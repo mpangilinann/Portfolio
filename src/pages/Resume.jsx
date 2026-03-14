@@ -9,21 +9,18 @@ export default function Resume() {
       description:
         "A fitness and wellness web application featuring activity tracking for meals, workouts, sleep, and hydration. Contributed as a front-end developer, focusing on the Meals module by implementing an interactive interface for logging, displaying, and managing nutrition data. Utilized Vue.js with PrimeVue components to improve UI consistency, data presentation, and overall user experience.",
       technologies: "HTML, CSS, JavaScript, Vue.js, PrimeVue",
-      link: "#",
     },
     {
       title: "The Coffee Lab & Lounge",
       description:
         "A modern café website showcasing an interactive digital menu with CRUD functionality, search, and category-based sorting. Built to support dynamic menu management and smooth user interaction, with a fully functional contact form integrated using Formspree.",
-      technologies: "HTML, CSS, JavaScript",
-      link: "#",
+      technologies: "ReactJS, TailwindCSS, JavaScript",
     },
     {
       title: "TechQuest Job",
       description:
         "A front-end web platform for exploring tech job opportunities and career resources. Designed with a clean, responsive layout and structured navigation to provide job listings, resume tips, interview guidance, and career development content for tech professionals.",
       technologies: "HTML, CSS, JavaScript",
-      link: "#",
     },
   ];
 
