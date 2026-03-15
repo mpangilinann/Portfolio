@@ -18,7 +18,7 @@ export default function Projects() {
       description: "Full-stack quiz and flashcard learning platform built to help students track progress and master subjects.",
       fullDescription: "Flashify is a full-stack learning platform designed to help students study more efficiently through quizzes and flashcards. The platform includes authentication using JWT, a responsive dashboard to manage quizzes, and result tracking to monitor performance. Built using a modern MERN-style architecture.",
       image: "/flashify.png",
-      techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT", "TailwindCSS"],
+      techStack: ["MongoDB", "Express.js", "React.JS", "Node.js", "JWT", "TailwindCSS"],
       features: ["JWT Auth", "Quiz CRUD", "Flashcard Mode", "Performance Analytics", "Responsive Dashboard"],
       github: "https://github.com/mpangilinann/Flashify",
       live: "https://flashifylearn.vercel.app/"
@@ -42,7 +42,7 @@ export default function Projects() {
       description: "Elegant e-commerce platform for a specialty coffee shop with integrated product filtering.",
       fullDescription: "The Coffee Lab & Lounge allows enthusiasts to explore specialty coffee. Users can browse menus, filter by iced/hot/specialty drinks, learn about the bean-to-cup process, and manage a shopping cart.",
       image: "thecoffeelab.png",
-      techStack: ['ReactJS', 'TailwindCSS', 'Framer Motion', 'Lucide React', 'React Router'],
+      techStack: ['React.JS', 'TailwindCSS', 'Framer Motion', 'Lucide React', 'React Router'],
       features: ["Product Filtering", "Shopping Cart", "Search Functionality", "Educational Content", "Smooth Animations"],
       github: "https://github.com/mpangilinann/The-Coffee-Lab-Lounge",
       live: "https://thecoffeelabandloungue.vercel.app/",

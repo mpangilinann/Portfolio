@@ -34,7 +34,7 @@ export default function Resume() {
   ];
 
   const skills = {
-    frontend: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS", "Vue.js", "Angular", "Bootstrap"],
+    frontend: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS", "React.JS", "Vue.JS", "Angular", "Bootstrap"],
     backend: ["Node.js", "Express.js", "PHP", "MySQL", "MongoDB"],
     tools: ["Figma", "Canva", "Git", "GitHub", "WordPress", "Visual Studio Code"],
   };
