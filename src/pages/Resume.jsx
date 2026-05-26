@@ -5,26 +5,27 @@ import { Helmet } from 'react-helmet';
 export default function Resume() {
   const projects = [
     {
-      title: "Thryve",
+      title: "AC-CORE",
       description:
-        "A fitness and wellness web application featuring activity tracking for meals, workouts, sleep, and hydration. Contributed as a front-end developer, focusing on the Meals module by implementing an interactive interface for logging, displaying, and managing nutrition data. Utilized Vue.js with PrimeVue components to improve UI consistency, data presentation, and overall user experience.",
-      technologies: "HTML, CSS, JavaScript, Vue.js, PrimeVue",
+        "A proactive digital command dashboard designed for the Angeles City local government to handle data-heavy municipal infrastructure modules efficiently without client-side lag. Translated complex geographic data into an intuitive user experience by integrating Leaflet.js for a geospatial live map with automated citizen GPS detection. Implemented real-time weather syncing APIs and structured a polished, multi-page layout utilizing structured routing systems.",
+      technologies: "Angular 18, TypeScript, MongoDB Leaflet.js, Tailwind CSS, Spartan UI, Node.js",
+    },
+    {
+      title: "Flashify",
+      description:
+        "A highly responsive MERN-architecture platform featuring dynamic CRUD functionalities for custom quizzes and interactive flashcard study modes. Secured user data and session persistence by implementing JSON Web Tokens (JWT) authentication and state-managed user interfaces. Designed a clean, minimalist performance analytics dashboard to help students track quiz history and monitor completion metrics seamlessly.",
+      technologies: "React.js, Express.js, Node.js, MongoDB, JWT, Tailwind CSS",
     },
     {
       title: "The Coffee Lab & Lounge",
       description:
-        "A modern café website showcasing an interactive digital menu with CRUD functionality, search, and category-based sorting. Built to support dynamic menu management and smooth user interaction, with a fully functional contact form integrated using Formspree.",
-      technologies: "ReactJS, TailwindCSS, JavaScript",
-    },
-    {
-      title: "TechQuest Job",
-      description:
-        "A front-end web platform for exploring tech job opportunities and career resources. Designed with a clean, responsive layout and structured navigation to provide job listings, resume tips, interview guidance, and career development content for tech professionals.",
-      technologies: "HTML, CSS, JavaScript",
+        "A modern e-commerce web application featuring a dynamic digital menu, intuitive product filtering, and an integrated shopping cart system. Leveraged Tailwind CSS for rapid, utility-first UI styling to establish a polished, cohesive aesthetic across all device screens. Enhanced the overall user experience by implementing smooth UI animations and fluid micro-interactions via Framer Motion.",
+      technologies: "React.js, Tailwind CSS, Framer Motion, Lucide React, React Router",
     },
   ];
 
   const certifications = [
+    { title: "AWS Certified Cloud Practitioner (AWS Cloud Foundations)", link: "https://www.credly.com/badges/58b229f4-7619-4ab7-8551-1a6fd699be6c/linked_in?t=tc1u87" },
     { title: "Responsive Web Design – freeCodeCamp", link: "https://www.freecodecamp.org/certification/pangilinan_mikko/responsive-web-design" },
     { title: "JavaScript Algorithms and Data Structures – freeCodeCamp", link: "https://www.freecodecamp.org/certification/pangilinan_mikko/javascript-algorithms-and-data-structures" },
     { title: "Back-End Development and APIs – freeCodeCamp", link: "https://www.freecodecamp.org/certification/pangilinan_mikko/back-end-development-and-apis" },
@@ -34,9 +35,9 @@ export default function Resume() {
   ];
 
   const skills = {
-    frontend: ["HTML5", "CSS3", "JavaScript", "Tailwind CSS", "React.JS", "Vue.JS", "Angular", "Bootstrap"],
+    frontend: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "Tailwind CSS", "React.js", "Vue.js", "Angular 18", "Bootstrap"],
     backend: ["Node.js", "Express.js", "PHP", "MySQL", "MongoDB"],
-    tools: ["Figma", "Canva", "Git", "GitHub", "WordPress", "Visual Studio Code"],
+    tools: ["Figma", "Canva", "Git", "GitHub", "WordPress", "Visual Studio Code", "AWS"],
   };
 
   const softSkills = [
@@ -87,7 +88,7 @@ export default function Resume() {
 
           {/* VIEW RESUME BUTTON */}
           <a
-            href="Mikko Pangilinan - Resume.pdf"
+            href="mikkopangilinan-resume.pdf"
             target="blank"
             rel="noopener noreferrer"
           >
@@ -124,7 +125,7 @@ export default function Resume() {
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4" />
-            267 Sto. Tomas St. Sta Cruz, Porac, Pampanga
+            Porac, Pampanga, Philippines
           </div>
         </motion.div>
 
@@ -153,11 +154,8 @@ export default function Resume() {
           <h2 className="text-2xl font-bold mb-6">Projects Overview</h2>
           <div className="space-y-8">
             {projects.map((project, index) => (
-              <motion.a
+              <motion.div
                 key={project.title}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 + index * 0.1, ease: "easeOut" }}
@@ -174,7 +172,7 @@ export default function Resume() {
                     <p className="text-xs opacity-60 mt-2"><strong>Technologies:</strong> {project.technologies}</p>
                   </div>
                 </div>
-              </motion.a>
+              </motion.div>
             ))}
           </div>
         </motion.section>
@@ -249,7 +247,7 @@ export default function Resume() {
             <p>Holy Angel University</p>
             <p>Expected Graduation: 2027</p>
             <p className="mt-2 font-medium">Academic Honors</p>
-            <p>Dean’s Lister (2024 – present)</p>
+            <p>Dean’s Lister (2024 – 2026)</p>
           </div>
         </motion.section>
 

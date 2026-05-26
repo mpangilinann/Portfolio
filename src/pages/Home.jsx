@@ -140,7 +140,7 @@ export default function Home() {
       title: 'AC-CORE',
       description: 'A municipal incident reporting platform for Angeles City featuring interactive geospatial mapping, live weather syncing, and a hazard tracking dashboard.',
       image: '/ac-core.png',
-      techStack: ['Angular 18', 'Leaflet.js', 'TailwindCSS']
+      techStack: ['Angular 18', 'TailwindCSS', 'MongoDB']
     },
     {
       id: 2,

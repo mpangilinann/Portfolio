@@ -18,7 +18,7 @@ export default function Projects() {
       description: "A municipal incident reporting platform for Angeles City featuring interactive geospatial mapping, live weather syncing, and a hazard tracking dashboard.",
       fullDescription: "AC-CORE transforms municipal infrastructure management into a proactive digital platform for the local government of Angeles City. Built during an intensive sprint, it connects citizens directly with city engineers to log hazards. The application relies on modern architecture to handle responsive, data-heavy dashboard modules efficiently without client-side lag.",
       image: "/ac-core.png",
-      techStack: ["Angular 18", "TypeScript", "Leaflet.js", "Tailwind CSS", "Spartan UI", "Node.js"],
+      techStack: ["Angular 18", "TypeScript", "MongoDB", "Leaflet.js", "Tailwind CSS", "Spartan UI", "Node.js"],
       features: ["Geospatial Live Map", "Auto-Detect GPS Location", "Real-time Weather Syncing", "LGU Command Dashboard", "Guest Reporting Mode"],
       github: "https://github.com/MMPA-Works/AC-CORE", 
       live: "https://ac-core.vercel.app/" 
