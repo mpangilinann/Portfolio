@@ -13,6 +13,18 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
+      title: "AC-CORE",
+      role: "Frontend Developer",
+      description: "A municipal incident reporting platform for Angeles City featuring interactive geospatial mapping, live weather syncing, and a hazard tracking dashboard.",
+      fullDescription: "AC-CORE transforms municipal infrastructure management into a proactive digital platform for the local government of Angeles City. Built during an intensive sprint, it connects citizens directly with city engineers to log hazards. The application relies on modern architecture to handle responsive, data-heavy dashboard modules efficiently without client-side lag.",
+      image: "/ac-core.png",
+      techStack: ["Angular 18", "TypeScript", "Leaflet.js", "Tailwind CSS", "Spartan UI", "Node.js"],
+      features: ["Geospatial Live Map", "Auto-Detect GPS Location", "Real-time Weather Syncing", "LGU Command Dashboard", "Guest Reporting Mode"],
+      github: "https://github.com/MMPA-Works/AC-CORE", 
+      live: "https://ac-core.vercel.app/" 
+    },
+    {
+      id: 2,
       title: "Flashify",
       role: "Fullstack Developer",
       description: "Full-stack quiz and flashcard learning platform built to help students track progress and master subjects.",
@@ -24,7 +36,7 @@ export default function Projects() {
       live: "https://flashifylearn.vercel.app/"
     },
     {
-      id: 2,
+      id: 3,
       title: "Thryve",
       role: "Frontend Developer",
       description: "Health and fitness tracker for monitoring workouts, meals, water intake, and daily progress.",
@@ -45,7 +57,7 @@ export default function Projects() {
       live: "https://thryvefitness.vercel.app/",
     },
     {
-      id: 3,
+      id: 4,
       title: "The Coffee Lab & Lounge",
       role: "Fullstack Developer",
       description: "Elegant e-commerce platform for a specialty coffee shop with integrated product filtering.",
@@ -57,7 +69,7 @@ export default function Projects() {
       live: "https://thecoffeelabandloungue.vercel.app/",
     },
     {
-      id: 4,
+      id: 5,
       title: "Q-Zone Detailers",
       role: "Frontend Developer",
       description: "Business-focused detailing website showcasing premium services and team expertise.",
@@ -69,7 +81,7 @@ export default function Projects() {
       live: "https://qzoneph.netlify.app/",
     },
     {
-      id: 5,
+      id: 6,
       title: "TechQuest Jobs",
       role: "Fullstack Developer",
       description: "Curated job board for tech professionals with career growth resources and certifications.",

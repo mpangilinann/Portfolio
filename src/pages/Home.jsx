@@ -137,20 +137,20 @@ export default function Home() {
   const projects = [
     {
       id: 1,
+      title: 'AC-CORE',
+      description: 'A municipal incident reporting platform for Angeles City featuring interactive geospatial mapping, live weather syncing, and a hazard tracking dashboard.',
+      image: '/ac-core.png',
+      techStack: ['Angular 18', 'Leaflet.js', 'TailwindCSS']
+    },
+    {
+      id: 2,
       title: 'Flashify',
       description: 'A full-stack quiz and flashcard learning platform where users can create quizzes, study using flashcards, and track their quiz results through an interactive dashboard.',
       image: '/flashify.png',
       techStack: ['ReactJS', 'TailwindCSS', 'MongoDB']
     },
     {
-      id: 2,
-      title: 'Thryve',
-      description: 'A comprehensive wellness platform that helps users track daily health goals, monitor vital statistics, and visualize progress over time.',
-      image: '/thryve.png',
-      techStack: ['VueJS', 'Tailwind CSS', 'MongoDB']
-    },
-    {
-      id: 3,
+      id: 4,
       title: 'The Coffee Lab & Lounge',
       description: 'An elegant e-commerce platform for a specialty coffee shop, showcasing its menu, ambiance, and unique offerings to attract customers.',
       image: '/thecoffeelab.png',
