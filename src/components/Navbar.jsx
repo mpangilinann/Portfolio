@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { 
-  Home, 
-  User, 
-  FileText, 
-  Briefcase, 
-  Mail 
-} from "lucide-react";
+import ThemeIcon from "./ThemeIcon";
+import { navigationItems } from "../data/navigation";
+
 import logoLight from "../assets/logo-light.png";
 import logoDark from "../assets/logo-dark.png";
 import Sidebar from "./Sidebar";
@@ -15,13 +11,6 @@ export default function Navbar({ darkMode, setDarkMode }) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const navItems = [
-    { name: "Home", path: "/", icon: Home },
-    { name: "About", path: "/about", icon: User },
-    { name: "Resume", path: "/resume", icon: FileText },
-    { name: "Projects", path: "/projects", icon: Briefcase },
-    { name: "Contact", path: "/contact", icon: Mail },
-  ];
 
   return (
     <>
@@ -45,7 +34,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-1 lg:gap-4 font-medium">
-          {navItems.map((item) => {
+          {navigationItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
 
@@ -68,36 +57,28 @@ export default function Navbar({ darkMode, setDarkMode }) {
 
           {/* Dark/Light Toggle */}
           <button
+            aria-label={darkMode ? "Switch to light theme" : "Switch to dark theme"}
             onClick={() => setDarkMode(!darkMode)}
             className={`p-2.5 rounded-full transition-all duration-300 hover:rotate-12 active:scale-90
                         ${darkMode ? "bg-black/5 hover:bg-black/10 text-indigo-600" : "bg-white/10 hover:bg-white/20 text-yellow-400"}`}
           >
-            {darkMode ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" />
-              </svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m8.66-9h1m-17.32 0h1M16.24 7.76l.71-.71m-9.9 9.9l.71-.71M16.24 16.24l.71.71m-9.9-9.9l.71.71M12 7a5 5 0 100 10 5 5 0 000-10z" />
-              </svg>
-            )}
+            <ThemeIcon darkMode={darkMode} />
           </button>
         </nav>
 
         {/* Mobile Controls */}
         <div className="md:hidden flex items-center gap-2">
           <button
+            aria-label={darkMode ? "Switch to light theme" : "Switch to dark theme"}
             onClick={() => setDarkMode(!darkMode)}
             className={`p-2 rounded-xl transition-all ${darkMode ? "bg-black/5 text-indigo-600" : "bg-white/10 text-yellow-400"}`}
           >
-            {darkMode ? (
-               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" /></svg>
-            ) : (
-               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m8.66-9h1m-17.32 0h1M16.24 7.76l.71-.71m-9.9 9.9l.71-.71M16.24 16.24l.71.71m-9.9-9.9l.71.71M12 7a5 5 0 100 10 5 5 0 000-10z" /></svg>
-            )}
+            <ThemeIcon darkMode={darkMode} />
           </button>
 
           <button
+            aria-label="Toggle navigation"
+            aria-expanded={isOpen}
             onClick={() => setIsOpen(!isOpen)}
             className={`p-2 rounded-xl transition-colors ${darkMode ? "text-black hover:bg-black/5" : "text-white hover:bg-white/10"}`}
           >

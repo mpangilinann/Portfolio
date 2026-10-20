@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 /* light */
 :root {
   --bg-color: #ffffff;
@@ -24,11 +26,6 @@
   --skills-marquee-color: #030712;
   --cta-section: #030712;
 }
-
-/* Global application */
-/* * {
-  transition: background-color 0.3s ease, color 0.3s ease;
-} */
 
 body {
   background-color: var(--bg-color);

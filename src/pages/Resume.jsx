@@ -1,54 +1,16 @@
-import { motion } from "framer-motion";
-import { Download, Mail, Phone, MapPin, ExternalLink } from "lucide-react";
-import { Helmet } from 'react-helmet';
+import PageMetadata from "../components/PageMetadata";
+import { projects as allProjects } from "../data/projects";
+import { certifications } from "../data/certifications";
+import { resumeSkills as skills, resumeSoftSkills as softSkills } from "../data/skills";
+import { contact } from "../data/contact";
+import { motion as Motion } from "framer-motion";
+import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 
 export default function Resume() {
-  const projects = [
-    {
-      title: "AC-CORE",
-      description:
-        "A proactive digital command dashboard designed for the Angeles City local government to handle data-heavy municipal infrastructure modules efficiently without client-side lag. Translated complex geographic data into an intuitive user experience by integrating Leaflet.js for a geospatial live map with automated citizen GPS detection. Implemented real-time weather syncing APIs and structured a polished, multi-page layout utilizing structured routing systems.",
-      technologies: "Angular 18, TypeScript, MongoDB Leaflet.js, Tailwind CSS, Spartan UI, Node.js",
-    },
-    {
-      title: "Flashify",
-      description:
-        "A highly responsive MERN-architecture platform featuring dynamic CRUD functionalities for custom quizzes and interactive flashcard study modes. Secured user data and session persistence by implementing JSON Web Tokens (JWT) authentication and state-managed user interfaces. Designed a clean, minimalist performance analytics dashboard to help students track quiz history and monitor completion metrics seamlessly.",
-      technologies: "React.js, Express.js, Node.js, MongoDB, JWT, Tailwind CSS",
-    },
-    {
-      title: "The Coffee Lab & Lounge",
-      description:
-        "A modern e-commerce web application featuring a dynamic digital menu, intuitive product filtering, and an integrated shopping cart system. Leveraged Tailwind CSS for rapid, utility-first UI styling to establish a polished, cohesive aesthetic across all device screens. Enhanced the overall user experience by implementing smooth UI animations and fluid micro-interactions via Framer Motion.",
-      technologies: "React.js, Tailwind CSS, Framer Motion, Lucide React, React Router",
-    },
-  ];
-
-  const certifications = [
-    { title: "AWS Certified Cloud Practitioner (AWS Cloud Foundations)", link: "https://www.credly.com/badges/58b229f4-7619-4ab7-8551-1a6fd699be6c/linked_in?t=tc1u87" },
-    { title: "Responsive Web Design – freeCodeCamp", link: "https://www.freecodecamp.org/certification/pangilinan_mikko/responsive-web-design" },
-    { title: "JavaScript Algorithms and Data Structures – freeCodeCamp", link: "https://www.freecodecamp.org/certification/pangilinan_mikko/javascript-algorithms-and-data-structures" },
-    { title: "Back-End Development and APIs – freeCodeCamp", link: "https://www.freecodecamp.org/certification/pangilinan_mikko/back-end-development-and-apis" },
-    { title: "Introduction to Graphic Design: Basics of UI/UX – Simplilearn", link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzNDA1IiwiY2VydGlmaWNhdGVfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvODY1NzkzOF84MTA5OTU5MTc1MzAyNzIyOTY1OS5wbmciLCJ1c2VybmFtZSI6Ik1pa2tvIFBhbmdpbGluYW4ifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6307%2FIntroduction-to-Graphic-Design%253B-Basics-of-UI%252FUX%2Fcertificate%2Fdownload-skillup&%24web_only=true" },
-    { title: "Website UI/UX Designing using ChatGPT – Simplilearn", link: "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzMjM3IiwiY2VydGlmaWNfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvODc4MTQ1NF84MTA5OTU5MTc1NTEwODA0ODQwNy5wbmciLCJ1c2VybmFtZSI6Ik1pa2tvIFBhbmdpbGluYW4ifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6024%2FWebsite-UI%252FUX-Designing-using-ChatGPT-%3A-Become-a-UI-UX-designer%2Fcertificate%2Fdownload-skillup&%24web_only=true" },
-    { title: "Work with Components in Figma – Coursera", link: "https://www.coursera.org/account/accomplishments/verify/RVAYB94ML1CX" },
-  ];
-
-  const skills = {
-    frontend: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript", "Tailwind CSS", "React.js", "Vue.js", "Angular 18", "Bootstrap"],
-    backend: ["Node.js", "Express.js", "PHP", "MySQL", "MongoDB"],
-    tools: ["Figma", "Canva", "Git", "GitHub", "WordPress", "Visual Studio Code", "AWS"],
-  };
-
-  const softSkills = [
-    "Attention to Detail",
-    "Adaptability",
-    "Time Management",
-    "Teamwork",
-  ];
+  const projects = allProjects.filter(project => project.resumeDescription);
 
   return (
-    <motion.div
+    <Motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -59,19 +21,12 @@ export default function Resume() {
         transition: 'background-color 0.3s, color 0.3s'
       }}
     >
-
-      <Helmet>
-        <title>Resume | Mikko Pangilinan</title>
-        <meta
-          name="description"
-          content="View the resume of Mikko Pangilinan, front-end web developer, highlighting skills, experience, projects, and professional accomplishments."
-        />
-      </Helmet>
+        <PageMetadata title="Resume | Mikko Pangilinan" description="View the resume of Mikko Pangilinan, front-end web developer, highlighting skills, experience, projects, and professional accomplishments." />
 
       <div className="max-w-5xl mx-auto">
 
         {/* HEADER */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -87,28 +42,25 @@ export default function Resume() {
           </div>
 
           {/* VIEW RESUME BUTTON */}
-          <a
-            href="mikkopangilinan-resume.pdf"
-            target="blank"
+          <Motion.a
+            href={contact.resumePath}
+            target="_blank"
             rel="noopener noreferrer"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            className="mt-6 md:mt-0 px-6 py-3 rounded-full flex items-center gap-2 shadow-md"
+            style={{
+              backgroundColor: "var(--text-color)",
+              color: "var(--bg-color)",
+            }}
           >
-            <motion.button
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-6 md:mt-0 px-6 py-3 rounded-full flex items-center gap-2 shadow-md"
-              style={{
-                backgroundColor: "var(--text-color)",
-                color: "var(--bg-color)",
-              }}
-            >
-              <ExternalLink className="w-4 h-4" />
-              View Resume
-            </motion.button>
-          </a>
-        </motion.div>
+            <ExternalLink className="w-4 h-4" />
+            View Resume
+          </Motion.a>
+        </Motion.div>
 
         {/* CONTACT INFO */}
-        <motion.div
+        <Motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
@@ -117,20 +69,20 @@ export default function Resume() {
         >
           <div className="flex items-center gap-2">
             <Mail className="w-4 h-4" />
-            mikkopangilinan39@gmail.com
+            {contact.email}
           </div>
           <div className="flex items-center gap-2">
             <Phone className="w-4 h-4" />
-            +63 919-823-9874
+            {contact.phone}
           </div>
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4" />
-            Porac, Pampanga, Philippines
+            {contact.location}
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* SUMMARY */}
-        <motion.section
+        <Motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -142,10 +94,10 @@ export default function Resume() {
           <p className="leading-relaxed opacity-90">
             Aspiring front-end developer looking for an internship opportunity to apply practical web development skills in building responsive and user-friendly interfaces. Committed to learning through real projects, improving UI/UX implementation, and contributing positively to team-based development environments.
           </p>
-        </motion.section>
+        </Motion.section>
 
         {/* PROJECTS */}
-        <motion.section
+        <Motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -154,7 +106,7 @@ export default function Resume() {
           <h2 className="text-2xl font-bold mb-6">Projects Overview</h2>
           <div className="space-y-8">
             {projects.map((project, index) => (
-              <motion.div
+              <Motion.div
                 key={project.title}
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -168,17 +120,17 @@ export default function Resume() {
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold mb-2 tracking-tight" style={{ color: "var(--text-color)" }}>{project.title}</h3>
-                    <p className="text-sm leading-relaxed opacity-90">{project.description}</p>
-                    <p className="text-xs opacity-60 mt-2"><strong>Technologies:</strong> {project.technologies}</p>
+                    <p className="text-sm leading-relaxed opacity-90">{project.resumeDescription}</p>
+                    <p className="text-xs opacity-60 mt-2"><strong>Technologies:</strong> {project.resumeTechnologies}</p>
                   </div>
                 </div>
-              </motion.div>
+              </Motion.div>
             ))}
           </div>
-        </motion.section>
+        </Motion.section>
 
         {/* SKILLS GRID */}
-        <motion.section
+        <Motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -226,10 +178,10 @@ export default function Resume() {
               ))}
             </div>
           </div>
-        </motion.section>
+        </Motion.section>
 
         {/* EDUCATION */}
-        <motion.section
+        <Motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
@@ -249,10 +201,10 @@ export default function Resume() {
             <p className="mt-2 font-medium">Academic Honors</p>
             <p>Dean’s Lister (2024 – 2026)</p>
           </div>
-        </motion.section>
+        </Motion.section>
 
         {/* CERTIFICATIONS */}
-        <motion.section
+        <Motion.section
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
@@ -260,25 +212,25 @@ export default function Resume() {
           <h2 className="text-2xl font-bold mb-6">Certifications</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {certifications.map((cert, index) => (
-              <motion.a
+              <Motion.a
                 key={cert.title}
                 href={cert.link}
                 target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 + index * 0.05, ease: "easeOut" }}
-                className="group flex items-center justify-between p-6 border rounded-3xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
-                style={{ backgroundColor: "var(--section-bg)", borderColor: "var(--card-border)" }}
-              >
-                <span className="text-sm font-medium">{cert.title}</span>
-                <ExternalLink className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-all duration-300" />
-              </motion.a>
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 40, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 + index * 0.05, ease: "easeOut" }}
+              className="group flex items-center justify-between p-6 border rounded-3xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+              style={{ backgroundColor: "var(--section-bg)", borderColor: "var(--card-border)" }}
+            >
+              <span className="text-sm font-medium">{cert.title}</span>
+              <ExternalLink className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-all duration-300" />
+            </Motion.a>
             ))}
           </div>
-        </motion.section>
+        </Motion.section>
 
       </div>
-    </motion.div>
+    </Motion.div>
   );
 }

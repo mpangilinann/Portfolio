@@ -1,7 +1,9 @@
+import PageMetadata from "../components/PageMetadata";
+import { socialLinks } from "../data/socialLinks";
+import { contact } from "../data/contact";
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Instagram, Send } from "lucide-react";
-import { Helmet } from "react-helmet";
+import { motion as Motion } from "framer-motion";
+import { Mail, Send } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -25,7 +27,7 @@ export default function Contact() {
     setStatus("sending");
 
     try {
-      const response = await fetch("https://formspree.io/f/maqdpqvz", {
+      const response = await fetch(contact.formEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,16 +46,11 @@ export default function Contact() {
       } else {
         setStatus("error");
       }
-    } catch (error) {
+    } catch {
       setStatus("error");
     }
   };
 
-  const socialLinks = [
-    { icon: Github, label: "GitHub", url: "https://github.com/mpangilinann" },
-    { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/mikko-pangilinan-2a6345336/" },
-    { icon: Instagram, label: "Instagram", url: "https://www.instagram.com/m.pangilinan20/" },
-  ];
 
   return (
     <div
@@ -64,19 +61,13 @@ export default function Contact() {
         transition: "background-color 0.3s, color 0.3s",
       }}
     >
-      <Helmet>
-        <title>Contact | Mikko Pangilinan</title>
-        <meta
-          name="description"
-          content="Get in touch with Mikko Pangilinan for collaboration, internship opportunities, or front-end development projects."
-        />
-      </Helmet>
+        <PageMetadata title="Contact | Mikko Pangilinan" description="Get in touch with Mikko Pangilinan for collaboration, internship opportunities, or front-end development projects." />
 
       <section className="px-6">
         <div className="max-w-6xl mx-auto">
 
           {/* HEADER */}
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -95,13 +86,13 @@ export default function Contact() {
               I'm currently looking for new opportunities. Whether you have a
               question or just want to say hi, I’ll try my best to get back to you.
             </p>
-          </motion.div>
+          </Motion.div>
 
           {/* CONTENT GRID */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
             {/* CONTACT FORM */}
-            <motion.form
+            <Motion.form
               onSubmit={handleSubmit}
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -110,11 +101,12 @@ export default function Contact() {
             >
               {/* NAME */}
               <div>
-                <label className="block text-sm uppercase tracking-widest mb-2 opacity-70">
+                <label htmlFor="contact-name" className="block text-sm uppercase tracking-widest mb-2 opacity-70">
                   Name
                 </label>
                 <input
                   type="text"
+                  id="contact-name"
                   name="name"
                   required
                   value={formData.name}
@@ -130,11 +122,12 @@ export default function Contact() {
 
               {/* EMAIL */}
               <div>
-                <label className="block text-sm uppercase tracking-widest mb-2 opacity-70">
+                <label htmlFor="contact-email" className="block text-sm uppercase tracking-widest mb-2 opacity-70">
                   Email
                 </label>
                 <input
                   type="email"
+                  id="contact-email"
                   name="email"
                   required
                   value={formData.email}
@@ -150,10 +143,11 @@ export default function Contact() {
 
               {/* MESSAGE */}
               <div>
-                <label className="block text-sm uppercase tracking-widest mb-2 opacity-70">
+                <label htmlFor="contact-message" className="block text-sm uppercase tracking-widest mb-2 opacity-70">
                   Message
                 </label>
                 <textarea
+                  id="contact-message"
                   name="message"
                   rows="6"
                   required
@@ -169,7 +163,7 @@ export default function Contact() {
               </div>
 
               {/* BUTTON */}
-              <motion.button
+              <Motion.button
                 type="submit"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
@@ -190,11 +184,11 @@ export default function Contact() {
                     <Send size={16} />
                   </>
                 )}
-              </motion.button>
-            </motion.form>
+              </Motion.button>
+            </Motion.form>
 
             {/* RIGHT SIDE INFO */}
-            <motion.div
+            <Motion.div
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -206,11 +200,11 @@ export default function Contact() {
                   Direct Contact
                 </h2>
                 <a
-                  href="mailto:mikko.pangilinan@email.com"
+                  href={`mailto:${contact.email}`}
                   className="flex items-center gap-3 text-lg opacity-80 hover:opacity-100 transition"
                 >
                   <Mail size={20} />
-                  mikkopangilinan39@gmail.com
+                  {contact.email}
                 </a>
               </div>
 
@@ -222,9 +216,10 @@ export default function Contact() {
 
                 <div className="flex gap-4">
                   {socialLinks.map((social) => (
-                    <motion.a
+                    <Motion.a
                       key={social.label}
                       href={social.url}
+                      aria-label={social.label}
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.1, y: -3 }}
@@ -235,7 +230,7 @@ export default function Contact() {
                       }}
                     >
                       <social.icon size={22} />
-                    </motion.a>
+                    </Motion.a>
                   ))}
                 </div>
               </div>
@@ -264,7 +259,7 @@ export default function Contact() {
                   where I can contribute and grow as a front-end developer.
                 </p>
               </div>
-            </motion.div>
+            </Motion.div>
           </div>
         </div>
       </section>

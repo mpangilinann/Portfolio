@@ -1,25 +1,11 @@
 import { Link, useLocation } from "react-router-dom";
-import { 
-  Home, 
-  User, 
-  FileText, 
-  Briefcase, 
-  Mail, 
-  X 
-} from "lucide-react";
+import { navigationItems } from "../data/navigation";
+import { X } from "lucide-react";
 import logoLight from "../assets/logo-light.png";
 import logoDark from "../assets/logo-dark.png";
 
 export default function Sidebar({ isOpen, setIsOpen, darkMode }) {
   const location = useLocation();
-
-  const navigationItems = [
-    { name: "Home", path: "/", icon: Home },
-    { name: "About", path: "/about", icon: User },
-    { name: "Resume", path: "/resume", icon: FileText },
-    { name: "Projects", path: "/projects", icon: Briefcase },
-    { name: "Contact", path: "/contact", icon: Mail },
-  ];
 
   return (
     <>
@@ -52,6 +38,7 @@ export default function Sidebar({ isOpen, setIsOpen, darkMode }) {
           {/* Close Button */}
           <button 
             className={`p-2 rounded-full transition-colors ${darkMode ? "hover:bg-white/10" : "hover:bg-black/5"}`} 
+            aria-label="Close navigation"
             onClick={() => setIsOpen(false)}
           >
             <X size={22} />
@@ -88,8 +75,6 @@ export default function Sidebar({ isOpen, setIsOpen, darkMode }) {
             })}
           </ul>
         </nav>
-        
-        {/* Simple Underline Decoration (From your previous design) */}
         <div className={`h-1 w-full opacity-10 ${darkMode ? "bg-white" : "bg-black"}`} />
       </aside>
     </>

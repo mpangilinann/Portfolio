@@ -2,7 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <script>
+      (() => {
+        let saved;
+        try { saved = localStorage.getItem('theme'); } catch { /* Storage may be blocked. */ }
+        document.documentElement.dataset.theme = saved === 'dark' || saved === 'light'
+          ? saved
+          : window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
 
