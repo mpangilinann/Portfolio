@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { createPortal } from "react-dom";
+import { Link } from "react-router-dom";
 import { motion as Motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, X, User, Code2, Layers, CheckCircle2 } from "lucide-react";
 import useModalFocus from "../hooks/useModalFocus";
@@ -132,6 +133,15 @@ function ProjectDialogContent({ currentProject, onClose, returnFocusRef }) {
                   </Motion.div>
                 </div>
 
+                <Link
+                  to={`/projects/${currentProject.slug}`}
+                  onClick={onClose}
+                  aria-label={`View Full Project: ${currentProject.title}`}
+                  className="flex items-center justify-between gap-4 border-b py-4 font-bold min-h-11"
+                  style={{ borderColor: "var(--card-border)" }}
+                >
+                  View Full Project <ExternalLink aria-hidden="true" size={18} />
+                </Link>
                 <Motion.div
                   initial={reducedMotion ? false : { y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}

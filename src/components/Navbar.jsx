@@ -45,7 +45,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
         <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-1 lg:gap-4 font-medium">
           {navigationItems.map((item) => {
             const Icon = item.icon;
-            const isActive = location.pathname === item.path;
+            const isActive = (location.pathname === item.path || (item.path === "/projects" && location.pathname.startsWith("/projects/")));
 
             return (
               <Link

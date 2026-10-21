@@ -66,7 +66,7 @@ export default function Sidebar({ isOpen, onClose, returnFocusRef, darkMode }) {
           <ul className="space-y-3">
             {navigationItems.map((item) => {
               const Icon = item.icon;
-              const isActive = location.pathname === item.path;
+              const isActive = (location.pathname === item.path || (item.path === "/projects" && location.pathname.startsWith("/projects/")));
 
               return (
                 <li key={item.name}>

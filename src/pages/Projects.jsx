@@ -4,13 +4,9 @@ import { projects } from "../data/projects";
 import { useState, useRef, useCallback } from "react";
 import { motion as Motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import { useLocation } from "react-router-dom";
 
 export default function Projects() {
-  const location = useLocation();
-  const [selectedProject, setSelectedProject] = useState(
-    location.state?.openProjectId || null
-  );
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const currentProject = projects.find(p => p.id === selectedProject);
   const openerRef = useRef(null);

@@ -1,3 +1,5 @@
+// description is the shared summary; technologies is the shared tech stack.
+// gallery accepts { src, alt, caption? } objects with distinct image sources.
 // Page-specific wording is retained to preserve the existing portfolio content.
 // Optional case-study fields stay empty until the owner confirms the details.
 // Existing roles are preserved; project features are not personal contribution claims.
@@ -6,8 +8,8 @@ export const projects = [
     "id": 1,
     "title": "AC-CORE",
     "role": "Frontend Developer",
-    "description": "A municipal incident reporting platform for Angeles City featuring interactive geospatial mapping, live weather syncing, and a hazard tracking dashboard.",
-    "fullDescription": "AC-CORE transforms municipal infrastructure management into a proactive digital platform for the local government of Angeles City. Built during an intensive sprint, it connects citizens directly with city engineers to log hazards. The application relies on modern architecture to handle responsive, data-heavy dashboard modules efficiently without client-side lag.",
+    "description": "A municipal incident reporting platform for Angeles City with geospatial mapping, weather syncing, and a hazard tracking dashboard.",
+    "fullDescription": "AC-CORE is a municipal incident reporting platform designed for the local government of Angeles City. Citizens can log hazards using a geospatial map and automatic GPS detection, while city engineers can review reports through an LGU command dashboard. The platform also includes weather syncing and a guest reporting mode.",
     "image": "/ac-core.png",
     "features": [
       "Geospatial Live Map",
@@ -27,6 +29,7 @@ export const projects = [
     "challenges": [],
     "lessons": [],
     "status": null,
+    "gallery": [],
     "technologies": [
       "Angular 18",
       "TypeScript",
@@ -49,8 +52,8 @@ export const projects = [
     "id": 2,
     "title": "Flashify",
     "role": "Fullstack Developer",
-    "description": "Full-stack quiz and flashcard learning platform built to help students track progress and master subjects.",
-    "fullDescription": "Flashify is a full-stack learning platform designed to help students study more efficiently through quizzes and flashcards. The platform includes authentication using JWT, a responsive dashboard to manage quizzes, and result tracking to monitor performance. Built using a modern MERN-style architecture.",
+    "description": "A quiz and flashcard learning platform with quiz management, JWT authentication, and result tracking.",
+    "fullDescription": "Flashify brings quizzes and flashcards together in a full-stack learning platform. Students can create and manage quizzes, study in flashcard mode, and review results through a responsive dashboard. The application uses JWT authentication and a React, Express, Node.js, and MongoDB architecture.",
     "image": "/flashify.png",
     "features": [
       "JWT Auth",
@@ -70,6 +73,7 @@ export const projects = [
     "challenges": [],
     "lessons": [],
     "status": null,
+    "gallery": [],
     "technologies": [
       "React.JS",
       "MongoDB",
@@ -91,8 +95,8 @@ export const projects = [
     "id": 3,
     "title": "Thryve",
     "role": "Frontend Developer",
-    "description": "Health and fitness tracker for monitoring workouts, meals, water intake, and daily progress.",
-    "fullDescription": "Thryve is a comprehensive health and fitness platform where users can calculate BMI, track meals, water intake, workouts, and sleep. A dashboard displays daily stats, and an achievement system rewards progress milestones.",
+    "description": "A health and fitness tracker for workouts, meals, water intake, sleep, and daily progress.",
+    "fullDescription": "Thryve brings health and fitness tracking into one platform. Users can calculate BMI and record meals, water intake, workouts, and sleep. A dashboard presents daily statistics and progress charts, while an achievement system recognizes progress milestones.",
     "image": "/thryve.png",
     "features": [
       "Meal Tracking",
@@ -104,7 +108,7 @@ export const projects = [
     "github": "https://github.com/iyawnnn/Thryve",
     "live": "https://thryvefitness.vercel.app/",
     "slug": "thryve",
-    "featured": false,
+    "featured": true,
     "type": null,
     "teamContext": null,
     "targetUsers": [],
@@ -112,6 +116,7 @@ export const projects = [
     "challenges": [],
     "lessons": [],
     "status": null,
+    "gallery": [],
     "technologies": [
       "Vue.JS",
       "MongoDB",
@@ -127,8 +132,8 @@ export const projects = [
     "id": 4,
     "title": "The Coffee Lab & Lounge",
     "role": "Fullstack Developer",
-    "description": "Elegant e-commerce platform for a specialty coffee shop with integrated product filtering.",
-    "fullDescription": "The Coffee Lab & Lounge allows enthusiasts to explore specialty coffee. Users can browse menus, filter by iced/hot/specialty drinks, learn about the bean-to-cup process, and manage a shopping cart.",
+    "description": "A specialty coffee e-commerce platform with menu filtering, search, and a shopping cart.",
+    "fullDescription": "The Coffee Lab & Lounge is a specialty coffee e-commerce platform. Visitors can browse the menu, search for products, filter iced, hot, and specialty drinks, and manage a shopping cart. Educational content introduces the bean-to-cup process.",
     "image": "/thecoffeelab.png",
     "features": [
       "Product Filtering",
@@ -140,7 +145,7 @@ export const projects = [
     "github": "https://github.com/mpangilinann/The-Coffee-Lab-Lounge",
     "live": "https://thecoffeelabandloungue.vercel.app/",
     "slug": "the-coffee-lab-lounge",
-    "featured": true,
+    "featured": false,
     "type": null,
     "teamContext": null,
     "targetUsers": [],
@@ -148,6 +153,7 @@ export const projects = [
     "challenges": [],
     "lessons": [],
     "status": null,
+    "gallery": [],
     "technologies": [
       "React.JS",
       "TailwindCSS",
@@ -168,8 +174,8 @@ export const projects = [
     "id": 5,
     "title": "Q-Zone Detailers",
     "role": "Frontend Developer",
-    "description": "Business-focused detailing website showcasing premium services and team expertise.",
-    "fullDescription": "A multi-page business website developed using Angular and TypeScript. It highlights paint protection and ceramic coating services while managing branch locations and employee directories through structured routing.",
+    "description": "A multi-page detailing website presenting services, branch locations, and an employee directory.",
+    "fullDescription": "Q-Zone Detailers is a multi-page business website built with Angular and TypeScript. It presents paint protection and ceramic coating services alongside service packages, branch locations, an employee directory, and an interactive FAQ. Structured routing connects the pages.",
     "image": "/qzone.png",
     "features": [
       "Multi-page Routing",
@@ -189,6 +195,7 @@ export const projects = [
     "challenges": [],
     "lessons": [],
     "status": null,
+    "gallery": [],
     "technologies": [
       "Angular",
       "TypeScript",
@@ -201,8 +208,8 @@ export const projects = [
     "id": 6,
     "title": "TechQuest Jobs",
     "role": "Fullstack Developer",
-    "description": "Curated job board for tech professionals with career growth resources and certifications.",
-    "fullDescription": "TechQuest Jobs provides curated listings for software development and UI/UX. It offers resume tips, book recommendations, and certification paths to help users advance in the tech industry.",
+    "description": "A curated technology job board with resume tips, book recommendations, and certification resources.",
+    "fullDescription": "TechQuest Jobs brings curated software development and UI/UX job listings together with career resources. Visitors can browse job categories and explore resume tips, book recommendations, and certification paths.",
     "image": "/techquestjobs.png",
     "features": [
       "Job Listings",
@@ -222,6 +229,7 @@ export const projects = [
     "challenges": [],
     "lessons": [],
     "status": null,
+    "gallery": [],
     "technologies": [
       "HTML",
       "CSS",

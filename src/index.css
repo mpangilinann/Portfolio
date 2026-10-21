@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
+.detail-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--text-color);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.detail-action-primary { background: var(--text-color); color: var(--bg-color); }
+.detail-action:hover { opacity: 0.75; }
+.detail-action-primary:focus-visible { outline-color: var(--text-color); }
+.detail-heading { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+.detail-information > div { padding: 1.25rem 0; border-top: 1px solid var(--card-border); }
+.detail-information dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.75rem; }
+.detail-information dd { line-height: 1.7; }
+.detail-numbered-list > li { display: flex; gap: 1.5rem; padding: 1.25rem 0; border-top: 1px solid var(--card-border); }
+.detail-project-link { display: flex; flex-direction: column; gap: 0.75rem; padding: 0.75rem 0; min-width: 0; overflow-wrap: anywhere; border-radius: 4px; }
+
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 html {
