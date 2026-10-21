@@ -3,6 +3,7 @@ import { motion as Motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ExternalLink, Github } from "lucide-react";
 import { projects } from "../data/projects";
 import PageMetadata from "../components/PageMetadata";
+import OptimizedImage from "../components/OptimizedImage";
 import useReducedMotion from "../hooks/useReducedMotion";
 import NotFound from "./NotFound";
 
@@ -38,7 +39,7 @@ function ProjectContent({ project, reducedMotion }) {
 
   return (
     <article className="project-detail px-6 pt-24 pb-20" style={{ color: "var(--text-color)", backgroundColor: "var(--bg-color)" }}>
-      <PageMetadata title={`${project.title} | Mikko Pangilinan`} description={project.description} />
+      <PageMetadata />
       <div className="mx-auto max-w-7xl">
         <Link to="/projects" className="inline-flex items-center gap-2 min-h-11 text-sm mb-10 rounded-sm">
           <ArrowLeft size={16} aria-hidden="true" /> All projects
@@ -68,7 +69,7 @@ function ProjectContent({ project, reducedMotion }) {
         </header>
 
         <Motion.figure {...reveal(3)} className="overflow-hidden rounded-2xl border" style={{ borderColor: "var(--card-border)", backgroundColor: "var(--section-bg)" }}>
-          <img src={project.image} alt={`${project.title} project interface`} className="w-full h-auto block" fetchPriority="high" />
+          <OptimizedImage src={project.image} alt={`${project.title} project interface`} sizes="(min-width: 1280px) 1280px, 100vw" loading="eager" className="w-full h-auto block" fetchPriority="high" />
         </Motion.figure>
 
         <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-12 lg:gap-24 mt-12 md:mt-20">
@@ -89,7 +90,7 @@ function ProjectContent({ project, reducedMotion }) {
           </div>
         </div>
 
-        {gallery.length > 0 && <section aria-labelledby="project-gallery" className="mt-20"><h2 id="project-gallery" className="detail-heading">Gallery</h2><div className="space-y-8">{gallery.map(image => <figure key={image.src}><img src={image.src} alt={image.alt} loading="lazy" className="w-full h-auto rounded-2xl border" style={{ borderColor: "var(--card-border)" }} />{image.caption && <figcaption className="mt-3 text-sm">{image.caption}</figcaption>}</figure>)}</div></section>}
+        {gallery.length > 0 && <section aria-labelledby="project-gallery" className="mt-20"><h2 id="project-gallery" className="detail-heading">Gallery</h2><div className="space-y-8">{gallery.map(image => <figure key={image.src}><OptimizedImage src={image.src} alt={image.alt} sizes="(min-width: 1280px) 1280px, 100vw" className="w-full h-auto rounded-2xl border" style={{ borderColor: "var(--card-border)" }} />{image.caption && <figcaption className="mt-3 text-sm">{image.caption}</figcaption>}</figure>)}</div></section>}
 
         <nav aria-label="Project navigation" className="mt-24 border-t pt-8" style={{ borderColor: "var(--card-border)" }}>
           <div className="grid sm:grid-cols-2 gap-8">

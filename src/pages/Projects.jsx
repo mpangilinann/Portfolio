@@ -1,4 +1,5 @@
 import PageMetadata from "../components/PageMetadata";
+import OptimizedImage from "../components/OptimizedImage";
 import ProjectDialog from "../components/ProjectDialog";
 import { projects } from "../data/projects";
 import { useState, useRef, useCallback } from "react";
@@ -21,7 +22,7 @@ export default function Projects() {
         transition: "background-color 0.3s, color 0.3s",
       }}
     >
-        <PageMetadata title="Projects | Mikko Pangilinan" />
+        <PageMetadata />
 
       <section className="px-6">
         <div className="max-w-7xl mx-auto text-center mb-20">
@@ -58,9 +59,11 @@ export default function Projects() {
                 }}
               >
                 <div className="relative aspect-video overflow-hidden">
-                  <img
+                  <OptimizedImage
                     src={project.image}
                     alt={`${project.title} project interface`}
+                    sizes="(min-width: 1280px) 400px, (min-width: 1024px) 31vw, (min-width: 768px) 46vw, 100vw"
+                    loading={index < 3 ? "eager" : "lazy"}
                     className="w-full h-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-110"
                   />
 

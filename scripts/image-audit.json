@@ -1,0 +1,224 @@
+[
+  {
+    "source": "public/ac-core.png",
+    "width": 1440,
+    "height": 734,
+    "bytes": 171413,
+    "quality": 0.95,
+    "variants": [
+      {
+        "file": "public/images/ac-core-640.webp",
+        "width": 640,
+        "height": 326,
+        "bytes": 29696
+      },
+      {
+        "file": "public/images/ac-core-960.webp",
+        "width": 960,
+        "height": 489,
+        "bytes": 52684
+      },
+      {
+        "file": "public/images/ac-core-1440.webp",
+        "width": 1440,
+        "height": 734,
+        "bytes": 87668
+      }
+    ]
+  },
+  {
+    "source": "public/flashify.png",
+    "width": 1440,
+    "height": 767,
+    "bytes": 136164,
+    "quality": 0.95,
+    "variants": [
+      {
+        "file": "public/images/flashify-640.webp",
+        "width": 640,
+        "height": 341,
+        "bytes": 19478
+      },
+      {
+        "file": "public/images/flashify-960.webp",
+        "width": 960,
+        "height": 511,
+        "bytes": 33570
+      },
+      {
+        "file": "public/images/flashify-1440.webp",
+        "width": 1440,
+        "height": 767,
+        "bytes": 56474
+      }
+    ]
+  },
+  {
+    "source": "public/thryve.png",
+    "width": 1440,
+    "height": 771,
+    "bytes": 410088,
+    "quality": 0.95,
+    "variants": [
+      {
+        "file": "public/images/thryve-640.webp",
+        "width": 640,
+        "height": 343,
+        "bytes": 16876
+      },
+      {
+        "file": "public/images/thryve-960.webp",
+        "width": 960,
+        "height": 514,
+        "bytes": 33482
+      },
+      {
+        "file": "public/images/thryve-1440.webp",
+        "width": 1440,
+        "height": 771,
+        "bytes": 81524
+      }
+    ]
+  },
+  {
+    "source": "public/thecoffeelab.png",
+    "width": 1440,
+    "height": 768,
+    "bytes": 610745,
+    "quality": 0.95,
+    "variants": [
+      {
+        "file": "public/images/thecoffeelab-640.webp",
+        "width": 640,
+        "height": 341,
+        "bytes": 30548
+      },
+      {
+        "file": "public/images/thecoffeelab-960.webp",
+        "width": 960,
+        "height": 512,
+        "bytes": 49270
+      },
+      {
+        "file": "public/images/thecoffeelab-1440.webp",
+        "width": 1440,
+        "height": 768,
+        "bytes": 86202
+      }
+    ]
+  },
+  {
+    "source": "public/qzone.png",
+    "width": 1440,
+    "height": 765,
+    "bytes": 1202082,
+    "quality": 0.95,
+    "variants": [
+      {
+        "file": "public/images/qzone-640.webp",
+        "width": 640,
+        "height": 340,
+        "bytes": 35950
+      },
+      {
+        "file": "public/images/qzone-960.webp",
+        "width": 960,
+        "height": 510,
+        "bytes": 81156
+      },
+      {
+        "file": "public/images/qzone-1440.webp",
+        "width": 1440,
+        "height": 765,
+        "bytes": 172580
+      }
+    ]
+  },
+  {
+    "source": "public/techquestjobs.png",
+    "width": 1440,
+    "height": 770,
+    "bytes": 712948,
+    "quality": 0.95,
+    "variants": [
+      {
+        "file": "public/images/techquestjobs-640.webp",
+        "width": 640,
+        "height": 342,
+        "bytes": 28354
+      },
+      {
+        "file": "public/images/techquestjobs-960.webp",
+        "width": 960,
+        "height": 513,
+        "bytes": 60582
+      },
+      {
+        "file": "public/images/techquestjobs-1440.webp",
+        "width": 1440,
+        "height": 770,
+        "bytes": 107606
+      }
+    ]
+  },
+  {
+    "source": "public/profile-pic.jpg",
+    "width": 300,
+    "height": 300,
+    "bytes": 46007,
+    "quality": 0.95,
+    "variants": [
+      {
+        "file": "public/images/profile-pic-300.webp",
+        "width": 300,
+        "height": 300,
+        "bytes": 11852
+      }
+    ]
+  },
+  {
+    "source": "src/assets/logo-dark.png",
+    "width": 1065,
+    "height": 599,
+    "bytes": 316557,
+    "quality": 1,
+    "variants": [
+      {
+        "file": "src/assets/logo-dark-320.webp",
+        "width": 320,
+        "height": 180,
+        "bytes": 28206
+      }
+    ]
+  },
+  {
+    "source": "src/assets/logo-light.png",
+    "width": 1069,
+    "height": 602,
+    "bytes": 448295,
+    "quality": 1,
+    "variants": [
+      {
+        "file": "src/assets/logo-light-320.webp",
+        "width": 320,
+        "height": 180,
+        "bytes": 26948
+      }
+    ]
+  },
+  {
+    "source": "public/favicon.png",
+    "width": 728,
+    "height": 728,
+    "bytes": 101099,
+    "quality": "PNG",
+    "variants": [
+      {
+        "file": "public/images/favicon-64.png",
+        "width": 64,
+        "height": 64,
+        "bytes": 3890
+      }
+    ]
+  }
+]

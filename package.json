@@ -5,10 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run generate:seo && vite build",
+    "generate:seo": "node scripts/generate-seo.mjs",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test:contact": "node --test scripts/contact.test.mjs"
+    "test:contact": "node --test scripts/contact.test.mjs",
+    "test:seo": "node --test scripts/seo.test.mjs"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",

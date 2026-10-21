@@ -1,0 +1,50 @@
+{
+  "/ac-core.png": {
+    "src": "/images/ac-core-1440.webp",
+    "width": 1440,
+    "height": 734,
+    "srcSet": "/images/ac-core-640.webp 640w, /images/ac-core-960.webp 960w, /images/ac-core-1440.webp 1440w"
+  },
+  "/flashify.png": {
+    "src": "/images/flashify-1440.webp",
+    "width": 1440,
+    "height": 767,
+    "srcSet": "/images/flashify-640.webp 640w, /images/flashify-960.webp 960w, /images/flashify-1440.webp 1440w"
+  },
+  "/thryve.png": {
+    "src": "/images/thryve-1440.webp",
+    "width": 1440,
+    "height": 771,
+    "srcSet": "/images/thryve-640.webp 640w, /images/thryve-960.webp 960w, /images/thryve-1440.webp 1440w"
+  },
+  "/thecoffeelab.png": {
+    "src": "/images/thecoffeelab-1440.webp",
+    "width": 1440,
+    "height": 768,
+    "srcSet": "/images/thecoffeelab-640.webp 640w, /images/thecoffeelab-960.webp 960w, /images/thecoffeelab-1440.webp 1440w"
+  },
+  "/qzone.png": {
+    "src": "/images/qzone-1440.webp",
+    "width": 1440,
+    "height": 765,
+    "srcSet": "/images/qzone-640.webp 640w, /images/qzone-960.webp 960w, /images/qzone-1440.webp 1440w"
+  },
+  "/techquestjobs.png": {
+    "src": "/images/techquestjobs-1440.webp",
+    "width": 1440,
+    "height": 770,
+    "srcSet": "/images/techquestjobs-640.webp 640w, /images/techquestjobs-960.webp 960w, /images/techquestjobs-1440.webp 1440w"
+  },
+  "/profile-pic.jpg": {
+    "src": "/images/profile-pic-300.webp",
+    "width": 300,
+    "height": 300,
+    "srcSet": "/images/profile-pic-300.webp 300w"
+  },
+  "/favicon.png": {
+    "src": "/images/favicon-64.png",
+    "width": 64,
+    "height": 64,
+    "srcSet": "/images/favicon-64.png 64w"
+  }
+}

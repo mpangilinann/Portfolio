@@ -106,7 +106,7 @@ export default function Contact() {
         transition: "background-color 0.3s, color 0.3s",
       }}
     >
-        <PageMetadata title="Contact | Mikko Pangilinan" description="Get in touch with Mikko Pangilinan for collaboration, junior web development opportunities, or front-end development projects." />
+        <PageMetadata />
 
       <section className="px-6">
         <div className="max-w-6xl mx-auto">

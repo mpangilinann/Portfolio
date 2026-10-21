@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { navigationItems } from "../data/navigation";
 import { X } from "lucide-react";
-import logoLight from "../assets/logo-light.png";
-import logoDark from "../assets/logo-dark.png";
+import logoLight from "../assets/logo-light-320.webp";
+import logoDark from "../assets/logo-dark-320.webp";
 import { createPortal } from "react-dom";
 import { useRef } from "react";
 import useModalFocus from "../hooks/useModalFocus";
@@ -43,8 +43,9 @@ export default function Sidebar({ isOpen, onClose, returnFocusRef, darkMode }) {
         <div className={`p-6 border-b flex items-center justify-between ${darkMode ? "border-white/10" : "border-gray-100"}`}>
           <div className="flex items-center gap-3">
             <img 
-              src={darkMode ? logoLight : logoDark} 
+              src={isOpen ? (darkMode ? logoLight : logoDark) : undefined}
               alt=""
+              width="320" height="180" decoding="async"
               className="h-10 w-auto object-contain"
             />
            

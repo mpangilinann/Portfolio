@@ -1,4 +1,5 @@
 import PageMetadata from "../components/PageMetadata";
+import OptimizedImage from "../components/OptimizedImage";
 import { frontendSkills, backendSkills, tools, softSkills } from "../data/skills";
 import SkillDetailCard from "../components/SkillDetailCard";
 import ExperienceEntry from "../components/ExperienceEntry";
@@ -9,7 +10,7 @@ import { experiences } from "../data/experience";
 export default function About() {
   return (
     <section id="about" className="px-6 py-12 md:py-16">
-        <PageMetadata title="About | Mikko Pangilinan" description="Learn more about Mikko Pangilinan, a front-end web developer passionate about creating responsive, modern, and user-friendly web experiences." />
+        <PageMetadata />
 
       {/* About Me Section */}
       <div
@@ -63,9 +64,12 @@ export default function About() {
         {/* ===== Left Column - Profile Photo ===== */}
         <div className="relative z-10 flex-shrink-0 w-full md:w-auto flex flex-col items-center text-center animate-fadeUp">
           <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-gray-300 dark:border-gray-600 shadow-lg transition-all duration-700 motion-safe:hover:scale-105 hover:shadow-2xl">
-            <img
+            <OptimizedImage
               src="/profile-pic.jpg"
               alt="Portrait of Mikko Pangilinan"
+              sizes="288px"
+              loading="eager"
+              fetchPriority="high"
               className="w-full h-full object-cover transition-transform duration-700 motion-safe:hover:scale-110"
             />
           </div>

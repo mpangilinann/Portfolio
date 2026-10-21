@@ -1,7 +1,7 @@
 import PageMetadata from "../components/PageMetadata";
 import ProjectCard from "../components/FeaturedProjectCard";
 import { projects as allProjects } from "../data/projects";
-import { marqueeSkills as skills } from "../data/skills";
+import { marqueeSkills as skills } from "../data/skillLists";
 import { contact } from "../data/contact";
 import { profile } from "../data/profile";
 import { motion as Motion, MotionConfig } from 'framer-motion';
@@ -95,7 +95,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen relative" style={{ backgroundColor: 'var(--bg-color)', color: 'var(--text-color)', transition: 'background-color 0.3s, color 0.3s' }}>
-        <PageMetadata title="Home | Mikko Pangilinan" description="Front-end developer portfolio of Mikko Pangilinan." />
+        <PageMetadata />
 
       {/* Hero Section */}
       <section

@@ -1,5 +1,12 @@
 # React + Vite
 
+## Portfolio SEO and performance
+
+See [SEO_PERFORMANCE.md](./SEO_PERFORMANCE.md) for canonical metadata, structured
+data, generated sitemap/robots files, responsive images, route splitting, before
+and after measurements, and SPA crawler limitations. `npm.cmd run build`
+regenerates SEO files; `npm.cmd run test:seo` verifies the shared configuration.
+
 ## Portfolio contact API
 
 The Contact form posts to a Vercel Function at `/api/contact`, which sends a

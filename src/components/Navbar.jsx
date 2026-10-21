@@ -3,8 +3,8 @@ import { Link, useLocation } from "react-router-dom";
 import ThemeIcon from "./ThemeIcon";
 import { navigationItems } from "../data/navigation";
 
-import logoLight from "../assets/logo-light.png";
-import logoDark from "../assets/logo-dark.png";
+import logoLight from "../assets/logo-light-320.webp";
+import logoDark from "../assets/logo-dark-320.webp";
 import Sidebar from "./Sidebar";
 
 export default function Navbar({ darkMode, setDarkMode }) {
@@ -37,7 +37,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
           <img
             src={darkMode ? logoDark : logoLight}
             alt=""
-            className="h-10 md:h-12 transition-transform duration-300 motion-safe:hover:scale-110"
+            width="320" height="180" decoding="async"
+            className="h-10 md:h-12 w-auto transition-transform duration-300 motion-safe:hover:scale-110"
           />
         </Link>
 

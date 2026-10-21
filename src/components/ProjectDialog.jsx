@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
+import OptimizedImage from "./OptimizedImage";
 import { motion as Motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Github, X, User, Code2, Layers, CheckCircle2 } from "lucide-react";
 import useModalFocus from "../hooks/useModalFocus";
@@ -49,9 +50,11 @@ function ProjectDialogContent({ currentProject, onClose, returnFocusRef }) {
             >
               {/* Left Side: Visuals */}
               <div className="md:w-1/2 h-64 md:h-auto relative bg-black">
-                <img
+                <OptimizedImage
                   src={currentProject.image}
                   alt={`${currentProject.title} project interface`}
+                  sizes="(min-width: 1024px) 512px, (min-width: 768px) 50vw, 100vw"
+                  loading="eager"
                   className="w-full h-full object-cover opacity-80"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">

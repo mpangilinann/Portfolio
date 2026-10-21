@@ -1,5 +1,4 @@
 import { Users, Lightbulb, Clock, Target } from "lucide-react";
-import { itSupportSkills } from "./experience";
 /* Icon Imports */
 import { FaHtml5, FaCss3, FaJsSquare, FaAngular, FaBootstrap, FaNodeJs, FaPhp, FaGitAlt, FaGithub, FaFigma, FaWordpress, FaReact } from "react-icons/fa";
 import { RiTailwindCssFill, RiVuejsFill } from "react-icons/ri";
@@ -65,59 +64,4 @@ export const softSkills = [
   { icon: Lightbulb, title: "Problem Solving", description: "Analyzing challenges and finding creative solutions." },
   { icon: Clock, title: "Time Management", description: "Prioritizing tasks and meeting deadlines efficiently." },
   { icon: Target, title: "Goal-Oriented", description: "Focusing on objectives and delivering results consistently." },
-];
-
-
-export const resumeSkills = {
-  "Front-end Development": [
-    "HTML5",
-    "CSS3",
-    "JavaScript (ES6+)",
-    "TypeScript",
-    "Tailwind CSS",
-    "React.js",
-    "Vue.js",
-    "Angular 18",
-    "Bootstrap"
-  ],
-  "Backend and Databases": [
-    "Node.js",
-    "Express.js",
-    "PHP",
-    "MySQL",
-    "MongoDB"
-  ],
-  "Development Tools": [
-    "Figma",
-    "Canva",
-    "Git",
-    "GitHub",
-    "WordPress",
-    "Visual Studio Code",
-    "AWS"
-  ],
-  "IT Support and Systems": itSupportSkills,
-};
-export const resumeSoftSkills = [
-  "Adaptability",
-  "Willingness to learn",
-  "Attention to detail",
-  "Professional communication",
-  "Teamwork",
-  "Composure and professionalism"
-];
-export const marqueeSkills = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-  "Vue.js",
-  "Angular",
-  "Node.js",
-  "Express",
-  "MongoDB",
-  "Git",
-  "Figma",
-  "Tailwind CSS",
-  "TypeScript"
 ];

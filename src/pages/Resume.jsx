@@ -1,7 +1,7 @@
 import PageMetadata from "../components/PageMetadata";
 import { projects as allProjects } from "../data/projects";
 import { certifications } from "../data/certifications";
-import { resumeSkills as skills, resumeSoftSkills as softSkills } from "../data/skills";
+import { resumeSkills as skills, resumeSoftSkills as softSkills } from "../data/skillLists";
 import { contact } from "../data/contact";
 import { profile } from "../data/profile";
 import { experiences } from "../data/experience";
@@ -24,7 +24,7 @@ export default function Resume() {
         transition: 'background-color 0.3s, color 0.3s'
       }}
     >
-        <PageMetadata title="Resume | Mikko Pangilinan" description="View the resume of Mikko Pangilinan, front-end web developer, highlighting skills, experience, projects, and professional accomplishments." />
+        <PageMetadata />
 
       <div className="max-w-5xl mx-auto">
 

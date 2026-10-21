@@ -1,5 +1,6 @@
 import { motion as Motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import OptimizedImage from "./OptimizedImage";
 
 export default function ProjectCard({ title, description, image, techStack, index, onClick }) {
   return (
@@ -12,9 +13,10 @@ export default function ProjectCard({ title, description, image, techStack, inde
     >
       <div className="relative overflow-hidden rounded-2xl transition-all duration-300 group-hover:shadow-2xl motion-safe:group-hover:-translate-y-2" style={{ backgroundColor: 'var(--card-bg)' }}>
         <div className="aspect-video overflow-hidden relative rounded-t-2xl">
-          <img
+          <OptimizedImage
             src={image}
             alt={`${title} project interface`}
+            sizes="(min-width: 1024px) 31vw, (min-width: 768px) 46vw, 100vw"
             className="w-full h-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
