@@ -3,5 +3,5 @@ export const contact = {
   "phone": "+63 919-823-9874",
   "location": "Porac, Pampanga, Philippines",
   "resumePath": "/mikkopangilinan-resume.pdf",
-  "formEndpoint": "https://formspree.io/f/maqdpqvz"
+  "formEndpoint": "/api/contact"
 };

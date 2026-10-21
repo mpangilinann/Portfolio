@@ -44,9 +44,9 @@ cards open the existing dialog on Home so its exact trigger remains available
 for focus restoration. All existing routes remain available. Keyboard focus
 shows the existing overlay/image treatment plus a theme-aware outline.
 
-Contact retains its Formspree endpoint, method, payload, visible labels, and
-button text. Native field validity informs inline errors and ARIA associations.
-A polite status region outside the busy form announces sending, success, and
+Contact now posts to the same-origin API documented in CONTACT_SETUP.md.
+Shared client/server validation informs inline errors and ARIA associations.
+A polite status region outside the busy submit button announces sending, success, and
 failure. Failed requests preserve text; successful requests retain the existing
 reset behavior. Timers and requests are cleaned up on unmount.
 
@@ -77,7 +77,7 @@ light and dark themes:
   close button, backdrop, selected link, and desktop resize.
 - Form: required/email validation, first invalid-field focus, error association,
   sending/disabled/live states, simulated network failure, service field errors,
-  success/reset, and retention after failure. No real Formspree submission was sent.
+  success/reset, and retention after failure. No real email was sent.
 - Reduced motion: static backgrounds, all thirteen technologies readable,
   visible About content, reduced dialog/menu motion, instant route scrolling,
   and live preference changes without reloading or resetting the page.
@@ -97,5 +97,5 @@ console checks reported no errors or warnings. No audit package was installed.
 This is a focused review, not a complete WCAG conformance audit. Actual speech
 output with NVDA/VoiceOver, Safari/iOS touch and scroll behavior, high zoom,
 forced-colors mode, and a comprehensive contrast review need human verification.
-Real Formspree delivery and external-site availability were not tested. The PDF
+Real email delivery and external-site availability were not tested. The PDF
 was neither changed nor audited for document accessibility.

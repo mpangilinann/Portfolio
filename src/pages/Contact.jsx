@@ -5,6 +5,8 @@ import { profile } from "../data/profile";
 import { useState, useRef, useEffect } from "react";
 import { motion as Motion } from "framer-motion";
 import { Mail, Send } from "lucide-react";
+import { contactLimits, validateContactFields } from "../lib/contactValidation";
+import useReducedMotion from "../hooks/useReducedMotion";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,81 +17,82 @@ export default function Contact() {
 
   const [status, setStatus] = useState("idle"); 
   const [errors, setErrors] = useState({});
-  const resetTimer = useRef(null);
   const requestController = useRef(null);
-  // idle | sending | success | error
+  const inFlight = useRef(false);
+  const startedAt = useRef(Date.now());
+  const reducedMotion = useReducedMotion();
+  const [feedback, setFeedback] = useState("");
 
-  useEffect(() => () => {
-    clearTimeout(resetTimer.current);
-    requestController.current?.abort();
-  }, []);
+  useEffect(() => () => requestController.current?.abort("unmount"), []);
 
-  const validate = field => {
-    if (!field.value.trim()) {
-      return { name: "Please enter your name.", email: "Please enter your email.", message: "Please enter a message." }[field.name];
-    }
-    if (field.name === 'email' && field.validity.typeMismatch) return "Please enter a valid email address.";
-    return '';
-  };
-
+  const validate = field => validateContactFields({ [field.name]: field.value }).errors[field.name] || "";
   const handleBlur = event => {
     const field = event.target;
     setErrors(previous => ({ ...previous, [field.name]: validate(field) }));
   };
-
-  const handleChange = (e) => {
-    const field = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [field.name]: field.value,
-    }));
+  const handleChange = event => {
+    const field = event.target;
+    setFormData(previous => ({ ...previous, [field.name]: field.value }));
     setErrors(previous => previous[field.name] ? { ...previous, [field.name]: validate(field) } : previous);
+    if (status === "success") { setStatus("idle"); setFeedback(""); }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (status === 'sending') return;
-    const fields = [...e.currentTarget.querySelectorAll('input, textarea')];
-    const validationErrors = Object.fromEntries(fields.map(field => [field.name, validate(field)]));
+  const handleSubmit = async event => {
+    event.preventDefault();
+    if (inFlight.current) return;
+    const form = event.currentTarget;
+    const { values, errors: validationErrors } = validateContactFields(formData);
     setErrors(validationErrors);
-    const invalidField = fields.find(field => validationErrors[field.name]);
-    if (invalidField) {
-      requestAnimationFrame(() => invalidField.focus());
+    const firstInvalid = Object.keys(validationErrors)[0];
+    if (firstInvalid) {
+      setStatus("idle");
+      setFeedback("Please correct the highlighted fields.");
+      requestAnimationFrame(() => form.elements.namedItem(firstInvalid)?.focus());
       return;
     }
-    clearTimeout(resetTimer.current);
-    requestController.current = new AbortController();
+    inFlight.current = true;
+    const controller = new AbortController();
+    requestController.current = controller;
+    const timeout = setTimeout(() => controller.abort("timeout"), 15_000);
+    setFormData(values);
     setStatus("sending");
-
+    setFeedback("Sending your message...");
+    const website = form.elements.namedItem("website").value;
     try {
       const response = await fetch(contact.formEndpoint, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(formData),
-        signal: requestController.current.signal,
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...values, website, startedAt: startedAt.current }),
+        signal: controller.signal,
       });
-
-      if (response.ok) {
+      const payload = await response.json().catch(() => null);
+      if (response.ok && payload?.success === true) {
         setStatus("success");
+        setFeedback("Your message has been sent. Thank you for getting in touch!");
         setFormData({ name: "", email: "", message: "" });
-
-        resetTimer.current = setTimeout(() => {
-          setStatus("idle");
-        }, 3000);
+        setErrors({});
+        startedAt.current = Date.now();
       } else {
-        const payload = await response.json().catch(() => null);
+        // Only known, locally authored field errors reach the page.
         const fieldErrors = {};
-        for (const error of payload?.errors || []) {
-          if (['name', 'email', 'message'].includes(error.field) && error.message) fieldErrors[error.field] = error.message;
+        for (const field of Object.keys(contactLimits)) {
+          if (payload?.errors?.[field]) fieldErrors[field] = validateContactFields(values).errors[field] || "Please check this field and try again.";
         }
         setErrors(fieldErrors);
         setStatus("error");
+        setFeedback(response.status === 400 && !Object.keys(fieldErrors).length
+          ? "Please take a moment, check your entries, and try again."
+          : "We couldn't confirm your message was sent. Your text is still here; please try again later.");
       }
-    } catch (error) {
-      if (error.name !== 'AbortError') setStatus("error");
+    } catch {
+      if (controller.signal.reason !== "unmount") {
+        setStatus("error");
+        setFeedback("We couldn't confirm your message was sent. Your text is still here; please try again later.");
+      }
+    } finally {
+      clearTimeout(timeout);
+      inFlight.current = false;
+      if (requestController.current === controller) requestController.current = null;
     }
   };
 
@@ -110,9 +113,9 @@ export default function Contact() {
 
           {/* HEADER */}
           <Motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={reducedMotion ? false : { opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={reducedMotion ? { duration: 0 } : { duration: 0.6 }}
             className="text-center mb-20"
           >
             <h1 id="page-heading" className="text-5xl md:text-7xl font-bold tracking-tight">
@@ -136,13 +139,16 @@ export default function Contact() {
             {/* CONTACT FORM */}
             <Motion.form
               noValidate
-              aria-busy={status === "sending"}
               onSubmit={handleSubmit}
-              initial={{ opacity: 0, x: -40 }}
+              initial={reducedMotion ? false : { opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={reducedMotion ? { duration: 0 } : { duration: 0.6, delay: 0.2 }}
               className="space-y-6"
             >
+              <div className="sr-only" aria-hidden="true" inert>
+                <label htmlFor="contact-website">Leave this field empty</label>
+                <input id="contact-website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+              </div>
               {/* NAME */}
               <div>
                 <label htmlFor="contact-name" className="block text-sm uppercase tracking-widest mb-2 opacity-70">
@@ -152,6 +158,9 @@ export default function Contact() {
                   type="text"
                   id="contact-name"
                   name="name"
+                  minLength={contactLimits.name.min}
+                  maxLength={contactLimits.name.max}
+                  readOnly={status === "sending"}
                   autoComplete="name"
                   onBlur={handleBlur}
                   aria-invalid={!!errors.name}
@@ -178,6 +187,9 @@ export default function Contact() {
                   type="email"
                   id="contact-email"
                   name="email"
+                  minLength={contactLimits.email.min}
+                  maxLength={contactLimits.email.max}
+                  readOnly={status === "sending"}
                   autoComplete="email"
                   onBlur={handleBlur}
                   aria-invalid={!!errors.email}
@@ -203,10 +215,13 @@ export default function Contact() {
                 <textarea
                   id="contact-message"
                   name="message"
+                  minLength={contactLimits.message.min}
+                  maxLength={contactLimits.message.max}
+                  readOnly={status === "sending"}
                   autoComplete="off"
                   onBlur={handleBlur}
                   aria-invalid={!!errors.message}
-                  aria-describedby={errors.message ? "contact-message-error" : undefined}
+                  aria-describedby={errors.message ? "contact-message-hint contact-message-error" : "contact-message-hint"}
                   rows="6"
                   required
                   value={formData.message}
@@ -218,16 +233,18 @@ export default function Contact() {
                     color: "var(--text-color)",
                   }}
                 />
+                <p id="contact-message-hint" className="text-sm mt-2 opacity-70">10–5,000 characters. Please avoid sharing sensitive information.</p>
                 {errors.message && <p id="contact-message-error" className="text-sm mt-2">{errors.message}</p>}
               </div>
 
               {/* BUTTON */}
               <Motion.button
                 type="submit"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+                aria-busy={status === "sending"}
+                whileHover={reducedMotion ? undefined : { scale: 1.03 }}
+                whileTap={reducedMotion ? undefined : { scale: 0.97 }}
                 disabled={status === "sending"}
-                aria-label={status === "sending" ? "Sending message" : status === "success" ? "Message sent. Send another message" : status === "error" ? "Message failed. Try sending again" : "Send Message"}
+                aria-label={status === "sending" ? "Sending message" : status === "success" ? "Message sent. Send another message" : status === "error" ? "Try sending again" : "Send Message"}
                 className="w-full py-4 rounded-full uppercase text-sm tracking-widest font-medium flex items-center justify-center gap-2 transition"
                 style={{
                   backgroundColor: "var(--text-color)",
@@ -237,7 +254,7 @@ export default function Contact() {
               >
                 {status === "sending" && "Sending..."}
                 {status === "success" && "Message Sent!"}
-                {status === "error" && "Something went wrong"}
+                {status === "error" && "Try sending again"}
                 {status === "idle" && (
                   <>
                     Send Message
@@ -245,16 +262,14 @@ export default function Contact() {
                   </>
                 )}
               </Motion.button>
+              <p id="contact-feedback" className="text-sm leading-relaxed" role="status" aria-live="polite" aria-atomic="true" aria-relevant="text">{feedback || (Object.values(errors).some(Boolean) ? "Please correct the highlighted fields." : "")}</p>
             </Motion.form>
-            <p className="sr-only" role="status" aria-live="polite" aria-atomic="true">
-              {status === "sending" ? "Sending message." : status === "success" ? "Message Sent!" : status === "error" ? "Something went wrong. Your message was not sent. Please try again." : Object.values(errors).some(Boolean) ? "Please correct the highlighted fields." : ""}
-            </p>
 
             {/* RIGHT SIDE INFO */}
             <Motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={reducedMotion ? false : { opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={reducedMotion ? { duration: 0 } : { duration: 0.6, delay: 0.3 }}
               className="flex flex-col justify-center space-y-12"
             >
               {/* DIRECT EMAIL */}
@@ -285,7 +300,7 @@ export default function Contact() {
                       aria-label={social.label}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1, y: -3 }}
+                      whileHover={reducedMotion ? undefined : { scale: 1.1, y: -3 }}
                       className="p-4 rounded-xl border transition"
                       style={{
                         borderColor: "var(--card-border)",

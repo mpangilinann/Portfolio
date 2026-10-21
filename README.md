@@ -1,5 +1,13 @@
 # React + Vite
 
+## Portfolio contact API
+
+The Contact form posts to a Vercel Function at `/api/contact`, which sends a
+single notification through Resend. See [CONTACT_SETUP.md](./CONTACT_SETUP.md)
+for server-only environment variables, manual Vercel/Resend setup, test-sender
+limitations, local development, and safe mocked checks. No credentials belong
+in client-side code. Run `npm.cmd run test:contact` without sending email.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

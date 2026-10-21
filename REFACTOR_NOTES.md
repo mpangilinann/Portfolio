@@ -33,7 +33,7 @@ independently maintained across views.
   labels. `src/data/certifications.js` holds certificate titles and URLs.
 - `src/data/navigation.js` supplies desktop/mobile menus; `socialLinks.js` holds
   social profiles; `contact.js` supplies email, phone, location, résumé path, and
-  the unchanged Formspree endpoint. Education stays in Resume because it occurs
+  the same-origin contact API path (see CONTACT_SETUP.md). Education stays in Resume because it occurs
   only once.
 - Focused components are `FeaturedProjectCard`, `ProjectDialog`, `SkillDetailCard`,
   `ThemeIcon`, and `PageMetadata`. The metadata component preserves existing
@@ -72,12 +72,12 @@ now follows the same attribute. Desktop/mobile share the toggle icon.
   and mobile navigation passed. Browser console had no errors or warnings.
 - `git diff --check` passed. `vercel.json` adds the SPA fallback; deployment
   behavior has not been tested because no deployment was performed.
-- No Formspree submissions were sent during testing.
+- No live contact submissions were sent during testing.
 
 ## Deferred work and manual review
 
 Internship/résumé content updates, project case studies, a full accessibility
-pass (including dialog focus management), Formspree replacement, full SEO work,
+pass (including dialog focus management), full SEO work,
 and image optimization remain deferred. Dependency removal reported 18 audit
 findings (2 low, 3 moderate, 13 high); package/security upgrades need separate
 review. No automatic audit fixes were applied.
