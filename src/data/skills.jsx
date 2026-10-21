@@ -1,4 +1,5 @@
 import { Users, Lightbulb, Clock, Target } from "lucide-react";
+import { itSupportSkills } from "./experience";
 /* Icon Imports */
 import { FaHtml5, FaCss3, FaJsSquare, FaAngular, FaBootstrap, FaNodeJs, FaPhp, FaGitAlt, FaGithub, FaFigma, FaWordpress, FaReact } from "react-icons/fa";
 import { RiTailwindCssFill, RiVuejsFill } from "react-icons/ri";
@@ -68,7 +69,7 @@ export const softSkills = [
 
 
 export const resumeSkills = {
-  "frontend": [
+  "Front-end Development": [
     "HTML5",
     "CSS3",
     "JavaScript (ES6+)",
@@ -79,14 +80,14 @@ export const resumeSkills = {
     "Angular 18",
     "Bootstrap"
   ],
-  "backend": [
+  "Backend and Databases": [
     "Node.js",
     "Express.js",
     "PHP",
     "MySQL",
     "MongoDB"
   ],
-  "tools": [
+  "Development Tools": [
     "Figma",
     "Canva",
     "Git",
@@ -94,13 +95,16 @@ export const resumeSkills = {
     "WordPress",
     "Visual Studio Code",
     "AWS"
-  ]
+  ],
+  "IT Support and Systems": itSupportSkills,
 };
 export const resumeSoftSkills = [
-  "Attention to Detail",
   "Adaptability",
-  "Time Management",
-  "Teamwork"
+  "Willingness to learn",
+  "Attention to detail",
+  "Professional communication",
+  "Teamwork",
+  "Calm and professional approach"
 ];
 export const marqueeSkills = [
   "HTML",

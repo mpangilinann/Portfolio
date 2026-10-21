@@ -1,4 +1,6 @@
 // Page-specific wording is retained to preserve the existing portfolio content.
+// Optional case-study fields stay empty until the owner confirms the details.
+// Existing roles are preserved; project features are not personal contribution claims.
 export const projects = [
   {
     "id": 1,
@@ -19,6 +21,12 @@ export const projects = [
     "slug": "ac-core",
     "featured": true,
     "type": null,
+    "teamContext": null,
+    "targetUsers": [],
+    "contributions": [],
+    "challenges": [],
+    "lessons": [],
+    "status": null,
     "technologies": [
       "Angular 18",
       "TypeScript",
@@ -56,6 +64,12 @@ export const projects = [
     "slug": "flashify",
     "featured": true,
     "type": null,
+    "teamContext": null,
+    "targetUsers": [],
+    "contributions": [],
+    "challenges": [],
+    "lessons": [],
+    "status": null,
     "technologies": [
       "React.JS",
       "MongoDB",
@@ -92,6 +106,12 @@ export const projects = [
     "slug": "thryve",
     "featured": false,
     "type": null,
+    "teamContext": null,
+    "targetUsers": [],
+    "contributions": [],
+    "challenges": [],
+    "lessons": [],
+    "status": null,
     "technologies": [
       "Vue.JS",
       "MongoDB",
@@ -122,6 +142,12 @@ export const projects = [
     "slug": "the-coffee-lab-lounge",
     "featured": true,
     "type": null,
+    "teamContext": null,
+    "targetUsers": [],
+    "contributions": [],
+    "challenges": [],
+    "lessons": [],
+    "status": null,
     "technologies": [
       "React.JS",
       "TailwindCSS",
@@ -157,6 +183,12 @@ export const projects = [
     "slug": "q-zone-detailers",
     "featured": false,
     "type": null,
+    "teamContext": null,
+    "targetUsers": [],
+    "contributions": [],
+    "challenges": [],
+    "lessons": [],
+    "status": null,
     "technologies": [
       "Angular",
       "TypeScript",
@@ -184,6 +216,12 @@ export const projects = [
     "slug": "techquest-jobs",
     "featured": false,
     "type": null,
+    "teamContext": null,
+    "targetUsers": [],
+    "contributions": [],
+    "challenges": [],
+    "lessons": [],
+    "status": null,
     "technologies": [
       "HTML",
       "CSS",

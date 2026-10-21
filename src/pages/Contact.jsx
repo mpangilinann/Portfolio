@@ -1,6 +1,7 @@
 import PageMetadata from "../components/PageMetadata";
 import { socialLinks } from "../data/socialLinks";
 import { contact } from "../data/contact";
+import { profile } from "../data/profile";
 import { useState } from "react";
 import { motion as Motion } from "framer-motion";
 import { Mail, Send } from "lucide-react";
@@ -61,7 +62,7 @@ export default function Contact() {
         transition: "background-color 0.3s, color 0.3s",
       }}
     >
-        <PageMetadata title="Contact | Mikko Pangilinan" description="Get in touch with Mikko Pangilinan for collaboration, internship opportunities, or front-end development projects." />
+        <PageMetadata title="Contact | Mikko Pangilinan" description="Get in touch with Mikko Pangilinan for collaboration, junior web development opportunities, or front-end development projects." />
 
       <section className="px-6">
         <div className="max-w-6xl mx-auto">
@@ -255,8 +256,7 @@ export default function Contact() {
                 </div>
 
                 <p className="text-sm opacity-70 leading-relaxed">
-                  I'm actively seeking internship or junior developer positions
-                  where I can contribute and grow as a front-end developer.
+                  {profile.opportunityText}
                 </p>
               </div>
             </Motion.div>

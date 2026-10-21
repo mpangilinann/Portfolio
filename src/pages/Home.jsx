@@ -3,6 +3,7 @@ import ProjectCard from "../components/FeaturedProjectCard";
 import { projects as allProjects } from "../data/projects";
 import { marqueeSkills as skills } from "../data/skills";
 import { contact } from "../data/contact";
+import { profile } from "../data/profile";
 import { motion as Motion } from 'framer-motion';
 import { ArrowRight, Code, Database, Layers, ExternalLink } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
@@ -147,7 +148,7 @@ export default function Home() {
             className="mb-8"
           >
             <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-4">
-              MIKKO E. PANGILINAN
+              {profile.name.toUpperCase()}
             </h1>
 
             <div
@@ -156,7 +157,7 @@ export default function Home() {
             />
 
             <p className="text-xl md:text-2xl tracking-widest uppercase mb-12">
-              Front-End Web Developer
+              {profile.title}
             </p>
           </Motion.div>
 
@@ -166,7 +167,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Building responsive, user-friendly, and modern web experiences.
+            {profile.homeSupportingText}
           </Motion.p>
 
           <Motion.div

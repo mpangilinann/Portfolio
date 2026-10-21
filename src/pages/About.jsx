@@ -1,6 +1,9 @@
 import PageMetadata from "../components/PageMetadata";
 import { frontendSkills, backendSkills, tools, softSkills } from "../data/skills";
 import SkillDetailCard from "../components/SkillDetailCard";
+import ExperienceEntry from "../components/ExperienceEntry";
+import { profile } from "../data/profile";
+import { experiences } from "../data/experience";
 
 /* ---------------- About Component ---------------- */
 export default function About() {
@@ -72,7 +75,7 @@ export default function About() {
               className="text-xl md:text-2xl font-semibold transition-all duration-700 hover:tracking-wide"
               style={{ color: "var(--text-color)" }}
             >
-              Mikko E. Pangilinan
+              {profile.name}
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base transition-opacity duration-700 hover:opacity-80">
               BSIT Web Development | Front-End Developer
@@ -89,34 +92,15 @@ export default function About() {
             ABOUT ME
           </h1>
 
-          <p
-            className="text-lg md:text-xl leading-relaxed transition-all duration-700 hover:translate-x-1"
-            style={{ color: "var(--text-color)" }}
-          >
-            I am a passionate front-end web developer focused on building responsive,
-            user-friendly, and visually refined web applications. My journey started
-            from curiosity about how design and code merge to create seamless digital
-            experiences.
-          </p>
-
-          <p
-            className="text-lg md:text-xl leading-relaxed transition-all duration-700 hover:translate-x-1"
-            style={{ color: "var(--text-color)" }}
-          >
-            I value clean architecture, maintainable code, and thoughtful UI
-            decisions. My goal is not just to make applications work—but to make them
-            feel intuitive and polished.
-          </p>
-
-          <p
-            className="text-lg md:text-xl leading-relaxed transition-all duration-700 hover:translate-x-1"
-            style={{ color: "var(--text-color)" }}
-          >
-            Outside of coding, I explore modern design systems, improve my development
-            workflow, and continuously refine my skills to grow as a developer. I
-            enjoy collaborating on projects, solving complex problems, and learning
-            new frameworks that push my skills further.
-          </p>
+          {profile.aboutParagraphs.slice(0, 2).map(paragraph => (
+            <p
+              key={paragraph}
+              className="text-lg md:text-xl leading-relaxed transition-all duration-700 hover:translate-x-1"
+              style={{ color: "var(--text-color)" }}
+            >
+              {paragraph}
+            </p>
+          ))}
 
           {/* Skills Badges */}
           <div className="mt-4 flex flex-wrap gap-4 justify-center md:justify-start">
@@ -134,6 +118,24 @@ export default function About() {
 
       {/* Divider */}
       <hr className="my-12 border-gray-300 dark:border-gray-600 transition-colors duration-500" />
+
+      <section className="max-w-6xl mx-auto mb-12" aria-labelledby="about-experience-heading">
+        <h2 id="about-experience-heading" className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left">
+          Experience
+        </h2>
+        {experiences.map(experience => (
+          <ExperienceEntry key={experience.id} experience={experience} preview />
+        ))}
+        {profile.aboutParagraphs.slice(2).map(paragraph => (
+          <p
+            key={paragraph}
+            className="mt-6 text-lg md:text-xl leading-relaxed text-center md:text-left transition-all duration-700 hover:translate-x-1"
+            style={{ color: "var(--text-color)" }}
+          >
+            {paragraph}
+          </p>
+        ))}
+      </section>
 
       {/* Frontend Skills */}
       <div className="max-w-6xl mx-auto">

@@ -3,6 +3,9 @@ import { projects as allProjects } from "../data/projects";
 import { certifications } from "../data/certifications";
 import { resumeSkills as skills, resumeSoftSkills as softSkills } from "../data/skills";
 import { contact } from "../data/contact";
+import { profile } from "../data/profile";
+import { experiences } from "../data/experience";
+import ExperienceEntry from "../components/ExperienceEntry";
 import { motion as Motion } from "framer-motion";
 import { Mail, Phone, MapPin, ExternalLink } from "lucide-react";
 
@@ -34,10 +37,10 @@ export default function Resume() {
         >
           <div>
             <h1 className="text-5xl font-bold tracking-tight mb-2">
-              MIKKO E. PANGILINAN
+              {profile.name.toUpperCase()}
             </h1>
             <p className="text-xl tracking-wide">
-              Front-end Web Developer
+              {profile.title}
             </p>
           </div>
 
@@ -58,6 +61,10 @@ export default function Resume() {
             View Resume
           </Motion.a>
         </Motion.div>
+
+        <p className="text-sm opacity-70 mb-6">
+          The downloadable PDF is the previous version. This page includes my completed IT Support internship.
+        </p>
 
         {/* CONTACT INFO */}
         <Motion.div
@@ -92,8 +99,21 @@ export default function Resume() {
           <div className="h-1 w-16 mb-6"
             style={{ backgroundColor: "var(--text-color)" }} />
           <p className="leading-relaxed opacity-90">
-            Aspiring front-end developer looking for an internship opportunity to apply practical web development skills in building responsive and user-friendly interfaces. Committed to learning through real projects, improving UI/UX implementation, and contributing positively to team-based development environments.
+            {profile.resumeSummary}
           </p>
+        </Motion.section>
+
+        <Motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="mb-16"
+          aria-labelledby="resume-experience-heading"
+        >
+          <h2 id="resume-experience-heading" className="text-2xl font-bold mb-6">Experience</h2>
+          {experiences.map(experience => (
+            <ExperienceEntry key={experience.id} experience={experience} />
+          ))}
         </Motion.section>
 
         {/* PROJECTS */}
@@ -141,7 +161,7 @@ export default function Resume() {
             <h2 className="text-2xl font-bold mb-6">Technical Skills</h2>
             {Object.entries(skills).map(([category, list]) => (
               <div key={category} className="mb-6">
-                <h3 className="font-semibold capitalize mb-2">{category}</h3>
+                <h3 className="font-semibold mb-2">{category}</h3>
                 <div className="flex flex-wrap gap-2">
                   {list.map((skill) => (
                     <span
@@ -162,7 +182,7 @@ export default function Resume() {
 
           {/* Soft Skills */}
           <div>
-            <h2 className="text-2xl font-bold mb-6">Soft Skills</h2>
+            <h2 className="text-2xl font-bold mb-6">Professional Skills</h2>
             <div className="flex flex-wrap gap-2">
               {softSkills.map((skill) => (
                 <span
@@ -194,12 +214,12 @@ export default function Resume() {
               borderColor: "var(--card-border)",
             }}>
             <p className="font-semibold">
-              Bachelor of Science in Information Technology Major in Web Development
+              {profile.education.degree}
             </p>
-            <p>Holy Angel University</p>
-            <p>Expected Graduation: 2027</p>
+            <p>{profile.education.institution}</p>
+            <p>Expected Graduation: {profile.education.expectedGraduation}</p>
             <p className="mt-2 font-medium">Academic Honors</p>
-            <p>Dean’s Lister (2024 – 2026)</p>
+            <p>{profile.education.honors}</p>
           </div>
         </Motion.section>
 
