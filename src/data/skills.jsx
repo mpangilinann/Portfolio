@@ -104,7 +104,7 @@ export const resumeSoftSkills = [
   "Attention to detail",
   "Professional communication",
   "Teamwork",
-  "Calm and professional approach"
+  "Composure and professionalism"
 ];
 export const marqueeSkills = [
   "HTML",

@@ -15,10 +15,10 @@ function App() {
 
   return (
     <Router>
-
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
       <ScrollToTop /> {/* smooth scroll on route change */}
-      <main className="pt-20 min-h-screen">
+      <main id="main-content" tabIndex={-1} aria-labelledby="page-heading" className="pt-20 min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

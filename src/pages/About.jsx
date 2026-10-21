@@ -62,21 +62,21 @@ export default function About() {
 
         {/* ===== Left Column - Profile Photo ===== */}
         <div className="relative z-10 flex-shrink-0 w-full md:w-auto flex flex-col items-center text-center animate-fadeUp">
-          <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-gray-300 dark:border-gray-600 shadow-lg transition-all duration-700 hover:scale-105 hover:shadow-2xl">
+          <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-gray-300 dark:border-gray-600 shadow-lg transition-all duration-700 motion-safe:hover:scale-105 hover:shadow-2xl">
             <img
               src="/profile-pic.jpg"
-              alt="Profile"
-              className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+              alt="Portrait of Mikko Pangilinan"
+              className="w-full h-full object-cover transition-transform duration-700 motion-safe:hover:scale-110"
             />
           </div>
 
           <div className="mt-6">
-            <h2
+            <p
               className="text-xl md:text-2xl font-semibold transition-all duration-700 hover:tracking-wide"
               style={{ color: "var(--text-color)" }}
             >
               {profile.name}
-            </h2>
+            </p>
             <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base transition-opacity duration-700 hover:opacity-80">
               BSIT Web Development | Front-End Developer
             </p>
@@ -85,7 +85,7 @@ export default function About() {
 
         {/* ===== Right Column - Text Content ===== */}
         <div className="relative z-10 flex-1 flex flex-col justify-center space-y-6 text-center md:text-left animate-fadeUp delay-200">
-          <h1
+          <h1 id="page-heading"
             className="text-4xl md:text-5xl font-bold transition-all duration-700 hover:tracking-wider"
             style={{ color: "var(--text-color)" }}
           >
@@ -95,7 +95,7 @@ export default function About() {
           {profile.aboutParagraphs.slice(0, 2).map(paragraph => (
             <p
               key={paragraph}
-              className="text-lg md:text-xl leading-relaxed transition-all duration-700 hover:translate-x-1"
+              className="text-lg md:text-xl leading-relaxed transition-all duration-700 motion-safe:hover:translate-x-1"
               style={{ color: "var(--text-color)" }}
             >
               {paragraph}
@@ -107,7 +107,7 @@ export default function About() {
             {["Front-End", "UI/UX", "Responsive Design"].map((skill) => (
               <span
                 key={skill}
-                className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-full text-gray-800 dark:text-gray-200 text-sm md:text-base transition-all duration-500 hover:scale-105 hover:bg-gray-300 dark:hover:bg-gray-600 hover:-translate-y-1"
+                className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-full text-gray-800 dark:text-gray-200 text-sm md:text-base transition-all duration-500 motion-safe:hover:scale-105 hover:bg-gray-300 dark:hover:bg-gray-600 motion-safe:hover:-translate-y-1"
               >
                 {skill}
               </span>
@@ -129,7 +129,7 @@ export default function About() {
         {profile.aboutParagraphs.slice(2).map(paragraph => (
           <p
             key={paragraph}
-            className="mt-6 text-lg md:text-xl leading-relaxed text-center md:text-left transition-all duration-700 hover:translate-x-1"
+            className="mt-6 text-lg md:text-xl leading-relaxed text-center md:text-left transition-all duration-700 motion-safe:hover:translate-x-1"
             style={{ color: "var(--text-color)" }}
           >
             {paragraph}
@@ -139,9 +139,9 @@ export default function About() {
 
       {/* Frontend Skills */}
       <div className="max-w-6xl mx-auto">
-        <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left" style={{ color: "var(--text-color)" }}>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left" style={{ color: "var(--text-color)" }}>
           FRONTEND DEVELOPMENT
-        </h3>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {frontendSkills.map((skill, index) => (
             <SkillDetailCard key={skill.title} {...skill} index={index} />
@@ -151,9 +151,9 @@ export default function About() {
 
       {/* Backend Skills */}
       <div className="max-w-6xl mx-auto">
-        <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left" style={{ color: "var(--text-color)" }}>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left" style={{ color: "var(--text-color)" }}>
           BACKEND DEVELOPMENT
-        </h3>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {backendSkills.map((skill, index) => (
             <SkillDetailCard key={skill.title} {...skill} index={index} />
@@ -163,12 +163,12 @@ export default function About() {
 
       {/* Tools */}
       <div className="max-w-6xl mx-auto mb-12">
-        <h3
+        <h2
           className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left transition-colors duration-500"
           style={{ color: "var(--text-color)" }}
         >
           Tools & Platforms
-        </h3>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {tools.map((tool, index) => (
             <SkillDetailCard
@@ -184,9 +184,9 @@ export default function About() {
 
       {/* Soft Skills */}
       <div className="max-w-6xl mx-auto">
-        <h3 className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left" style={{ color: "var(--text-color)" }}>
+        <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left" style={{ color: "var(--text-color)" }}>
           SOFT SKILLS
-        </h3>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {softSkills.map((skill, index) => (
             <SkillDetailCard

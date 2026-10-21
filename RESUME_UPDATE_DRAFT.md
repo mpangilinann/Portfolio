@@ -40,7 +40,7 @@ Provided on-site and remote technical support to employees, prepared and configu
 - Checked LAN connections and performed basic network troubleshooting.
 - Provided on-site and remote technical assistance to employees.
 - Troubleshot Microsoft Office performance issues and other workplace application concerns.
-- Assisted employees with device access, account access, and communication-platform login issues.
+- Assisted employees with device access, account access, and workplace communication platform access issues.
 - Recorded and managed support requests through internal ticketing systems and company portals.
 
 ## Projects Overview
@@ -113,7 +113,7 @@ A modern e-commerce web application featuring a dynamic digital menu, intuitive 
 - Attention to detail
 - Professional communication
 - Teamwork
-- Calm and professional approach
+- Composure and professionalism
 
 ## Education
 

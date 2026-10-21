@@ -3,34 +3,25 @@ import { ExternalLink } from "lucide-react";
 
 export default function ProjectCard({ title, description, image, techStack, index, onClick }) {
   return (
-    <Motion.div
+    <Motion.article
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="group cursor-pointer"
-      role="button"
-      tabIndex={0}
-      onKeyDown={event => {
-        if (event.key === "Enter" || event.key === " ") {
-          event.preventDefault();
-          (onClick)();
-        }
-      }}
-      onClick={onClick}
+      className="project-card group relative cursor-pointer"
     >
-      <div className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2" style={{ backgroundColor: 'var(--card-bg)' }}>
+      <div className="relative overflow-hidden rounded-2xl transition-all duration-300 group-hover:shadow-2xl motion-safe:group-hover:-translate-y-2" style={{ backgroundColor: 'var(--card-bg)' }}>
         <div className="aspect-video overflow-hidden relative rounded-t-2xl">
           <img
             src={image}
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            alt={`${title} project interface`}
+            className="w-full h-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="flex items-center gap-3 text-white">
               <span className="text-lg font-bold tracking-wider uppercase">View Project</span>
-              <ExternalLink className="w-6 h-6" />
+              <ExternalLink aria-hidden="true" className="w-6 h-6" />
             </div>
           </div>
         </div>
@@ -65,7 +56,14 @@ export default function ProjectCard({ title, description, image, techStack, inde
           ))}
         </div>
       </div>
-    </Motion.div>
+      <button
+        type="button"
+        aria-label={`View ${title} project`}
+        aria-haspopup="dialog"
+        className="project-card-trigger absolute inset-0 h-full w-full rounded-2xl"
+        onClick={onClick}
+      />
+    </Motion.article>
   );
 }
 

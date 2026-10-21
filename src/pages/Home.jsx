@@ -4,7 +4,10 @@ import { projects as allProjects } from "../data/projects";
 import { marqueeSkills as skills } from "../data/skills";
 import { contact } from "../data/contact";
 import { profile } from "../data/profile";
-import { motion as Motion } from 'framer-motion';
+import { motion as Motion, MotionConfig } from 'framer-motion';
+import useReducedMotion from "../hooks/useReducedMotion";
+import { useState, useRef, useCallback } from "react";
+import ProjectDialog from "../components/ProjectDialog";
 import { ArrowRight, Code, Database, Layers, ExternalLink } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 
@@ -17,34 +20,36 @@ function ServiceCard({ icon, title, description, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="group relative p-8 border-2 rounded-2xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+      className="group relative p-8 border-2 rounded-2xl hover:shadow-2xl motion-safe:hover:-translate-y-2 transition-all duration-300"
       style={{ backgroundColor: 'var(--card-bg)', borderColor: 'var(--card-border)', color: 'var(--text-color)' }}
     >
-      <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
-        <Icon className="w-12 h-12" strokeWidth={1.5} style={{ color: 'var(--text-color)' }} />
+      <div className="mb-6 transform motion-safe:group-hover:scale-110 transition-transform duration-300">
+        <Icon aria-hidden="true" className="w-12 h-12" strokeWidth={1.5} style={{ color: 'var(--text-color)' }} />
       </div>
       <h3 className="text-xl font-bold mb-3 tracking-tight">{title}</h3>
       <p className="leading-relaxed">{description}</p>
-      <div className="absolute bottom-0 left-0 right-0 h-1 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-2xl" style={{ background: 'linear-gradient(to right, var(--text-color), var(--text-color))' }} />
+      <div className="absolute bottom-0 left-0 right-0 h-1 scale-x-0 motion-safe:group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-b-2xl" style={{ background: 'linear-gradient(to right, var(--text-color), var(--text-color))' }} />
     </Motion.div>
   );
 }
 
 // ===== SkillsMarquee Component =====
 function SkillsMarquee() {
+  const reducedMotion = useReducedMotion();
 
   return (
     <div className="relative overflow-hidden py-4">
       <div className="flex gap-4">
         <Motion.div
-          className="flex gap-4 flex-shrink-0"
-          animate={{ x: [0, -1000] }}
-          transition={{ x: { repeat: Infinity, repeatType: "loop", duration: 20, ease: "linear" } }}
+          className={`skills-marquee-track flex gap-4 ${reducedMotion ? "flex-wrap justify-center px-6" : "flex-shrink-0"}`}
+          animate={reducedMotion ? { x: 0 } : { x: [0, -1000] }}
+          transition={reducedMotion ? { duration: 0 } : { x: { repeat: Infinity, repeatType: "loop", duration: 20, ease: "linear" } }}
         >
-          {[...skills, ...skills].map((skill, index) => (
+          {(reducedMotion ? skills : [...skills, ...skills]).map((skill, index) => (
             <div
               key={index}
-              className="px-6 py-2 border rounded-full whitespace-nowrap text-sm tracking-wider hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              aria-hidden={!reducedMotion && index >= skills.length ? "true" : undefined}
+              className="px-6 py-2 border rounded-full whitespace-nowrap text-sm tracking-wider hover:shadow-lg motion-safe:hover:-translate-y-1 transition-all duration-300"
               style={{ backgroundColor: 'var(--card-bg)', borderColor: 'var(--card-border)', color: 'var(--text-color)' }}
             >
               {skill}
@@ -58,11 +63,13 @@ function SkillsMarquee() {
 
 // ===== ScrollIndicator Component =====
 function ScrollIndicator() {
+  const reducedMotion = useReducedMotion();
   return (
     <Motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 1, repeat: Infinity, repeatType: "reverse" }}
+      aria-hidden="true"
+      initial={reducedMotion ? false : { opacity: 0, y: -10 }}
+      animate={reducedMotion ? { opacity: 1, y: 0 } : { opacity: [0, 1], y: [-10, 0] }}
+      transition={reducedMotion ? { duration: 0 } : { duration: 0.8, delay: 1, repeat: Infinity, repeatType: "reverse" }}
       className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       style={{ color: 'var(--text-color)' }}
     >
@@ -76,6 +83,9 @@ function ScrollIndicator() {
 export default function Home() {
   const navigate = useNavigate();
   const projects = allProjects.filter(project => project.featured);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const openerRef = useRef(null);
+  const closeProject = useCallback(() => setSelectedProject(null), []);
 
   const services = [
     { icon: Code, title: 'UI Development', description: 'Building responsive and accessible interfaces with clean structure and strong visual hierarchy.' },
@@ -147,7 +157,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-8"
           >
-            <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-4">
+            <h1 id="page-heading" className="text-6xl md:text-8xl font-bold tracking-tighter mb-4">
               {profile.name.toUpperCase()}
             </h1>
 
@@ -188,7 +198,7 @@ export default function Home() {
                 }}
               >
                 View Projects
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight aria-hidden="true" className="w-4 h-4 motion-safe:group-hover:translate-x-1 transition-transform" />
               </Motion.button>
 
               <Motion.a
@@ -204,13 +214,14 @@ export default function Home() {
                 }}
               >
                 View Resume
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink aria-hidden="true" className="w-4 h-4" />
               </Motion.a>
             </div>
           </Motion.div>
         </Motion.div>
 
-        <ScrollIndicator />
+        {/* Continuous motion uses the live preference hook instead of a mount-time snapshot. */}
+        <MotionConfig reducedMotion="never"><ScrollIndicator /></MotionConfig>
       </section>
 
       {/* Services Section */}
@@ -232,9 +243,9 @@ export default function Home() {
       {/* Skills Marquee Section */}
       <section className="skills-marquee py-12 border-y" style={{ borderColor: 'var(--card-border)', backgroundColor: 'var(--skills-marquee-color)', }}>
         <div className="mb-8 text-center">
-          <h3 className="text-2xl font-bold tracking-wider uppercase mb-2">TECH STACK</h3>
+          <h2 className="text-2xl font-bold tracking-wider uppercase mb-2">TECH STACK</h2>
         </div>
-        <SkillsMarquee />
+        <MotionConfig reducedMotion="never"><SkillsMarquee /></MotionConfig>
       </section>
 
       {/* Featured Projects Section */}
@@ -265,7 +276,10 @@ export default function Home() {
                 image={project.image}
                 techStack={project.featuredTechnologies ?? project.technologies}
                 index={index}
-                onClick={() => navigate("/projects", { state: { openProjectId: project.id } })}
+                onClick={event => {
+                  openerRef.current = event.currentTarget;
+                  setSelectedProject(project.id);
+                }}
               />
             ))}
           </div>
@@ -274,7 +288,7 @@ export default function Home() {
           <div className="mt-12 flex justify-center">
             <Motion.button onClick={() => navigate("/projects")} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="group px-8 py-4 tracking-widest uppercase text-sm font-medium rounded-full flex items-center justify-center gap-2" style={{ backgroundColor: 'var(--text-color)', color: 'var(--bg-color)', transition: 'all 0.3s' }}>
               View All Projects
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight aria-hidden="true" className="w-4 h-4 motion-safe:group-hover:translate-x-1 transition-transform" />
             </Motion.button>
           </div>
         </div>
@@ -328,13 +342,14 @@ export default function Home() {
                 }}
               >
                 View Resume
-                <ExternalLink className="w-4 h-4" />
+                <ExternalLink aria-hidden="true" className="w-4 h-4" />
               </Motion.a>
             </div>
           </Motion.div>
         </div>
       </section>
 
+      <ProjectDialog currentProject={allProjects.find(project => project.id === selectedProject)} onClose={closeProject} returnFocusRef={openerRef} />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import PageMetadata from "../components/PageMetadata";
 import ProjectDialog from "../components/ProjectDialog";
 import { projects } from "../data/projects";
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { motion as Motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { useLocation } from "react-router-dom";
@@ -13,6 +13,8 @@ export default function Projects() {
   );
 
   const currentProject = projects.find(p => p.id === selectedProject);
+  const openerRef = useRef(null);
+  const closeProject = useCallback(() => setSelectedProject(null), []);
 
   return (
     <div
@@ -27,7 +29,7 @@ export default function Projects() {
 
       <section className="px-6">
         <div className="max-w-7xl mx-auto text-center mb-20">
-          <Motion.h1
+          <Motion.h1 id="page-heading"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -45,24 +47,15 @@ export default function Projects() {
         </div>
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((project, index) => (
-            <Motion.div
+            <Motion.article
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              role="button"
-              tabIndex={0}
-              onKeyDown={event => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  setSelectedProject(project.id);
-                }
-              }}
-              onClick={() => setSelectedProject(project.id)}
-              className="group cursor-pointer"
+              className="project-card group relative cursor-pointer"
             >
               <div
-                className="overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl border"
+                className="overflow-hidden rounded-2xl transition-all duration-300 motion-safe:group-hover:-translate-y-2 group-hover:shadow-2xl border"
                 style={{
                   backgroundColor: "var(--card-bg)",
                   borderColor: "var(--card-border)",
@@ -71,8 +64,8 @@ export default function Projects() {
                 <div className="relative aspect-video overflow-hidden">
                   <img
                     src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    alt={`${project.title} project interface`}
+                    className="w-full h-full object-cover transition-transform duration-500 motion-safe:group-hover:scale-110"
                   />
 
                   {/* HOVER OVERLAY: Larger text and smoother transition */}
@@ -81,15 +74,15 @@ export default function Projects() {
                       <span className="text-lg font-bold tracking-wider uppercase">
                         View Project
                       </span>
-                      <ExternalLink size={22} />
+                      <ExternalLink aria-hidden="true" size={22} />
                     </div>
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3">
+                  <h2 className="text-xl font-bold mb-3">
                     {project.title}
-                  </h3>
+                  </h2>
 
                   <p className="text-sm opacity-70 mb-4 leading-relaxed line-clamp-2">
                     {project.description}
@@ -111,11 +104,21 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-            </Motion.div>
+              <button
+                type="button"
+                aria-label={`View ${project.title} project`}
+                aria-haspopup="dialog"
+                className="project-card-trigger absolute inset-0 h-full w-full rounded-2xl"
+                onClick={event => {
+                  openerRef.current = event.currentTarget;
+                  setSelectedProject(project.id);
+                }}
+              />
+            </Motion.article>
           ))}
         </div>
       </section>
-      <ProjectDialog currentProject={currentProject} onClose={() => setSelectedProject(null)} />
+      <ProjectDialog currentProject={currentProject} onClose={closeProject} returnFocusRef={openerRef} />
     </div>
   );
 }

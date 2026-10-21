@@ -36,7 +36,7 @@ export default function Resume() {
           className="flex flex-col md:flex-row md:justify-between md:items-start mb-12"
         >
           <div>
-            <h1 className="text-5xl font-bold tracking-tight mb-2">
+            <h1 id="page-heading" className="text-5xl font-bold tracking-tight mb-2">
               {profile.name.toUpperCase()}
             </h1>
             <p className="text-xl tracking-wide">
@@ -57,7 +57,7 @@ export default function Resume() {
               color: "var(--bg-color)",
             }}
           >
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink aria-hidden="true" className="w-4 h-4" />
             View Resume
           </Motion.a>
         </Motion.div>
@@ -75,15 +75,15 @@ export default function Resume() {
           style={{ borderColor: "var(--card-border)" }}
         >
           <div className="flex items-center gap-2">
-            <Mail className="w-4 h-4" />
+            <Mail aria-hidden="true" className="w-4 h-4" />
             {contact.email}
           </div>
           <div className="flex items-center gap-2">
-            <Phone className="w-4 h-4" />
+            <Phone aria-hidden="true" className="w-4 h-4" />
             {contact.phone}
           </div>
           <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4" />
+            <MapPin aria-hidden="true" className="w-4 h-4" />
             {contact.location}
           </div>
         </Motion.div>
@@ -131,12 +131,12 @@ export default function Resume() {
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 + index * 0.1, ease: "easeOut" }}
-                className="group block p-8 border rounded-2xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                className="group block p-8 border rounded-2xl hover:shadow-lg motion-safe:hover:-translate-y-1 transition-all duration-300"
                 style={{ backgroundColor: "var(--card-bg)", borderColor: "var(--card-border)" }}
               >
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-xl transition-colors duration-300" style={{ backgroundColor: "var(--section-bg)", color: "var(--text-color)" }}>
-                    <ExternalLink className="w-6 h-6" />
+                    <ExternalLink aria-hidden="true" className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-lg font-semibold mb-2 tracking-tight" style={{ color: "var(--text-color)" }}>{project.title}</h3>
@@ -240,11 +240,11 @@ export default function Resume() {
               initial={{ opacity: 0, y: 40, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.05, ease: "easeOut" }}
-              className="group flex items-center justify-between p-6 border rounded-3xl hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+              className="group flex items-center justify-between p-6 border rounded-3xl hover:shadow-lg motion-safe:hover:-translate-y-1 transition-all duration-300 cursor-pointer"
               style={{ backgroundColor: "var(--section-bg)", borderColor: "var(--card-border)" }}
             >
               <span className="text-sm font-medium">{cert.title}</span>
-              <ExternalLink className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-all duration-300" />
+              <ExternalLink aria-hidden="true" className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-all duration-300" />
             </Motion.a>
             ))}
           </div>
