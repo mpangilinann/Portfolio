@@ -13,6 +13,7 @@
     "test:seo": "node --test scripts/seo.test.mjs"
   },
   "dependencies": {
+    "@fontsource-variable/onest": "5.3.1",
     "@tailwindcss/vite": "^4.1.18",
     "framer-motion": "^12.34.0",
     "lucide-react": "^0.564.0",

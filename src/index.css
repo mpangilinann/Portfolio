@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./styles/home.css";
 
 .detail-action {
   display: inline-flex;
@@ -98,8 +99,6 @@ html {
   --card-bg: #ffffff;
   --card-border: #e5e5e5;
 
-  --skills-marquee-color: #F9FAFB;
-  --cta-section: #F9FAFB;
 }
 
 [data-theme="dark"] {
@@ -110,8 +109,6 @@ html {
   --card-bg: #1a1a1a;
   --card-border: #333333;
 
-  --skills-marquee-color: #030712;
-  --cta-section: #030712;
 }
 
 body {
@@ -134,24 +131,17 @@ body {
 }
 
 
-/* Home.jsx */
+/* Retained for About's existing background. */
 @keyframes gridDrift {
   from { background-position: 0 0; }
   to { background-position: 60px 60px; }
 }
 
-@keyframes diagonalDrift {
-  from { background-position: 0 0; }
-  to { background-position: 200px 200px; }
-}
 
 .grid-base {
   animation: gridDrift 25s linear infinite;
 }
 
-.diagonal-lines {
-  animation: diagonalDrift 40s linear infinite;
-}
 
 
 
