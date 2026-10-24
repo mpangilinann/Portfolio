@@ -126,7 +126,9 @@ export const projects = [
       "Chart.JS",
       "JWT",
       "Bcrypt"
-    ]
+    ],
+    "resumeDescription": "Developed a health and fitness tracking interface for monitoring workouts, meals, water intake, sleep, BMI, and daily progress. Presented daily statistics through a dashboard with progress charts and achievement tracking.",
+    "resumeTechnologies": "Vue.JS, MongoDB, Node.JS, Express.JS, PrimeVue, Chart.JS, JWT, Bcrypt"
   },
   {
     "id": 4,
