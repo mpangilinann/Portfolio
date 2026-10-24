@@ -1,210 +1,36 @@
 import PageMetadata from "../components/PageMetadata";
-import OptimizedImage from "../components/OptimizedImage";
-import { frontendSkills, backendSkills, tools, softSkills } from "../data/skills";
-import SkillDetailCard from "../components/SkillDetailCard";
-import ExperienceEntry from "../components/ExperienceEntry";
+import AboutIntroduction from "../components/about/AboutIntroduction";
+import AboutSkillsDirectory from "../components/about/AboutSkillsDirectory";
+import { ActionLink, Reveal, SectionHeading } from "../components/home/Primitives";
 import { profile } from "../data/profile";
 import { experiences } from "../data/experience";
+import { developmentDirection } from "../data/about";
+import "../styles/about.css";
 
-/* ---------------- About Component ---------------- */
 export default function About() {
-  return (
-    <section id="about" className="px-6 py-12 md:py-16">
-        <PageMetadata />
-
-      {/* About Me Section */}
-      <div
-        className="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-24 min-h-[75vh] overflow-hidden"
-        style={{ color: "var(--text-color)" }}
-      >
-
-        {/* ===== Advanced About Grid Background ===== */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-
-          {/* Base Grid (Tighter + Softer) */}
-          <div
-            className="absolute inset-0 grid-base"
-            style={{
-              backgroundImage: `
-          linear-gradient(var(--text-color) 1px, transparent 1px),
-          linear-gradient(90deg, var(--text-color) 1px, transparent 1px)
-        `,
-              backgroundSize: "60px 60px",
-              opacity: 0.08,
-            }}
-          />
-
-          {/* Diagonal Accent */}
-          <div
-            className="absolute inset-0 about-diagonal-lines"
-            style={{
-              backgroundImage: `
-          repeating-linear-gradient(
-            -45deg,
-            var(--text-color),
-            var(--text-color) 1px,
-            transparent 1px,
-            transparent 80px
-          )
-        `,
-              opacity: 0.05,
-            }}
-          />
-
-          {/* Radial Fade (Depth Effect) */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(circle at center, transparent 40%, var(--bg-color) 85%)",
-            }}
-          />
-        </div>
-
-        {/* ===== Left Column - Profile Photo ===== */}
-        <div className="relative z-10 flex-shrink-0 w-full md:w-auto flex flex-col items-center text-center animate-fadeUp">
-          <div className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-gray-300 dark:border-gray-600 shadow-lg transition-all duration-700 motion-safe:hover:scale-105 hover:shadow-2xl">
-            <OptimizedImage
-              src="/profile-pic.jpg"
-              alt="Portrait of Mikko Pangilinan"
-              sizes="288px"
-              loading="eager"
-              fetchPriority="high"
-              className="w-full h-full object-cover transition-transform duration-700 motion-safe:hover:scale-110"
-            />
-          </div>
-
-          <div className="mt-6">
-            <p
-              className="text-xl md:text-2xl font-semibold transition-all duration-700 hover:tracking-wide"
-              style={{ color: "var(--text-color)" }}
-            >
-              {profile.name}
-            </p>
-            <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base transition-opacity duration-700 hover:opacity-80">
-              BSIT Web Development | Front-End Developer
-            </p>
-          </div>
-        </div>
-
-        {/* ===== Right Column - Text Content ===== */}
-        <div className="relative z-10 flex-1 flex flex-col justify-center space-y-6 text-center md:text-left animate-fadeUp delay-200">
-          <h1 id="page-heading"
-            className="text-4xl md:text-5xl font-bold transition-all duration-700 hover:tracking-wider"
-            style={{ color: "var(--text-color)" }}
-          >
-            ABOUT ME
-          </h1>
-
-          {profile.aboutParagraphs.slice(0, 2).map(paragraph => (
-            <p
-              key={paragraph}
-              className="text-lg md:text-xl leading-relaxed transition-all duration-700 motion-safe:hover:translate-x-1"
-              style={{ color: "var(--text-color)" }}
-            >
-              {paragraph}
-            </p>
-          ))}
-
-          {/* Skills Badges */}
-          <div className="mt-4 flex flex-wrap gap-4 justify-center md:justify-start">
-            {["Front-End", "UI/UX", "Responsive Design"].map((skill) => (
-              <span
-                key={skill}
-                className="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-full text-gray-800 dark:text-gray-200 text-sm md:text-base transition-all duration-500 motion-safe:hover:scale-105 hover:bg-gray-300 dark:hover:bg-gray-600 motion-safe:hover:-translate-y-1"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Divider */}
-      <hr className="my-12 border-gray-300 dark:border-gray-600 transition-colors duration-500" />
-
-      <section className="max-w-6xl mx-auto mb-12" aria-labelledby="about-experience-heading">
-        <h2 id="about-experience-heading" className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left">
-          Experience
-        </h2>
-        {experiences.map(experience => (
-          <ExperienceEntry key={experience.id} experience={experience} preview />
-        ))}
-        {profile.aboutParagraphs.slice(2).map(paragraph => (
-          <p
-            key={paragraph}
-            className="mt-6 text-lg md:text-xl leading-relaxed text-center md:text-left transition-all duration-700 motion-safe:hover:translate-x-1"
-            style={{ color: "var(--text-color)" }}
-          >
-            {paragraph}
-          </p>
-        ))}
-      </section>
-
-      {/* Frontend Skills */}
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left" style={{ color: "var(--text-color)" }}>
-          FRONTEND DEVELOPMENT
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {frontendSkills.map((skill, index) => (
-            <SkillDetailCard key={skill.title} {...skill} index={index} />
-          ))}
-        </div>
-      </div>
-
-      {/* Backend Skills */}
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left" style={{ color: "var(--text-color)" }}>
-          BACKEND DEVELOPMENT
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {backendSkills.map((skill, index) => (
-            <SkillDetailCard key={skill.title} {...skill} index={index} />
-          ))}
-        </div>
-      </div>
-
-      {/* Tools */}
-      <div className="max-w-6xl mx-auto mb-12">
-        <h2
-          className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left transition-colors duration-500"
-          style={{ color: "var(--text-color)" }}
-        >
-          Tools & Platforms
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {tools.map((tool, index) => (
-            <SkillDetailCard
-              key={tool.title}
-              svg={tool.svg}
-              title={tool.title}
-              description={tool.description}
-              index={index}
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* Soft Skills */}
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-center md:text-left" style={{ color: "var(--text-color)" }}>
-          SOFT SKILLS
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {softSkills.map((skill, index) => (
-            <SkillDetailCard
-              key={skill.title}
-              iconComponent={skill.icon}
-              title={skill.title}
-              description={skill.description}
-              index={index}
-            />
-          ))}
-        </div>
-      </div>
-
+  return <div id="about" className="about-page"><PageMetadata /><div className="about-container">
+    <AboutIntroduction />
+    <section className="about-section" aria-labelledby="about-background-heading">
+      <Reveal><SectionHeading id="about-background-heading" title="Direction & education" /></Reveal>
+      <Reveal className="about-background-grid">
+        <div><p className="about-label">Education</p><h3>{profile.education.degree}</h3><p>{profile.education.institution}</p></div>
+        <div className="about-direction"><p className="about-label">Development direction</p><h3>Interfaces first. Connected systems behind them.</h3><p>{developmentDirection}</p></div>
+      </Reveal>
     </section>
-  );
+    <section className="about-section" aria-labelledby="about-experience-heading">
+      <Reveal><SectionHeading id="about-experience-heading" title="Practical experience" /></Reveal>
+      {experiences.map(experience => <Reveal key={experience.id}><article className="about-experience">
+        <div className="about-date"><p>{experience.period}</p><p>{experience.arrangement}</p></div>
+        <div><h3>{experience.role}</h3><p className="about-company">{experience.company}</p><p className="about-experience-summary">{experience.summary}</p>
+          <ul>{experience.responsibilities.map(item => <li key={item}>{item}</li>)}</ul>
+        </div>
+      </article></Reveal>)}
+    </section>
+    <AboutSkillsDirectory />
+    <section className="about-closing about-section" aria-labelledby="about-closing-heading">
+      <Reveal className="about-closing-inner"><div><h2 id="about-closing-heading">Want the complete overview?</h2><p>My résumé brings together experience, skills, and certifications.</p></div>
+        <div className="about-actions"><ActionLink to="/resume" primary>View Résumé</ActionLink><ActionLink to="/contact">Contact Me</ActionLink></div>
+      </Reveal>
+    </section>
+  </div></div>;
 }
-
