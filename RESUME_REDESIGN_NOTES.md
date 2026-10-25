@@ -199,3 +199,62 @@ not contacted, and no future replacement PDF was created.
 
 No other page interior or shared navbar was redesigned. No real email, commit,
 push, merge or deployment occurred.
+
+## Shared certificate additions - 2026-10-25
+
+Added two title/link objects to src/data/certifications.js, grouped after the two
+existing Simplilearn entries and before Coursera:
+
+- Machine Learning for Beginners
+  https://simpli-web.app.link/e/yQ8xBdqhv7b
+- Introduction to the Basics of Azure Services
+  https://simpli-web.app.link/e/QB2o2qYkv7b
+
+The exact submitted titles and deep-link URLs are preserved. The existing UI has
+no separate issuer field/rendering, so no issuer suffix or new metadata was added.
+No dates, IDs, scores, expiry or descriptions were invented. The nine-entry order is:
+
+1. AWS Certified Cloud Practitioner (AWS Cloud Foundations)
+2. Responsive Web Design - freeCodeCamp
+3. JavaScript Algorithms and Data Structures - freeCodeCamp
+4. Back-End Development and APIs - freeCodeCamp
+5. Introduction to Graphic Design: Basics of UI/UX - Simplilearn
+6. Website UI/UX Designing using ChatGPT - Simplilearn
+7. Machine Learning for Beginners
+8. Introduction to the Basics of Azure Services
+9. Work with Components in Figma - Coursera
+
+All original seven parsed title/URL objects exactly match the starting data
+and retain their relative order. Resume already consumes this shared source;
+no Resume JSX or styles changed. No other route renders the certification list.
+External new-tab names, noopener/noreferrer and native keyboard anchors are retained.
+
+Browser verification in both themes at 320/390/768/1024/1440 confirms nine matching
+entries, exact new titles/URLs, secure attributes, targets at least 44px high and no
+overflow. The Azure title wraps at 320px. Native Tab reaches both new links, with
+visible focus. External deep-link destinations were deliberately not substituted.
+All 19 existing contact/SEO/project-detail tests, lint, build and diff checks pass;
+no console warnings/errors or real email submission. Named Resume JS changes from
+8.82 to 9.01 kB for the added strings; Resume CSS remains 8.48 kB. No dependencies.
+
+Original public/mikkopangilinan-resume.pdf and normal build copy remain 214,202 bytes:
+SHA-256 0c23c58c14dee5eec71f86e01167d0fb97819eacf89d1657bf68028d7645bc76.
+No replacement, conversion, thumbnail or PDF generation was performed.
+
+The companion About change restores a 200-230px mobile / 240px tablet / 300px desktop
+full-color circular portrait with center/cover crop. Optimized asset and dimensions
+remain; Home requests no portrait. See ABOUT_REDESIGN_NOTES.md for details.
+
+Final certificate screenshots:
+C:/Users/user/AppData/Local/Temp/portfolio-home-rXiNOi/certificates-{dark,light}-{390,1440}.png
+Protected baseline: C:/Users/user/AppData/Local/Temp/portfolio-home-TXhAky
+
+Only About introduction presentation and shared certification data change at runtime.
+Project/internship content, Home, shared navbar, APIs, environment, SEO and deployment
+sources remain unchanged. No commit, push, merge, deployment or real email.
+
+Protected visual regression result: all 20 full-page comparisons match exactly
+(Home, Projects, AC-CORE detail, Contact and Not Found; 390/1440; both themes).
+The existing Contact pulse was paused in both captures for deterministic comparison.
+Final captures: C:/Users/user/AppData/Local/Temp/portfolio-home-daYCJI.
+Hash audit reports no modifications outside the five intended source/notes files.

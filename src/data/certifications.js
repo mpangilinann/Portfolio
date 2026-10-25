@@ -24,6 +24,14 @@ export const certifications = [
     "link": "https://www.simplilearn.com/skillup-certificate-landing?token=eyJjb3Vyc2VfaWQiOiIzMjM3IiwiY2VydGlmaWNfdXJsIjoiaHR0cHM6XC9cL2NlcnRpZmljYXRlcy5zaW1wbGljZG4ubmV0XC9zaGFyZVwvODc4MTQ1NF84MTA5OTU5MTc1NTEwODA0ODQwNy5wbmciLCJ1c2VybmFtZSI6Ik1pa2tvIFBhbmdpbGluYW4ifQ%3D%3D&utm_source=shared-certificate&utm_medium=lms&utm_campaign=shared-certificate-promotion&referrer=https%3A%2F%2Flms.simplilearn.com%2Fcourses%2F6024%2FWebsite-UI%252FUX-Designing-using-ChatGPT-%3A-Become-a-UI-UX-designer%2Fcertificate%2Fdownload-skillup&%24web_only=true"
   },
   {
+    "title": "Machine Learning for Beginners",
+    "link": "https://simpli-web.app.link/e/yQ8xBdqhv7b"
+  },
+  {
+    "title": "Introduction to the Basics of Azure Services",
+    "link": "https://simpli-web.app.link/e/QB2o2qYkv7b"
+  },
+  {
     "title": "Work with Components in Figma – Coursera",
     "link": "https://www.coursera.org/account/accomplishments/verify/RVAYB94ML1CX"
   }

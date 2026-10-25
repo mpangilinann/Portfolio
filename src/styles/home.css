@@ -15,8 +15,8 @@
   --soft-muted: #626262;
   --soft-line: #deddd9;
   --soft-hover: #e8e7e4;
-  --header-top: rgba(250,249,246,.82);
-  --header-scrolled: rgba(250,249,246,.96);
+  --header-top: #faf9f6;
+  --header-scrolled: #faf9f6;
   --soft-font: "Onest Portfolio", Arial, sans-serif;
 }
 [data-theme="dark"] {
@@ -27,8 +27,8 @@
   --soft-muted: #a3a3a3;
   --soft-line: #202020;
   --soft-hover: #191919;
-  --header-top: rgba(12,12,12,.76);
-  --header-scrolled: rgba(12,12,12,.96);
+  --header-top: #0c0c0c;
+  --header-scrolled: #0c0c0c;
 }
 .site-header, .mobile-menu, .site-footer, .soft-home { font-family: var(--soft-font); color: var(--soft-ink); }
 .site-header :focus-visible, .mobile-menu :focus-visible, .site-footer :focus-visible, .soft-home :focus-visible { outline: 2px solid var(--soft-ink); outline-offset: 4px; }

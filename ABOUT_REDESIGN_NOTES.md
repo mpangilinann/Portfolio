@@ -155,3 +155,60 @@ Only About.jsx is modified; AboutIntroduction.jsx, AboutSkillsDirectory.jsx,
 about.js, about.css and this document are added. No files are deleted. Home and
 other page interiors were not redesigned. No commit, push, merge or deployment
 was performed.
+
+## Circular portrait restoration - 2026-10-25
+
+This focused update preserves the redesigned About content, section order, tabs,
+monochrome surfaces and navigation. AboutIntroduction now uses a square portrait
+frame with border-radius: 50%, object-fit: cover and object-position: center (50% 50%).
+The source is already square; this centers the face naturally without an extra crop
+shift. A thin neutral border and very soft 0 8px 24px shadow replace the rectangular
+offset frame. No extra ring or animation dependency was introduced. Pointer tilt
+and its wrapper/hook were removed so mouse/touch cannot rotate or distort the circle.
+The existing section Reveal remains and honors initial/live reduced motion.
+
+Rendered sizes, verified in both themes:
+
+| Viewport | Circle |
+| --- | --- |
+| 320px | 200 x 200px |
+| 390px | 230 x 230px |
+| 768px | 240 x 240px |
+| 1024px and 1440px | 300 x 300px |
+
+Mobile uses clamp(200px,60vw,230px), centered in its existing position after the
+introductory copy. Tablet retains a 240px supporting column; desktop uses 300px.
+No education, experience, skills, professional qualities or closing copy changed.
+The same full-color /images/profile-pic-300.webp (11,852 bytes), responsive-image
+component, explicit 300 x 300 source dimensions, eager priority and accurate alt
+text remain. CSS reserves a 1:1 aspect ratio. No filters or grayscale are applied.
+Home still requests no portrait. Image files and manifest remain unchanged.
+
+Verification: all 19 contact/SEO/project-detail tests, lint, build and diff checks
+pass. Browser checks at 320/390/768/1024/1440 in both themes confirm equal dimensions,
+50% radius, cover/center, full-color unfiltered asset, no overflow and measured CLS 0.
+Mouse/touch preserve a stable crop; initial/live reduced motion removes Reveal
+movement. Certificate keyboard checks and shared navigation remain functional.
+Protected-page screenshot comparisons are documented with the current Resume notes.
+Actual screen-reader announcements and Safari/Firefox/physical-device rendering
+remain manual checks.
+
+Build impact: About CSS 7.22 -> 6.89 kB; named About JS 26.27 -> 26.19 kB. Vite also
+redistributes the existing pointer helper between shared/Home chunks; Home source
+and behavior are untouched. No added media, font or dependency requests. Asset
+sizes are local build measurements, not field performance benchmarks.
+
+Screenshots and measurements:
+C:/Users/user/AppData/Local/Temp/portfolio-home-rXiNOi/about-{dark,light}-{390,1440}.png
+C:/Users/user/AppData/Local/Temp/portfolio-home-rXiNOi/portrait-{dark,light}-{390,1440}.png
+C:/Users/user/AppData/Local/Temp/portfolio-home-rXiNOi/measurements.json
+
+The companion certificate update adds two Simplilearn completions to the shared
+source (nine total). No PDF modification, email, commit, push, merge or deployment.
+
+Protected visual regression result: all 20 full-page comparisons match exactly
+(Home, Projects, AC-CORE detail, Contact and Not Found; 390/1440; both themes).
+Contact's existing pulse animation was paused in both captures for deterministic
+comparison. Final captures: C:/Users/user/AppData/Local/Temp/portfolio-home-daYCJI.
+Hash audit reports zero changes outside the five intended files. Resume JSX/CSS
+and every protected source/image/PDF remain unchanged.

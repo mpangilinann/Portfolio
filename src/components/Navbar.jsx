@@ -19,7 +19,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
   const closeMenu = useCallback(() => setIsOpen(false), []);
   const activeIndex = navigationItems.findIndex(item => pathname === item.path || (item.path === "/projects" && pathname.startsWith("/projects/")));
   useEffect(() => {
-    const color = getComputedStyle(headerRef.current).getPropertyValue(scrolled || pathname !== "/" ? "--header-scrolled" : "--header-top").trim();
+    const color = getComputedStyle(headerRef.current).getPropertyValue(scrolled ? "--header-scrolled" : "--header-top").trim();
     const animation = animate(headerRef.current, { backgroundColor: color }, { duration: reduced ? 0 : 0.2 });
     return () => animation.stop();
   }, [animate, headerRef, scrolled, reduced, darkMode, pathname]);
