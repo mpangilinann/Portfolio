@@ -57,7 +57,7 @@
 .mobile-menu-actions a { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; }
 .availability { display: inline-flex; align-items: center; gap: 9px; font-size: 12px; line-height: 1.6; color: var(--soft-muted); }
 .availability-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
-.site-footer { padding: 24px max(24px,calc((100% - 1240px)/2)); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; background: var(--soft-bg); font-size: 12px; color: var(--soft-muted); }
+.site-footer { --soft-ink: #f5f5f5; --soft-muted: #a3a3a3; padding: 24px max(24px,calc((100% - 1240px)/2)); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 24px; background: #000; font-size: 12px; color: var(--soft-muted); }
 .site-footer a { min-height: 44px; display: inline-flex; align-items: center; gap: 6px; }
 .site-footer a:hover { color: var(--soft-ink); }
 

@@ -101,7 +101,7 @@ export default function Contact() {
     <div
       className="min-h-screen pt-24 pb-16"
       style={{
-        backgroundColor: "var(--bg-color)",
+        backgroundColor: "var(--soft-bg)",
         color: "var(--text-color)",
         transition: "background-color 0.3s, color 0.3s",
       }}

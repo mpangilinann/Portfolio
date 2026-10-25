@@ -26,7 +26,12 @@
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 html {
+  font-family: var(--soft-font);
   scrollbar-gutter: stable;
+}
+
+:where(button, input, textarea, select, optgroup) {
+  font-family: inherit;
 }
 
 :where(a, button, input, textarea, select, [tabindex]):focus-visible {
