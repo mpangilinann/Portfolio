@@ -10,6 +10,8 @@ import { projects } from "../data/projects";
 import { certifications } from "../data/certifications";
 import { profile } from "../data/profile";
 import { contact } from "../data/contact";
+import { revealTiming } from "../utils/revealMotion";
+import { motionTiming } from "../utils/motion";
 import "../styles/resume.css";
 
 // Resume-only selection; preserve catalog order and leave other routes untouched.
@@ -19,55 +21,55 @@ const resumeProjects = projects.filter(project => resumeProjectSlugs.has(project
 export default function Resume() {
   return <div className="resume-page"><PageMetadata />
     <div className="resume-container">
-      <header className="resume-introduction"><Reveal>
+      <header className="resume-introduction">
         <div className="resume-header-layout"><div>
-          <p className="resume-small-label">R&eacute;sum&eacute;</p>
-          <h1 id="page-heading">{profile.name}</h1>
-          <p className="resume-role">{profile.title}</p>
-          <p className="resume-location"><MapPin size={16} aria-hidden="true" />{contact.location}</p>
+          <Reveal as="p" className="resume-small-label" entrance preset="fade">R&eacute;sum&eacute;</Reveal>
+          <Reveal as="h1" id="page-heading" entrance preset="mask" delay={motionTiming.stagger}>{profile.name}</Reveal>
+          <Reveal as="p" className="resume-role" entrance preset="soft" delay={2 * motionTiming.stagger}>{profile.title}</Reveal>
+          <Reveal as="p" className="resume-location" entrance preset="fade" delay={3 * motionTiming.stagger}><MapPin size={16} aria-hidden="true" />{contact.location}</Reveal>
           <AvailabilityIndicator />
-        </div><ResumeActions /></div>
-      </Reveal></header>
+        </div><ResumeActions entrance delay={3 * motionTiming.stagger} /></div>
+      </header>
       <div className="resume-content">
-        <section aria-labelledby="resume-summary"><Reveal>
-          <h2 id="resume-summary">Professional Summary</h2>
-          <p className="resume-summary-text">{profile.resumeSummary}</p>
-        </Reveal></section>
-        <section aria-labelledby="resume-experience"><Reveal>
-          <h2 id="resume-experience">Experience</h2><ResumeExperience />
-        </Reveal></section>
+        <section aria-labelledby="resume-summary"><div>
+          <Reveal as="h2" preset="mask" id="resume-summary">Professional Summary</Reveal>
+          <Reveal as="p" className="resume-summary-text" preset="document" delay={motionTiming.stagger}>{profile.resumeSummary}</Reveal>
+        </div></section>
+        <section aria-labelledby="resume-experience"><div>
+          <Reveal as="h2" preset="mask" id="resume-experience">Experience</Reveal><ResumeExperience />
+        </div></section>
         <div className="resume-background">
-          <section aria-labelledby="resume-education"><Reveal>
-            <h2 id="resume-education">Education</h2>
-            <article className="resume-education"><h3>{profile.education.degree}</h3><p>{profile.education.institution}</p>
-              <dl>
+          <section aria-labelledby="resume-education"><div>
+            <Reveal as="h2" preset="mask" id="resume-education">Education</Reveal>
+            <Reveal as="article" className="resume-education" preset="document" delay={motionTiming.stagger}><h3>{profile.education.degree}</h3><p>{profile.education.institution}</p>
+              <Reveal as="dl" preset="fade" delay={2 * motionTiming.stagger}>
                 {profile.education.expectedGraduation && <div><dt>Expected Graduation</dt><dd>{profile.education.expectedGraduation}</dd></div>}
                 {profile.education.honors && <div><dt>Academic Honors</dt><dd>{profile.education.honors}</dd></div>}
-              </dl>
-            </article>
-          </Reveal></section>
-          <section aria-labelledby="resume-projects"><Reveal>
-            <h2 id="resume-projects">Selected Project Experience</h2>
+              </Reveal>
+            </Reveal>
+          </div></section>
+          <section aria-labelledby="resume-projects"><div>
+            <Reveal as="h2" preset="mask" id="resume-projects">Selected Project Experience</Reveal>
             <Link to="/projects" className="resume-all-projects">View all projects</Link>
-            <ul className="resume-project-work">{resumeProjects.map(project => <li key={project.id}>
+            <ul className="resume-project-work">{resumeProjects.map((project, index) => <Reveal as="li" key={project.id} preset="document" delay={index * motionTiming.stagger}>
               <h3>{project.title}</h3>
               <p>{project.resumeDescription}</p><p className="resume-project-technologies"><strong>Technologies:</strong> {project.resumeTechnologies}</p>
-            </li>)}</ul>
-          </Reveal></section>
+            </Reveal>)}</ul>
+          </div></section>
         </div>
-        <section aria-labelledby="resume-skills"><Reveal>
-          <h2 id="resume-skills">Skills</h2><ResumeSkills />
-        </Reveal></section>
-        <section aria-labelledby="resume-certifications"><Reveal>
-          <h2 id="resume-certifications">Certifications</h2>
-          <ul className="resume-certifications">{certifications.map(certification => <li key={certification.title}>
+        <section aria-labelledby="resume-skills"><div>
+          <Reveal as="h2" preset="mask" id="resume-skills">Skills</Reveal><ResumeSkills />
+        </div></section>
+        <section aria-labelledby="resume-certifications"><div>
+          <Reveal as="h2" preset="mask" id="resume-certifications">Certifications</Reveal>
+          <ul className="resume-certifications">{certifications.map((certification, index) => <Reveal as="li" key={certification.title} preset="fade" delay={Math.floor(index / 3) * revealTiming.itemStagger}>
             <a href={certification.link} target="_blank" rel="noopener noreferrer" aria-label={`${certification.title} credential (opens in a new tab)`}><span>{certification.title}</span><ArrowUpRight size={16} aria-hidden="true" /></a>
-          </li>)}</ul>
-        </Reveal></section>
+          </Reveal>)}</ul>
+        </div></section>
       </div>
       <section className="resume-closing" aria-labelledby="resume-closing-heading">
-        <h2 id="resume-closing-heading">Let's talk about an opportunity.</h2>
-        <ResumeActions includeDownload={false} />
+        <Reveal as="h2" preset="mask" id="resume-closing-heading">Let's talk about an opportunity.</Reveal>
+        <ResumeActions includeDownload={false} delay={motionTiming.stagger} />
       </section>
     </div>
   </div>;

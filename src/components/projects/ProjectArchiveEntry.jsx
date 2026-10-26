@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
-import OptimizedImage from "../OptimizedImage";
+import DecodedImage from "../motion/DecodedImage";
 import { useIsPresent } from "framer-motion";
 
 // One presentation for the desktop stage and directly available mobile cards.
-export default function ProjectArchiveEntry({ project, initial = false, preview = false }) {
+export default function ProjectArchiveEntry({ project, initial = false, preview = false, onImageReady }) {
   const present = useIsPresent();
   return <article className={`archive-entry${preview ? " is-preview" : ""}`} aria-hidden={!present || undefined} inert={!present}>
     <Link to={`/projects/${project.slug}`} className="archive-image" aria-label={`Explore ${project.title} project`}>
-      <OptimizedImage src={project.image} alt={`${project.title} project interface`}
+      <DecodedImage reveal={!preview} src={project.image} alt={`${project.title} project interface`}
         sizes="(min-width: 1400px) 660px, (min-width: 1100px) 52vw, (min-width: 768px) 46vw, calc(100vw - 40px)"
-        loading={initial || preview ? "eager" : "lazy"} fetchPriority={initial ? "high" : undefined} />
+        loading={initial || preview ? "eager" : "lazy"} fetchPriority={initial ? "high" : undefined}
+        onImageReady={onImageReady} />
     </Link>
     <div className="archive-entry-copy">
       <h3><Link to={`/projects/${project.slug}`}>{project.title}</Link></h3>

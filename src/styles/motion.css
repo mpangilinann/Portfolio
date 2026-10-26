@@ -1,0 +1,56 @@
+:root { --motion-fast: 200ms; --motion-ease: cubic-bezier(.22,1,.36,1); }
+/* Keep mobile directional entrances inside the viewport gutter, including
+   their focus outlines, without changing Home's offsets or choreography. */
+@media (max-width: 599px) {
+  .soft-home .about-preview-content { overflow: clip; overflow-clip-margin: 20px; }
+}
+.motion-reveal:focus-within, .motion-reveal[data-motion-instant] { opacity: 1 !important; transform: none !important; filter: none !important; clip-path: none !important; }
+.decoded-image[data-motion-instant], .motion-reveal[data-motion-instant] .decoded-image, .archive-image:focus-within .decoded-image { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+/* Portaled dialogs and the preserved Contact entrance also skip movement when
+   keyboard focus reaches them; pointer-opened entrances retain their timing. */
+[data-modal-root]:has(:focus-visible), [data-modal-root] [role="dialog"]:has(:focus-visible), main form:has(:focus-visible) { opacity: 1 !important; transform: none !important; transition: none !important; }
+.archive-stage:focus-within > div:not([inert]):has(> article:not([inert])), .about-panels > [aria-hidden="false"]:focus-within { opacity: 1 !important; transform: none !important; }
+.site-footer [data-footer-reveal] { opacity: .78; transform: translateY(4px); }
+.site-footer:focus-within [data-footer-reveal] { opacity: 1 !important; transform: none !important; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .archive-index li:hover { background: var(--soft-surface); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .archive-index li::before { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 2px 0 var(--soft-ink); opacity: 0; pointer-events: none; transition: opacity var(--motion-fast) var(--motion-ease); }
+  .projects-page .archive-index li.is-selected { box-shadow: none; }
+  .archive-index li.is-selected::before { opacity: 1; }
+  .soft-button > svg, .soft-text-link > svg, .back-top > svg, .case-neighbor svg { transition: transform var(--motion-fast) var(--motion-ease); }
+  .soft-button:hover > svg, .soft-button:focus-visible > svg, .soft-text-link:hover > svg, .soft-text-link:focus-visible > svg { transform: translateX(2px); }
+  .resume-actions .soft-button[download]:hover > svg, .resume-actions .soft-button[download]:focus-visible > svg { transform: translateY(2px); }
+  .back-top:hover > svg, .back-top:focus-visible > svg { transform: translateY(-2px); }
+  .case-neighbor:hover svg, .case-neighbor:focus-visible svg { transform: translateX(-2px); }
+  .case-neighbor.is-next:hover svg, .case-neighbor.is-next:focus-visible svg { transform: translateX(2px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-reveal, .decoded-image, .site-footer [data-footer-reveal] { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; transition: none !important; }
+  .archive-stage > div:not([inert]):has(> article:not([inert])), .about-panels > [aria-hidden="false"] { opacity: 1 !important; transform: none !important; }
+  .archive-stage > div:has(> article[inert]), .about-panels > [aria-hidden="true"] { display: none !important; }
+}
+@media print {
+  .motion-reveal, .decoded-image, .site-footer [data-footer-reveal] { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; }
+}
+
+/* Interior controls share Home's feedback without touching Contact/chrome. */
+@media (prefers-reduced-motion: no-preference) {
+  :is(.about-page,.projects-page,.case-page,.resume-page) .soft-button { transition: transform var(--motion-fast) var(--motion-ease), background-color var(--motion-fast); }
+  :is(.about-page,.projects-page,.case-page,.resume-page) .soft-button:active { transform: scale(.98); }
+  :is(.about-page,.projects-page,.case-page,.resume-page) .soft-button:is(:hover,:focus-visible) > svg { transform: translate(2px,-2px); }
+  .archive-actions svg, .archive-index-link svg, .resume-certifications svg, .about-tabs span { transition: transform var(--motion-fast) var(--motion-ease); }
+  .archive-actions a:is(:hover,:focus-visible) svg, .archive-index-link:is(:hover,:focus-visible) svg, .resume-certifications a:is(:hover,:focus-visible) svg, .about-tabs button:is(:hover,:focus-visible) span { transform: translate(2px,-2px); }
+  .archive-entry:focus-within .archive-image img { transform: scale(1.025); }
+  .archive-entry:focus-within .archive-image .decoded-image { transform: scale(1.025) !important; }
+  .archive-image .decoded-image:not([data-image-settled]) { transition: none; }
+  .archive-index-name { display: inline-block; transition: transform var(--motion-fast) var(--motion-ease); }
+  .archive-index li:is(:hover,:focus-within) .archive-index-name { transform: translateX(2px); }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .archive-image:hover .decoded-image { transform: scale(1.025) !important; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .resume-actions .soft-button[download]:is(:hover,:focus-visible) > svg { transform: translateY(2px); }
+}

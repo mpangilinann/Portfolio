@@ -1,6 +1,7 @@
 import PageMetadata from "../components/PageMetadata";
 import ProjectArchive from "../components/projects/ProjectArchive";
 import { ActionLink, Reveal } from "../components/home/Primitives";
+import { motionTiming } from "../utils/motion";
 import { projects } from "../data/projects";
 import { socialLinks } from "../data/socialLinks";
 import "../styles/projects.css";
@@ -11,19 +12,19 @@ export default function Projects() {
   return <div className="projects-page"><PageMetadata />
     <div className="archive-container">
       <header className="archive-introduction">
-        <Reveal><p className="archive-label">Projects</p>
-          <h1 id="page-heading">Selected builds and experiments.</h1>
-          <p className="archive-description">A collection of front-end and full-stack work from academic and collaborative projects.</p>
-          <p className="archive-count">{projects.length} projects in the collection</p>
-        </Reveal>
+        <div><Reveal as="p" className="archive-label" entrance preset="fade">Projects</Reveal>
+          <Reveal as="h1" id="page-heading" entrance preset="mask" delay={motionTiming.stagger}>Selected builds and experiments.</Reveal>
+          <Reveal as="p" className="archive-description" entrance preset="soft" delay={2 * motionTiming.stagger}>A collection of front-end and full-stack work from academic and collaborative projects.</Reveal>
+          <Reveal as="p" className="archive-count" entrance preset="fade" delay={3 * motionTiming.stagger}>{projects.length} projects in the collection</Reveal>
+        </div>
       </header>
       <ProjectArchive />
       <section className="archive-closing" aria-labelledby="archive-closing-heading">
-        <h2 id="archive-closing-heading">Interested in how something was built?</h2>
-        <div className="archive-closing-actions">
+        <Reveal as="h2" preset="mask" id="archive-closing-heading">Interested in how something was built?</Reveal>
+        <Reveal className="archive-closing-actions" preset="fade" delay={motionTiming.stagger}>
           {github && <ActionLink href={github.url} external>View GitHub</ActionLink>}
           <ActionLink to="/contact" primary>Contact Me</ActionLink>
-        </div>
+        </Reveal>
       </section>
     </div>
   </div>;

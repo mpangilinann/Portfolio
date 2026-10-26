@@ -1,0 +1,71 @@
+/* Loaded by Home, scoped to Home: no changes to shared or interior presentation. */
+.soft-home .home-reveal:focus-within,
+.soft-home .home-reveal[data-motion-instant] { clip-path: none !important; filter: none !important; }
+.soft-home .home-image-reveal { position: absolute; inset: 0; }
+.soft-home .featured-image:focus-visible { outline-offset: -4px; }
+.soft-home .featured-card:focus-within .home-image-reveal { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+@media (prefers-reduced-motion: no-preference) {
+  .soft-home .hero-content .availability-dot { animation: home-availability 900ms ease-in-out 2; }
+  .soft-home .hero-content:has([data-motion-instant]) .availability-dot { animation: none; }
+  .soft-home .soft-button { transition: transform var(--motion-fast) var(--motion-ease), background-color var(--motion-fast) var(--motion-ease); }
+  .soft-home .soft-button:active { transform: scale(.98); }
+  .soft-home .soft-button:is(:hover,:focus-visible) > svg,
+  .soft-home .soft-text-link:is(:hover,:focus-visible) > svg,
+  .soft-home .project-external-links a:is(:hover,:focus-visible) > svg { transform: translate(2px,-2px); }
+  .soft-home .project-external-links svg { transition: transform var(--motion-fast) var(--motion-ease); }
+  .soft-home .featured-card:focus-within { box-shadow: inset 0 0 0 1px var(--soft-muted); }
+  .soft-home .featured-card:focus-within .featured-image img { transform: scale(1.025); }
+  .soft-home .featured-card:focus-within .image-arrow { transform: translate(2px,-2px); }
+  .soft-home .featured-card:focus-within h3 { transform: none; }
+  .soft-home .technology-grid button:focus-visible svg { transform: translateY(-2px) scale(1.03); }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .soft-home .featured-card:hover { box-shadow: inset 0 0 0 1px var(--soft-muted); }
+  .soft-home .featured-card:hover .featured-image img { transform: scale(1.025); }
+  .soft-home .featured-card:hover h3 { transform: none; }
+  .soft-home .featured-card:hover .image-arrow { transform: translate(2px,-2px); }
+  .soft-home .technology-grid button:hover svg { transform: translateY(-2px) scale(1.03); }
+}
+@keyframes home-availability { 0%,100% { opacity: 1; } 50% { opacity: .45; } }
+@media (prefers-reduced-motion: reduce) {
+  .soft-home .home-reveal { opacity: 1 !important; transform: none !important; clip-path: none !important; filter: none !important; }
+}
+@media print { .soft-home .home-reveal { clip-path: none !important; filter: none !important; } }
+
+.soft-home .hero-studio { min-width: 0; }
+.soft-home .code-studio { container-type: inline-size; display: flex; flex-direction: column; min-height: 438px; max-width: 580px; margin-left: auto; border: 1px solid var(--soft-line); border-radius: 16px; background: var(--soft-surface); }
+.soft-home .studio-header { min-height: 52px; padding: 12px 18px; display: flex; justify-content: space-between; align-items: center; gap: 16px; border-bottom: 1px solid var(--soft-line); }
+.soft-home .studio-filename { display: inline-flex; align-items: center; gap: 9px; font-size: 12px; font-weight: 500; }
+.soft-home .studio-filename svg { color: var(--soft-muted); }
+.soft-home .studio-status { display: inline-flex; align-items: center; gap: 7px; color: var(--soft-muted); font-size: 11px; }
+.soft-home .studio-status > span { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.soft-home .studio-body { display: grid; flex: 1; grid-template-columns: minmax(0,.48fr) minmax(0,.52fr); grid-template-areas: "code preview"; }
+.soft-home .studio-code { grid-area: code; display: flex; align-items: center; min-width: 0; padding: 20px 16px; border-right: 1px solid var(--soft-line); }
+.soft-home .studio-code pre { width: 100%; margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; font-size: 12.5px; line-height: 1.6; color: var(--soft-muted); tab-size: 2; }
+.soft-home .studio-code code { font: inherit; }
+.soft-home .studio-preview { grid-area: preview; min-width: 0; padding: 20px 16px; display: flex; align-items: center; }
+.soft-home .studio-canvas { width: 100%; padding: 20px 16px; border: 1px solid var(--soft-line); border-radius: 11px; background: var(--soft-bg); }
+.soft-home .studio-eyebrow { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--soft-muted); line-height: 1.6; }
+.soft-home .studio-canvas h2 { margin-top: 12px; font-size: 27px; font-weight: 550; letter-spacing: -.035em; line-height: 1.15; }
+.soft-home .studio-description { margin-top: 12px; font-size: 12px; line-height: 1.7; color: var(--soft-muted); }
+.soft-home .studio-canvas ul { display: grid; gap: 12px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--soft-line); }
+.soft-home .studio-canvas li { display: flex; align-items: center; gap: 8px; font-size: 12px; line-height: 1.5; }
+.soft-home .studio-canvas li svg { flex-shrink: 0; color: var(--soft-muted); }
+@container (max-width: 420px) {
+  .soft-home .studio-body { grid-template-columns: minmax(0,1fr); grid-template-areas: "preview" "code"; }
+  .soft-home .studio-preview { padding: 16px; }
+  .soft-home .studio-code { border-right: 0; border-top: 1px solid var(--soft-line); padding: 18px; }
+  .soft-home .studio-canvas { padding: 18px; }
+  .soft-home .studio-canvas ul { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; }
+  .soft-home .studio-canvas li { flex-wrap: wrap; gap: 6px; font-size: 11px; }
+}
+@container (max-width: 350px) {
+  .soft-home .studio-canvas ul { grid-template-columns: minmax(0,1fr); gap: 8px; }
+}
+@media (max-width: 899px) { .soft-home .code-studio { margin-left: 0; max-width: 680px; } }
+@media (max-width: 599px) {
+  .soft-home .studio-body { grid-template-columns: minmax(0,1fr); grid-template-areas: "preview" "code"; }
+  .soft-home .studio-code { border-right: 0; border-top: 1px solid var(--soft-line); }
+}
+@media (prefers-reduced-motion: reduce) { .soft-home .code-studio * { transform: none !important; translate: none !important; filter: none !important; transition: none !important; } }
+
