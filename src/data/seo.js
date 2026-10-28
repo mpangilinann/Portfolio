@@ -3,11 +3,13 @@ import { profile } from "./profile.js";
 import { socialLinks } from "./socialLinks.js";
 
 export const siteOrigin = "https://mikkopangilinan.vercel.app";
-export const defaultSocialImage = `${siteOrigin}/ac-core.png`;
+export const siteName = "Mikko Pangilinan";
+export const siteAlternateName = "Mikko Pangilinan Portfolio";
+const defaultSocialImage = `${siteOrigin}/ac-core.png`;
 export const staticPages = {
   "/": {
     title: "Mikko Pangilinan | Front-End Web Developer",
-    description: "Portfolio of Mikko Pangilinan, a front-end web developer building accessible, responsive interfaces with React, Angular, and Vue. Explore projects and experience.",
+    description: "Front-end web developer based in Pampanga, Philippines, creating accessible, responsive, and maintainable web applications.",
   },
   "/about": {
     title: "About | Mikko Pangilinan",
@@ -56,7 +58,7 @@ export function getRouteMetadata(pathname) {
         image: absoluteUrl("/profile-pic.jpg"), sameAs: socialLinks.map(link => link.url),
       },
       {
-        "@type": "WebSite", "@id": `${siteOrigin}/#website`, name: "Mikko Pangilinan Portfolio",
+        "@type": "WebSite", "@id": `${siteOrigin}/#website`, name: siteName, alternateName: siteAlternateName,
         url: `${siteOrigin}/`, description: page.description,
         about: { "@id": `${siteOrigin}/#person` }, inLanguage: "en",
       },

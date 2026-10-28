@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { getRouteMetadata } from "../data/seo";
+import { getRouteMetadata, siteName } from "../data/seo";
 
 function setMeta(attribute, name, content) {
   const matches = [...document.head.querySelectorAll(`meta[${attribute}="${name}"]`)];
@@ -18,6 +18,7 @@ export default function PageMetadata() {
     document.title = data.title;
     for (const [name, content] of Object.entries({
       description: data.description, robots: data.robots,
+      "application-name": siteName, "apple-mobile-web-app-title": siteName,
       "twitter:card": "summary_large_image", "twitter:title": data.title,
       "twitter:description": data.description, "twitter:image": data.image,
       "twitter:image:alt": data.imageAlt,
@@ -25,7 +26,7 @@ export default function PageMetadata() {
     for (const [name, content] of Object.entries({
       "og:title": data.title, "og:description": data.description,
       "og:url": data.canonical, "og:type": data.type, "og:image": data.image,
-      "og:image:alt": data.imageAlt, "og:site_name": "Mikko Pangilinan Portfolio",
+      "og:image:alt": data.imageAlt, "og:site_name": siteName,
     })) {
       if (content) setMeta("property", name, content);
       else document.head.querySelectorAll(`meta[property="${name}"]`).forEach(element => element.remove());

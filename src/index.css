@@ -2,28 +2,6 @@
 @import "./styles/home.css";
 @import "./styles/motion.css";
 
-.detail-action {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  min-height: 48px;
-  padding: 0.75rem 1.25rem;
-  border: 1px solid var(--text-color);
-  border-radius: 999px;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-.detail-action-primary { background: var(--text-color); color: var(--bg-color); }
-.detail-action:hover { opacity: 0.75; }
-.detail-action-primary:focus-visible { outline-color: var(--text-color); }
-.detail-heading { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
-.detail-information > div { padding: 1.25rem 0; border-top: 1px solid var(--card-border); }
-.detail-information dt { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.75rem; }
-.detail-information dd { line-height: 1.7; }
-.detail-numbered-list > li { display: flex; gap: 1.5rem; padding: 1.25rem 0; border-top: 1px solid var(--card-border); }
-.detail-project-link { display: flex; flex-direction: column; gap: 0.75rem; padding: 0.75rem 0; min-width: 0; overflow-wrap: anywhere; border-radius: 4px; }
-
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 html {
@@ -64,21 +42,6 @@ html {
   scroll-margin-top: 120px;
 }
 
-.project-card:has(:focus-visible) [class*="opacity-0"] {
-  opacity: 1;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .project-card:has(:focus-visible) img {
-    transform: scale(1.1);
-  }
-
-  .project-card:has(:focus-visible) > div:first-child {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation: none !important;
@@ -86,12 +49,7 @@ html {
     scroll-behavior: auto !important;
   }
 
-  .animate-fadeUp {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  a:not(.skip-link), button, .project-card {
+  a:not(.skip-link), button {
     transform: none !important;
   }
 }
@@ -135,74 +93,6 @@ body {
   
   transition: background-color 0.3s, border-color 0.3s;
 }
-
-
-/* Retained for About's existing background. */
-@keyframes gridDrift {
-  from { background-position: 0 0; }
-  to { background-position: 60px 60px; }
-}
-
-
-.grid-base {
-  animation: gridDrift 25s linear infinite;
-}
-
-
-
-
-/* About.jsx */
-
-/* Smooth Fade Up Animation */
-.animate-fadeUp {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeUp 1s ease forwards;
-}
-
-.animate-fadeUp.delay-200 {
-  animation-delay: 0.2s;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-/* ===== About Page Grid Animations ===== */
-
-@keyframes aboutGridDrift {
-  from { background-position: 0 0; }
-  to { background-position: 45px 45px; }
-}
-
-@keyframes aboutVerticalDrift {
-  from { background-position: 0 0; }
-  to { background-position: 300px 0; }
-}
-
-@keyframes aboutDiagonalDrift {
-  from { background-position: 0 0; }
-  to { background-position: -250px 250px; }
-}
-
-.about-grid-base {
-  animation: aboutGridDrift 30s linear infinite;
-}
-
-.about-vertical-lines {
-  animation: aboutVerticalDrift 60s linear infinite;
-}
-
-.about-diagonal-lines {
-  animation: aboutDiagonalDrift 50s linear infinite;
-}
-
-
-
 
 /* Button Cursor for all */
 button,

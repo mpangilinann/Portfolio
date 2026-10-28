@@ -1,5 +1,5 @@
 import { readFile, writeFile } from "node:fs/promises";
-import { absoluteUrl, getRouteMetadata, indexablePaths, siteOrigin } from "../src/data/seo.js";
+import { absoluteUrl, getRouteMetadata, indexablePaths, siteOrigin, siteName } from "../src/data/seo.js";
 
 const xmlEscape = value => value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 const htmlEscape = value => xmlEscape(value).replace(/'/g, "&#39;");
@@ -7,11 +7,13 @@ const metadata = getRouteMetadata("/");
 const tags = [
   `<title>${htmlEscape(metadata.title)}</title>`,
   `<meta name="description" content="${htmlEscape(metadata.description)}" />`,
+  `<meta name="application-name" content="${htmlEscape(siteName)}" />`,
+  `<meta name="apple-mobile-web-app-title" content="${htmlEscape(siteName)}" />`,
   `<meta name="robots" content="index, follow" />`,
   `<link rel="canonical" href="${metadata.canonical}" />`,
   ...Object.entries({ "og:title": metadata.title, "og:description": metadata.description,
     "og:url": metadata.canonical, "og:type": metadata.type, "og:image": metadata.image,
-    "og:image:alt": metadata.imageAlt, "og:site_name": "Mikko Pangilinan Portfolio",
+    "og:image:alt": metadata.imageAlt, "og:site_name": siteName,
   }).map(([name, content]) => `<meta property="${name}" content="${htmlEscape(content)}" />`),
   ...Object.entries({ "twitter:card": "summary_large_image", "twitter:title": metadata.title,
     "twitter:description": metadata.description, "twitter:image": metadata.image,

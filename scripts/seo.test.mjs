@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
-import { siteOrigin, indexablePaths, getRouteMetadata, staticPages } from "../src/data/seo.js";
+import { siteOrigin, siteName, siteAlternateName, indexablePaths, getRouteMetadata, staticPages } from "../src/data/seo.js";
 import { projects } from "../src/data/projects.js";
 
 test("eleven canonical routes have unique metadata and accurate project data", () => {
@@ -40,6 +40,11 @@ test("home graph has Person and WebSite without invented dates or ratings", () =
   const data = getRouteMetadata("/").structuredData;
   assert.deepEqual(data["@graph"].map(item => item["@type"]), ["Person", "WebSite"]);
   assert.equal(data["@graph"][0].sameAs.length, 3);
+  const website = data["@graph"][1];
+  assert.equal(website.name, siteName);
+  assert.equal(website.alternateName, siteAlternateName);
+  assert.equal(website.description, staticPages["/"].description);
+  assert.equal(staticPages["/"].description, "Front-end web developer based in Pampanga, Philippines, creating accessible, responsive, and maintainable web applications.");
   assert.ok(!JSON.stringify(data).includes("aggregateRating"));
   assert.ok(!JSON.stringify(data).includes("datePublished"));
 });
@@ -55,6 +60,22 @@ test("generated sitemap, robots and fallback HTML match the shared configuration
   assert.equal((html.match(/rel="canonical"/g) ?? []).length, 1);
   assert.equal((html.match(/name="description"/g) ?? []).length, 1);
   assert.ok(html.includes(getRouteMetadata("/").title));
+  for (const [attribute, name, content] of [
+    ["name", "description", staticPages["/"].description],
+    ["property", "og:description", staticPages["/"].description],
+    ["name", "twitter:description", staticPages["/"].description],
+    ["property", "og:site_name", siteName],
+    ["name", "application-name", siteName],
+    ["name", "apple-mobile-web-app-title", siteName],
+  ]) {
+    assert.equal((html.match(new RegExp(`${attribute}="${name}"`, "g")) ?? []).length, 1);
+    assert.ok(html.includes(`${attribute}="${name}" content="${content}"`));
+  }
+  for (const prefix of ["og:", "twitter:"]) {
+    const names = [...html.matchAll(/<meta (?:property|name)="([^"]+)"/g)].map(match => match[1])
+      .filter(name => name.startsWith(prefix));
+    assert.equal(new Set(names).size, names.length);
+  }
   assert.ok(html.includes('name="twitter:card" content="summary_large_image"'));
   assert.deepEqual(JSON.parse(html.match(/data-portfolio-jsonld>(.*?)<\/script>/s)[1]), getRouteMetadata("/").structuredData);
 });

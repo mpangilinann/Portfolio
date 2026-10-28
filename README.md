@@ -1,31 +1,55 @@
-# React + Vite
+# Mikko Pangilinan — Portfolio
 
-## Portfolio SEO and performance
+Front-end web developer based in Pampanga, Philippines, creating accessible, responsive, and maintainable web applications.
 
-See [SEO_PERFORMANCE.md](./SEO_PERFORMANCE.md) for canonical metadata, structured
-data, generated sitemap/robots files, responsive images, route splitting, before
-and after measurements, and SPA crawler limitations. `npm.cmd run build`
-regenerates SEO files; `npm.cmd run test:seo` verifies the shared configuration.
+[View Live Portfolio](https://mikkopangilinan.vercel.app) · [View Projects](https://mikkopangilinan.vercel.app/projects) · [Contact Me](https://mikkopangilinan.vercel.app/contact)
 
-## Portfolio contact API
+## About
 
-The Contact form posts to a Vercel Function at `/api/contact`, which sends a
-single notification through Resend. See [CONTACT_SETUP.md](./CONTACT_SETUP.md)
-for server-only environment variables, manual Vercel/Resend setup, test-sender
-limitations, local development, and safe mocked checks. No credentials belong
-in client-side code. Run `npm.cmd run test:contact` without sending email.
+This repository contains my personal web development portfolio. It presents my selected projects, technical skills, education, certifications, internship experience, and résumé through a responsive and accessible interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The portfolio is built as a maintainable React application with centralized content, reusable components, optimized assets, route-specific metadata, and a secure serverless contact form.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Responsive desktop, tablet, and mobile layouts
+- Light and dark themes
+- Smooth page and scroll animations
+- Reduced-motion support
+- Keyboard-accessible navigation and interactions
+- Project archive and dedicated project pages
+- Data-driven skills, experience, and certifications
+- Downloadable résumé
+- Secure serverless contact form
+- Search-engine and social metadata
+- Responsive optimized images
 
-## React Compiler
+## Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- React Router
+- Framer Motion
+- JavaScript and JSX
+- CSS
+- Lucide Icons
+- Vercel Functions
+- Resend
 
-## Expanding the ESLint configuration
+## Pages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Home** — Introduction, development principles, selected work, technologies, and contact call-to-action
+- **About** — Background, education, internship experience, skills, and professional qualities
+- **Projects** — Project archive and individual project details
+- **Résumé** — Professional summary, experience, education, projects, skills, and certifications
+- **Contact** — Contact form and social links
+
+## Contact
+
+- [Portfolio](https://mikkopangilinan.vercel.app)
+- [GitHub](https://github.com/mpangilinann)
+- [LinkedIn](https://www.linkedin.com/in/mikko-pangilinan-2a6345336/)
+
+---
+
+Designed and developed by **Mikko Pangilinan**.
